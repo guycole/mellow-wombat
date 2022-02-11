@@ -11,11 +11,12 @@ contained on a "shelf" (located within the crate).  Each shelf receives 12 VDC
 power and necessary RF connections for the receivers.
 
 * Shelf Catalog
-- Housekeeping (services for collection shelves)
-- RTL-SDR (a collection system based on the RTL-SDR)
-- USRP1 (a collection system based on the Ettus Research USRP1)
++ Housekeeping (services for collection shelves)
++ RTL-SDR (a collection system based on the RTL-SDR)
++ USRP1 (a collection system based on the Ettus Research USRP1)
 
 ## Housekeeping Features
+
 1. 12 VDC power control to client shelves
 2. UHF/VHF multicoupler (RF distribution)
 3. Network Gateway
