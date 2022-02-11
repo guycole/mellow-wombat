@@ -3,6 +3,8 @@ Housekeeping shelf BOM
 
 ## DC Power 
 1. Standard automotive "cigar lighter" plug (12 VDC).
+1. Barrier terminal, strain relief, etc.
+1. [Barrel plug(s)](https://www.amazon.com/dp/B07D8T756C?psc=1&ref=ppx_yo2_dt_b_product_details)
 1. [12 VDC to 5 VDC buck converter](https://www.amazon.com/dp/B07XXWQ49N?psc=1&ref=ppx_yo2_dt_b_product_details)
 1. [Power control relays](https://www.amazon.com/dp/B00M1MIC3C?ref=ppx_yo2_dt_b_product_details&th=1)
 
