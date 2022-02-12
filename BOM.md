@@ -9,7 +9,7 @@ Housekeeping shelf BOM
 1. [Power control relays](https://www.amazon.com/dp/B00M1MIC3C?ref=ppx_yo2_dt_b_product_details&th=1)
 
 ## RF Distribution
-1. [Stridsberg Engineering](http://stridsbergeng.com/multicouplers.html) MCA204M multicoupler.  25 MHz to 1 GHz, 4 (BNC) ports.  Requires 12 VDC.  Note there is also an 8 and 16 (BNC) port unit as well.
+1. [Stridsberg Engineering](http://stridsbergeng.com/multicouplers.html) MCA204M multicoupler.  25 MHz to 1 GHz, 4 (BNC) ports.  Requires 12 VDC.  Note there are also 8 and 16 (BNC) port units available.
 
 ## Computer
 1. [BeagleBone SBC](https://www.sancloud.co.uk/store/sancloud-beaglebone-enhanced-bbe-wifi-1g-onboard-antenna/)
