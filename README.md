@@ -1,5 +1,5 @@
-# mellow-wombat-housekeeper
-Housekeeping shelf for Mellow Wombat
+# mellow-wombat
+Crate and housekeeping shelf for Mellow Wombat
 
 ## Introduction
 Mellow Wombat is a portable RF collection system consisting of radio receivers,
