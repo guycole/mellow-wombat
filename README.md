@@ -25,4 +25,5 @@ power and necessary RF connections for the receivers.
 1. Monitoring (prometheus and logs)
 1. Location/Time (GPS)
 1. Environmental Sensors (temperature, humidity, etc)
-1. Security Sensors (door monitoring)
+1. Security Sensors (vibration, door monitoring)
+1. Solar charging activity
