@@ -17,6 +17,6 @@ AM3358 Debian 10.3 2020-04-06 4GB SD IoT
 
 1.  Static networking
   /etc/network/interfaces
+  update hosts
 
-1.  Syslog host
-   rsyslog.conf
+=-=-=-=-=-=-=-> rPi for heeler
