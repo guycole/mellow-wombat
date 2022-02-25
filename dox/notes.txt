@@ -19,4 +19,12 @@ AM3358 Debian 10.3 2020-04-06 4GB SD IoT
   /etc/network/interfaces
   update hosts
 
+tweaking dhclient.conf kills all the wifi interfaces
+
 =-=-=-=-=-=-=-> rPi for heeler
+
+Raspberry Pi OS Lite (Legacy)
+Jan 28, 2022
+Debian 10 buster
+
+
