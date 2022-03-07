@@ -21,6 +21,24 @@ AM3358 Debian 10.3 2020-04-06 4GB SD IoT
 
 tweaking dhclient.conf kills all the wifi interfaces
 
+wombat@wombat02:~$ lsusb
+Bus 001 Device 003: ID 0bda:b720 Realtek Semiconductor Corp. 
+Bus 001 Device 004: ID 1058:2626 Western Digital Technologies, Inc. 
+Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+wombat@wombat02:~$ 
+
+apt install parted 
+
+lsblk
+
+https://linuxize.com/post/how-to-format-usb-sd-card-linux/
+
+// need rsyslog
+
+
+
+
 =-=-=-=-=-=-=-> rPi for heeler
 
 Raspberry Pi OS Lite (Legacy)
