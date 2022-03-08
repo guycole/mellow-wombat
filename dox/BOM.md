@@ -22,3 +22,5 @@ Housekeeping shelf BOM
 
 ## Networking
 1. [Ethernet hub]()
+
+Need USB hub
