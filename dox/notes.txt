@@ -28,11 +28,10 @@ Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 wombat@wombat02:~$ 
 
-apt install parted 
+passport will not work as ext4 file system, works ok as ext2
 
-lsblk
+add github key to wombat2
 
-https://linuxize.com/post/how-to-format-usb-sd-card-linux/
 
 // need rsyslog
 
