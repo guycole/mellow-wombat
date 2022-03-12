@@ -25,5 +25,3 @@ Housekeeping shelf BOM
 
 ## Networking
 1. [Ethernet hub](https://www.amazon.com/NETGEAR-FE108-8-Port-Uplink-Button/dp/B00004Z7Z4) 8 port, 100 MPBS, requires 12 VDC.
-
-Need USB hub
