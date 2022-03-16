@@ -22,13 +22,14 @@ class GeoLoc(models.Model):
 # crate shelf inventory
 class Inventory(models.Model):
     id = models.BigAutoField(primary_key = True)
-    time_stamp = models.BigIntegerField()
+    active = models.BooleanField()
+    description = models.CharField(max_length=64)
 
     def __repr__(self):
-        return f"{self.id} {self.time_stamp}"
+        return f"{self.id} {self.description}"
 
     def __str__(self):
-        return f"{self.id} {self.time_stamp}"
+        return f"{self.id} {self.description}"
 
 # tasking
 class Tasking(models.Model):
