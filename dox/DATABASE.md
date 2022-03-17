@@ -7,6 +7,7 @@ SQLite
         | Column | DataType     | Index | Description |
         |--------|--------------|-------|-------------|
         | id     | BigAutoField | PK    | Primary Key |
+
 1. GeoLoc
     1. Geographic Location
         | Column     | DataType        | Ndx | Description      |
@@ -18,6 +19,13 @@ SQLite
 
 
 1. Inventory
-  1. Shelf Inventory
+    1. Shelf Inventory
+        | Column     | DataType        | Ndx | Description      |
+        |------------|-----------------|-----|------------------|
+        | id         | BigAutoField    | PK  | Primary Key      |
+
 1. Tasking
-  1. Tasking 
+    1. Tasking 
+        | Column     | DataType        | Ndx | Description      |
+        |------------|-----------------|-----|------------------|
+        | id         | BigAutoField    | PK  | Primary Key      |
