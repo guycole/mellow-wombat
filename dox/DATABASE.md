@@ -1,15 +1,15 @@
 # Data Base
-SQLite
+SQLite, controlled by Django
 
 ## Tables
 1. Event
-    1. Event Log
+    1. Event log
         | Column | DataType     | Index | Description |
         |--------|--------------|-------|-------------|
         | id     | BigAutoField | PK    | Primary Key |
 
 1. GeoLoc
-    1. Geographic Location
+    1. Geographic location
         | Column     | DataType        | Ndx | Description      |
         |------------|-----------------|-----|------------------|
         | id         | BigAutoField    | PK  | Primary Key      |
@@ -19,10 +19,24 @@ SQLite
 
 
 1. Inventory
-    1. Shelf Inventory
-        | Column     | DataType        | Ndx | Description      |
-        |------------|-----------------|-----|------------------|
-        | id         | BigAutoField    | PK  | Primary Key      |
+    1. Shelf inventory
+        | Column       | DataType      | Ndx | Description           |
+        |--------------|---------------|-----|-----------------------|
+        | id           | BigAutoField  | PK  | Primary key           |
+        | power_on     | BooleanField  |     | True, power on        |
+        | slot         | IntegerField  |     | Slot within crate     |
+        | shelf_type   | IntegerField  |     | Enumerated shelf type |
+        | description  | CharField(64) |     | Shelf description     |
+        | mission_uuid | CharField(64) |     | Configuration UUID    |
+
+1. ShelfPower
+    1. Shelf power history
+        | Column        | DataType        | Ndx | Description         |
+        |---------------|-----------------|-----|---------------------|
+        | id            | BigAutoField    | PK  | Primary key         |
+        | slot          | IntegerField    |     | Slot within crate   |
+        | power_on_ts   | BigIntegerField |     | Power on timestamp  |
+        | power_off_ts  | BigIntegerField |     | Power off timestamp |
 
 1. Tasking
     1. Tasking 
