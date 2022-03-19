@@ -4,19 +4,21 @@ SQLite, controlled by Django
 ## Tables
 1. Event
     1. Event log
-        | Column | DataType     | Index | Description |
-        |--------|--------------|-------|-------------|
-        | id     | BigAutoField | PK    | Primary Key |
+        | Column       | DataType        | Ndx | Description        |
+        |--------------|-----------------|-----|--------------------|
+        | id           | BigAutoField    | PK  | Primary Key        |
+        | time_stamp   | BigIntegerField |     | Time Stamp         |
+        | slot         | IntegerField    |     | Slot within crate  |
+        | event        | CharField(256)  |     | Event text         |
 
 1. GeoLoc
     1. Geographic location
-        | Column     | DataType        | Ndx | Description      |
-        |------------|-----------------|-----|------------------|
-        | id         | BigAutoField    | PK  | Primary Key      |
-        | time_stamp | BigIntegerField |     | Time Stamp       |
-        | latitude   | BigIntegerField |     | Latitude * 1000  |
-        | longitude  | BigIntegerField |     | Longitude * 1000 |
-
+        | Column       | DataType        | Ndx | Description        |
+        |--------------|-----------------|-----|--------------------|
+        | id           | BigAutoField    | PK  | Primary Key        |
+        | time_stamp   | BigIntegerField |     | Time Stamp         |
+        | latitude     | BigIntegerField |     | Latitude * 1000    |
+        | longitude    | BigIntegerField |     | Longitude * 1000   |
 
 1. Inventory
     1. Shelf inventory
@@ -27,7 +29,6 @@ SQLite, controlled by Django
         | slot         | IntegerField  |     | Slot within crate     |
         | shelf_type   | IntegerField  |     | Enumerated shelf type |
         | description  | CharField(64) |     | Shelf description     |
-        | mission_uuid | CharField(64) |     | Configuration UUID    |
 
 1. ShelfPower
     1. Shelf power history
