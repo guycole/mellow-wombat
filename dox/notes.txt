@@ -9,11 +9,33 @@ AM3358 Debian 10.3 2020-04-06 4GB SD IoT
 
 1.  apt-get update/upgrade
 
+1. apt-get install emacs
+   apt-get install gunicorn
+
+1. pip3 install vitualenv
+
 1.  Add wombat account
   useradd -m wombat 
   adduser wombat sudo (ensure bash shell)
   add .bash_aliases
   crontab -e (to create stubbed crontab)
+
+1. Remove node, bonescript, et al
+apt-get purge c9-core-installer
+apt-get remove bonescript
+apt-get remove nodejs
+
+1. nginx
+  nginx holds open port 8080 and 80
+  remvove default soft linke in sites-enabled
+
+  gunicorn django loopback 8000
+
+systemctl disable avahi-daemon.service
+
+can I use for django?
+
+
 
 1.  Static networking
   /etc/network/interfaces
@@ -43,5 +65,3 @@ add github key to wombat2
 Raspberry Pi OS Lite (Legacy)
 Jan 28, 2022
 Debian 10 buster
-
-
