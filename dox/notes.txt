@@ -1,4 +1,5 @@
 AM3358 Debian 10.3 2020-04-06 4GB SD IoT
+vmlinuz-4.19.94-ti-r42
 
 1.  Change hostname to "wombatXX"
   hostnamectl set-hostname wombat02
@@ -25,9 +26,17 @@ apt-get purge c9-core-installer
 apt-get remove bonescript
 apt-get remove nodejs
 
-1. nginx
+1. Remove HDMI audio and video in uEnv
+
+1. web service
+  https://www.edmondchuc.com/deploying-python-flask-with-gunicorn-nginx-and-systemd/
+  https://github.com/codingforentrepreneurs/Coding-For-Black/blob/master/nginx_gunicorn_django_installation.md
+  https://www.glennklockwood.com/embedded/beaglebone.html
+  https://realpython.com/django-nginx-gunicorn/
+
+
   nginx holds open port 8080 and 80
-  remvove default soft linke in sites-enabled
+  remvove default soft link in sites-enabled
 
   gunicorn django loopback 8000
 
