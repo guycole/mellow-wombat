@@ -1,6 +1,9 @@
 AM3358 Debian 10.3 2020-04-06 4GB SD IoT
 vmlinuz-4.19.94-ti-r42
 
+housekeeping board without relays draws 330mA
+includes beaglebone black, WD passport, powered USB hub, WiFi enabled.
+
 1.  Change hostname to "wombatXX"
   hostnamectl set-hostname wombat02
   update /etc/hosts 
@@ -13,7 +16,7 @@ vmlinuz-4.19.94-ti-r42
 1. apt-get install emacs
    apt-get install gunicorn
 
-1. pip3 install vitualenv
+1. pip3 install virtualenv
 
 1.  Add wombat account
   useradd -m wombat 
@@ -27,6 +30,7 @@ apt-get remove bonescript
 apt-get remove nodejs
 
 1. Remove HDMI audio and video in uEnv
+https://ofitselfso.com/BeagleNotes/Disabling_Video_On_The_Beaglebone_Black_And_Running_Headless.php
 
 1. web service
   https://www.edmondchuc.com/deploying-python-flask-with-gunicorn-nginx-and-systemd/
@@ -44,13 +48,16 @@ systemctl disable avahi-daemon.service
 
 can I use for django?
 
-
-
 1.  Static networking
   /etc/network/interfaces
   update hosts
 
 tweaking dhclient.conf kills all the wifi interfaces
+
+brctl addbr br0 does not work, need br_netfilter
+tweak interfaces
+
+
 
 wombat@wombat02:~$ lsusb
 Bus 001 Device 003: ID 0bda:b720 Realtek Semiconductor Corp. 
@@ -59,7 +66,7 @@ Bus 001 Device 002: ID 0424:2514 Standard Microsystems Corp. USB 2.0 Hub
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 wombat@wombat02:~$ 
 
-passport will not work as ext4 file system, works ok as ext2
+passport HD requires powered USB hub
 
 add github key to wombat2
 
