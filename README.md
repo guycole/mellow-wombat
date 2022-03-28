@@ -26,6 +26,9 @@ power and necessary RF connections for the receivers along w/network connectivit
 + Security sensors (vibration, door monitoring)
 + Solar charging activity
 
+## Documentation
++ [Bill of Materials](https://github.com/guycole/mellow-wombat/blob/main/dox/BOM.md)
+
 ## Assembled
 ![first_power](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/first_power.jpg)
  
