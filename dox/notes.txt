@@ -3,6 +3,7 @@ vmlinuz-4.19.94-ti-r42
 
 housekeeping board without relays draws 330mA
 includes beaglebone black, WD passport, powered USB hub, WiFi enabled.
+housekeeping board + hub + multicoupler draws 900mA
 
 1.  Change hostname to "wombatXX"
   hostnamectl set-hostname wombat02
@@ -40,13 +41,13 @@ https://ofitselfso.com/BeagleNotes/Disabling_Video_On_The_Beaglebone_Black_And_R
 
 
   nginx holds open port 8080 and 80
-  remvove default soft link in sites-enabled
+  remove default soft link in sites-enabled
 
   gunicorn django loopback 8000
 
 systemctl disable avahi-daemon.service
 
-can I use for django?
+can I use for django? yes
 
 1.  Static networking
   /etc/network/interfaces
@@ -55,9 +56,11 @@ can I use for django?
 tweaking dhclient.conf kills all the wifi interfaces
 
 brctl addbr br0 does not work, need br_netfilter
-tweak interfaces
+tweak interfaces 
 
-
+gpsd/gps clients
+cgps
+https://gpswebshop.com/blogs/tech-support-by-os-linux/how-to-connect-an-usb-gps-receiver-with-a-linux-computer
 
 wombat@wombat02:~$ lsusb
 Bus 001 Device 003: ID 0bda:b720 Realtek Semiconductor Corp. 
