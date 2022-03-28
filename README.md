@@ -32,7 +32,8 @@ power and necessary RF connections for the receivers along w/network connectivit
 + [Database Schema](https://github.com/guycole/mellow-wombat/blob/main/dox/DATABASE.md)
 + [GPS (time and position)](https://github.com/guycole/mellow-wombat/blob/main/dox/GPS.md)
 + [History](https://github.com/guycole/mellow-wombat/blob/main/dox/HISTORY.md)
-+ [Monitoring (prometheus)](https://github.com/guycole/mellow-wombat/blob/main/dox/NETWORKING.md)
++ [Monitoring (prometheus)](https://github.com/guycole/mellow-wombat/blob/main/dox/MONITORING.md)
++ [Networking (cratenet)](https://github.com/guycole/mellow-wombat/blob/main/dox/NETWORKING.md)
 + [Power](https://github.com/guycole/mellow-wombat/blob/main/dox/POWER.md)
 + [Web (django)](https://github.com/guycole/mellow-wombat/blob/main/dox/WEB.md)
 
