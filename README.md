@@ -7,9 +7,12 @@ Mellow Wombat is a framework which supports a portable RF collection system cons
 Mellow Wombat is a modular system which resides in a "crate" and each module is contained on a "shelf" (located within the crate).  Each shelf receives 12 VDC
 power and necessary RF connections for the receivers along w/network connectivity via an internal wired LAN.
 
+## Overview
+![overview](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/overview.png)
+
 ## Shelf Catalog
 + Housekeeping (Mellow Wombat itself, services for collection shelves)
-+ Collection ([Mellow Badger](https://github.com/guycole/mellow-badger))
++ RTL-SDR collection (3x [Mellow Badger](https://github.com/guycole/mellow-badger))
 
 ## Housekeeping Features
 + 12 VDC power control to client shelves
