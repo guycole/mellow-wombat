@@ -29,7 +29,7 @@ power and necessary RF connections for the receivers along w/network connectivit
 ## Documentation
 + [Beaglebone Black](https://github.com/guycole/mellow-wombat/blob/main/dox/BEAGLEBONE.md)
 + [Bill of Materials](https://github.com/guycole/mellow-wombat/blob/main/dox/BOM.md)
-+ [Crate Dimensions](https://github.com/guycole/mellow-wombat/blob/main/grafix/crate_dimensions.jpg)
++ [Crate Dimensions](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/crate_dimensions.jpg)
 + [Database Schema](https://github.com/guycole/mellow-wombat/blob/main/dox/DATABASE.md)
 + [GPS (time and position)](https://github.com/guycole/mellow-wombat/blob/main/dox/GPS.md)
 + [History](https://github.com/guycole/mellow-wombat/blob/main/dox/HISTORY.md)
