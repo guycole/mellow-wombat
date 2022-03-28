@@ -25,3 +25,7 @@ power and necessary RF connections for the receivers along w/network connectivit
 + Environmental sensors (temperature, humidity, etc)
 + Security sensors (vibration, door monitoring)
 + Solar charging activity
+
+## Assembled
+![first_power](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/first_power.jpg)
+ 
