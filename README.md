@@ -9,15 +9,12 @@ power and necessary RF connections for the receivers along w/network connectivit
 
 ## Shelf Catalog
 + Housekeeping (Mellow Wombat itself, services for collection shelves)
-+ RTL-SDR (a collection system based on the RTL-SDR)
-+ KerberosSDR (a DF system based on KerberosSDR)
-+ HackRF1 (a collection system based on the Hack RF One device)
-+ USRP1 (a collection system based on the Ettus Research USRP1)
++ Collection ([Mellow Badger](https://github.com/guycole/mellow-badger))
 
 ## Housekeeping Features
 + 12 VDC power control to client shelves
 + UHF/VHF multicoupler (RF distribution, 25 MHz to 1 GHz)
-+ Network gateway (wifi for external, ethernet for internal network)
++ Network gateway (wifi for external, wired ethernet for internal network)
 + System console (web and REST crate control)
 + System logging, etc.
 + Monitoring (prometheus and logs)
