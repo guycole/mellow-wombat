@@ -9,12 +9,14 @@ How to configure the BBB as a Mellow Wombat host.
 1. Wired ethernet hub
 1. Optional shelf power control relays and cape.
 
-## Configure Beaglebone
+## Configure BeagleboneBlack
 1. Flash fresh Debian image
+    1. [AM3358 Debian 10.3 2020-04-06 4GB SD IoT](https://debian.beagleboard.org/images/bone-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz)
+    1. vmlinuz-4.19.94-ti-r42
 
 1.  Change hostname to "wombatXX"
     1. hostnamectl set-hostname wombat02
-    1. update /etc/hosts 
+    1. update [/etc/hosts](https://github.com/guycole/mellow-wombat/blob/main/dox/hosts) 
 
 1.  Configure for WiFi
     1. https://www.fis.gatech.edu/how-to-configure-bbw-wifi/
