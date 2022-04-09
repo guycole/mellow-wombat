@@ -13,4 +13,4 @@ Mellow Wombat uses an interal wired ethernet for connectivity between shelves, a
 
 ## Configuration
 1. Client shelves configure 192.168.171.1 as gateway
-
+1. [BeagleBoneBlack configuration](https://github.com/guycole/mellow-wombat/blob/main/dox/BEAGLEBONE.md#configure-beagleboneblack)
