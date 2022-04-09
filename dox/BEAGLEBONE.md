@@ -51,6 +51,12 @@ How to configure the BBB as a Mellow Wombat host.
     1. WiFi gateway (provides DNS)
     1. wired client shelves route to housekeeping shelf
     1. update [/etc/network/interfaces](https://github.com/guycole/mellow-wombat/blob/main/dox/interfaces)
+    1. update /etc/sysctl.conf to enable ip_forward
+
+1.  To use IP masquerade 
+    1. wlan0 should be active
+    1. iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+    1. might need to delete bogus route 8.8.8.8
 
 1.  Add wombat account
     1. useradd -m wombat 

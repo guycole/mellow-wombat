@@ -5,33 +5,24 @@
 auto lo
 iface lo inet loopback
 
-# The primary network interface
-#auto eth0
-#iface eth0 inet static
-#  address 192.168.171.1
-#  netmask 255.255.255.0
-#  network 192.168.171.0/24
-#  broadcast 192.168.171.255
-#  gateway 192.168.171.1
-#
+#auto wlan0
+#iface wlan0 inet dhcp
+
 # The primary network interface
 auto eth0
 iface eth0 inet static
-  address 192.168.171.1/24
-# Example to keep MAC address between reboots
-#hwaddress ether DE:AD:BE:EF:CA:FE
+  address 192.168.171.1
+  netmask 255.255.255.0
+  gateway 192.168.171.1
+#  network 192.168.171.0/24
+#  broadcast 192.168.171.255
+
+# for IP masquerade
+# iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+
+# might need to delete bogus route 8.8.8.8
 
 # systemctl restart networking
-
-#  gateway 192.168.2.254
-#  dns-domain sweet.home
-#  dns-nameservers 192.168.2.254
-
-# The primary network interface
-#auto eth0
-#iface eth0 inet dhcp
-# Example to keep MAC address between reboots
-#hwaddress ether DE:AD:BE:EF:CA:FE
 
 ##connman: ethX static config
 #connmanctl services
