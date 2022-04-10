@@ -24,13 +24,6 @@ How to configure the BBB as a Mellow Wombat host.
 1.  Get latest versions
     1. apt-get update/upgrade
 
-1.  Install additional packages
-    1. apt-get install emacs
-    1. apt-get install gps
-    1. apt-get install gpsd-clients
-    1. apt-get install gunicorn
-    1. apt-get install ntp
-
 1.  Remove node, bonescript, et al
     1. apt-get purge c9-core-installer
     1. apt-get remove bonescript
@@ -39,8 +32,31 @@ How to configure the BBB as a Mellow Wombat host.
 1. Remove HDMI audio and video in uEnv
     1. https://ofitselfso.com/BeagleNotes/Disabling_Video_On_The_Beaglebone_Black_And_Running_Headless.php
 
+1.  Install additional packages
+    1. apt-get install bridge-utils
+    1. apt-get install emacs
+    1. apt-get install gps
+    1. apt-get install gpsd-clients
+    1. apt-get install gunicorn
+    1. apt-get install ntp
+    1. apt-get install prometheus
+
 1.  Install python packages
     1. pip3 install virtualenv
+
+1.  Tweak locale to support 24 hour date(1)
+    1. update [/etc/default/locale](https://github.com/guycole/mellow-wombat/blob/main/dox/locale) 
+
+1.  Configure networking
+    1. WiFi gateway (provides DNS)
+    1. wired client shelves route to housekeeping shelf
+    1. update [/etc/network/interfaces](https://github.com/guycole/mellow-wombat/blob/main/dox/interfaces)
+    1. update /etc/sysctl.conf to enable ip_forward
+
+1.  To use IP masquerade 
+    1. wlan0 should be active
+    1. iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+    1. might need to delete bogus route 8.8.8.8
 
 1.  Add wombat account
     1. useradd -m wombat 

@@ -1,5 +1,5 @@
 # Networking
-Mellow Wombat uses an interal wired ethernet for connectivity between shelves, and a WiFi gateway (from the housekeeping shelf) for external reporting.
+Mellow Wombat uses an interal wired ethernet for connectivity between shelves, and a WiFi gateway (from the housekeeping shelf) for external reporting.  IP masquerade permits shelves to connect outside crate.
 
 ## WiFi
 1. Housekeeping shelf acts as WiFi gateway, time server, DNS, etc.
@@ -10,3 +10,7 @@ Mellow Wombat uses an interal wired ethernet for connectivity between shelves, a
 ## Ethernet
 1. All wired hosts use static IP
 1. 192.168.171.0/24 net
+
+## Configuration
+1. Client shelves configure 192.168.171.1 as gateway
+1. [BeagleBoneBlack configuration](https://github.com/guycole/mellow-wombat/blob/main/dox/BEAGLEBONE.md#configure-beagleboneblack)
