@@ -33,11 +33,11 @@ How to configure the BBB as a Mellow Wombat host.
     1. https://ofitselfso.com/BeagleNotes/Disabling_Video_On_The_Beaglebone_Black_And_Running_Headless.php
 
 1.  Install additional packages
-    1. apt-get install bridge-utils
     1. apt-get install emacs
     1. apt-get install gps
     1. apt-get install gpsd-clients
     1. apt-get install gunicorn
+    1. apt-get install locales
     1. apt-get install ntp
     1. apt-get install prometheus
 
@@ -63,3 +63,4 @@ How to configure the BBB as a Mellow Wombat host.
     1. adduser wombat sudo (ensure bash shell)
     1. add .bash_aliases
     1. crontab -e (to create stubbed crontab)
+    1. add github key

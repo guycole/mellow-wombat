@@ -8,3 +8,4 @@
 | 24 MAR 22 | WD Passport usb drive working with powered USB hub.  |
 | 24 MAR 22 | Housekeeping nginx/gunicorn/django web server working.  |
 | 28 MAR 22 | badger1 powered up and on cratenet |
+| 10 APR 22 | IP masquerade working, badger1 routes to outside world |
