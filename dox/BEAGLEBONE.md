@@ -66,8 +66,8 @@ How to configure the BBB as a Mellow Wombat host.
     1. add github key
 
 1.  Configure USB drives
-    1. two partitions
+    1. two partitions, gpt label, ext4 filesystems
         1. p1 for code sources, etc
         1. p2 for logs, collected data, etc
-        1. [fdisk](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/fdisk.png)
+        1. ![fdisk screenshot](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/fdisk.png)
 
