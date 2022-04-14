@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Title: gps_read.sh
-# Description: read current gps location
+# Title: gps_collect.sh
+# Description: ask django to read from gpsd, run from cron
 #
 URL=http://127.0.0.1:8000/wombat/gps
 #
