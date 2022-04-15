@@ -64,3 +64,10 @@ How to configure the BBB as a Mellow Wombat host.
     1. add .bash_aliases
     1. crontab -e (to create stubbed crontab)
     1. add github key
+
+1.  Configure USB drives
+    1. two partitions
+        1. p1 for code sources, etc
+        1. p2 for logs, collected data, etc
+        1. [fdisk](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/fdisk.png)
+
