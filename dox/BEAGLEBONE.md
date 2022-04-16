@@ -88,6 +88,7 @@ How to configure the BBB as a Mellow Wombat host.
     1. logger -i -p local3.info ryryry
     1. logger -i -t local3.info ryryry
     1. remote computers need "*.* @IP" before rules
+    1. TODO: logrotate instructions
 
 1.  Enable prometheus to scrape application shelves
     1. Remote rPi
