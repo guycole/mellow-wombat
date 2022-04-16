@@ -70,4 +70,24 @@ How to configure the BBB as a Mellow Wombat host.
         1. p1 for code sources, etc
         1. p2 for logs, collected data, etc
         1. ![fdisk screenshot](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/fdisk.png)
+    1. update [/etc/fstab](https://github.com/guycole/mellow-wombat/blob/main/dox/fstab) to mount drive at boot
+
+1.  move /var/log and /var/spool to USB drive
+    1. copy /var to partition p2
+    1. ln -s /mnt/p2/var/log /var/log
+    1. ln -s /mnt/p2/var/spool /var/spool
+    1. reboot
+
+1.  Update rsyslog configuration
+    1. enable UDP remote loghost, etc, inhibit WPA suppicant messages
+    1. update [/etc/fstab](https://github.com/guycole/mellow-wombat/blob/main/dox/rsyslog.conf) 
+    1. iptables -A INPUT -p udp --dport 514 -j ACCEPT
+    1. systemctl status rsyslog.service 
+    1. systemctl restart rsyslog.service
+    1. logger -i testaroo
+    1. logger -i -p local3.info ryryry
+    1. logger -i -t local3.info ryryry
+    1. remote computers need "*.* @IP" before rules
+
+
 
