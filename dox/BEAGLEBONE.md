@@ -72,7 +72,7 @@ How to configure the BBB as a Mellow Wombat host.
         1. ![fdisk screenshot](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/fdisk.png)
     1. update [/etc/fstab](https://github.com/guycole/mellow-wombat/blob/main/dox/fstab) to mount drive at boot
 
-1.  move /var/log and /var/spool to USB drive
+1.  jove /var/log and /var/spool to USB drive
     1. copy /var to partition p2
     1. ln -s /mnt/p2/var/log /var/log
     1. ln -s /mnt/p2/var/spool /var/spool
@@ -89,5 +89,13 @@ How to configure the BBB as a Mellow Wombat host.
     1. logger -i -t local3.info ryryry
     1. remote computers need "*.* @IP" before rules
 
-
+1.  Enable prometheus to scrape application shelves
+    1. Remote rPi
+        1. apt-get install prometheus-node-exporter
+        1. systemctl status prometheus-node-exporter.service
+        1. curl http://localhost:9100/metrics
+    1. Wombat BB
+        1. update [/etc/prometheus/prometheus.yml](https://github.com/guycole/mellow-wombat/blob/main/dox/prometheus.yml) to scrape rPi
+        1. systemctl restart rsyslog.service
+        1. http://wombat:9090/targets should show rPi scrape
 

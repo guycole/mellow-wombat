@@ -29,3 +29,7 @@ How to configure the rPi as a Mellow Wombat client.
     1. add github key
 
 do I need powered USB hub?
+
+default is BST, make UTC
+
+add wombat as log host to rsyslog.conf
