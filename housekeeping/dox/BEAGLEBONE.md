@@ -16,7 +16,7 @@ How to configure the BBB as a Mellow Wombat host.
 
 1.  Change hostname to "wombatXX"
     1. hostnamectl set-hostname wombat02
-    1. update [/etc/hosts](https://github.com/guycole/mellow-wombat/blob/main/dox/hosts) 
+    1. update [/etc/hosts](./hosts) 
 
 1.  Configure for WiFi
     1. https://www.fis.gatech.edu/how-to-configure-bbw-wifi/
@@ -45,12 +45,12 @@ How to configure the BBB as a Mellow Wombat host.
     1. pip3 install virtualenv
 
 1.  Tweak locale to support 24 hour date(1)
-    1. update [/etc/default/locale](https://github.com/guycole/mellow-wombat/blob/main/dox/locale) 
+    1. update [/etc/default/locale](./locale) 
 
 1.  Configure networking
     1. WiFi gateway (provides DNS)
     1. wired client shelves route to housekeeping shelf
-    1. update [/etc/network/interfaces](https://github.com/guycole/mellow-wombat/blob/main/dox/interfaces)
+    1. update [/etc/network/interfaces](./interfaces)
     1. update /etc/sysctl.conf to enable ip_forward
 
 1.  To use IP masquerade 
@@ -69,8 +69,8 @@ How to configure the BBB as a Mellow Wombat host.
     1. two partitions, gpt label, ext4 filesystems
         1. p1 for code sources, etc
         1. p2 for logs, collected data, etc
-        1. ![fdisk screenshot](https://github.com/guycole/mellow-wombat/blob/main/dox/grafix/fdisk.png)
-    1. update [/etc/fstab](https://github.com/guycole/mellow-wombat/blob/main/dox/fstab) to mount drive at boot
+        1. ![fdisk screenshot](./grafix/fdisk.png)
+    1. update [/etc/fstab](./fstab) to mount drive at boot
 
 1.  jove /var/log and /var/spool to USB drive
     1. copy /var to partition p2
@@ -80,7 +80,7 @@ How to configure the BBB as a Mellow Wombat host.
 
 1.  Update rsyslog configuration
     1. enable UDP remote loghost, etc, inhibit WPA suppicant messages
-    1. update [/etc/fstab](https://github.com/guycole/mellow-wombat/blob/main/dox/rsyslog.conf) 
+    1. update [/etc/rsyslog.conf](./rsyslog.conf) 
     1. iptables -A INPUT -p udp --dport 514 -j ACCEPT
     1. systemctl status rsyslog.service 
     1. systemctl restart rsyslog.service
@@ -96,7 +96,7 @@ How to configure the BBB as a Mellow Wombat host.
         1. systemctl status prometheus-node-exporter.service
         1. curl http://localhost:9100/metrics
     1. Wombat BB
-        1. update [/etc/prometheus/prometheus.yml](https://github.com/guycole/mellow-wombat/blob/main/dox/prometheus.yml) to scrape rPi
+        1. update [/etc/prometheus/prometheus.yml](./prometheus.yml) to scrape rPi
         1. systemctl restart rsyslog.service
         1. http://wombat:9090/targets should show rPi scrape
 

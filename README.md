@@ -1,5 +1,5 @@
 # mellow-wombat
-Crate, housekeeping and rtlsdr shelves for Mellow Wombat
+Crate, housekeeping and collection shelves for Mellow Wombat
 
 ## Introduction
 Mellow Wombat is a framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  Mellow Wombat can also be remotely tasked when connectivity exists.  
