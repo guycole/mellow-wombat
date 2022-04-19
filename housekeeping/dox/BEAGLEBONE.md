@@ -33,6 +33,7 @@ How to configure the BBB as a Mellow Wombat host.
     1. https://ofitselfso.com/BeagleNotes/Disabling_Video_On_The_Beaglebone_Black_And_Running_Headless.php
 
 1.  Install additional packages
+    1. apt-get install awscli
     1. apt-get install emacs
     1. apt-get install gps
     1. apt-get install gpsd-clients
@@ -40,6 +41,7 @@ How to configure the BBB as a Mellow Wombat host.
     1. apt-get install locales
     1. apt-get install ntp
     1. apt-get install prometheus
+    1. apt-get install unzip
 
 1.  Install python packages
     1. pip3 install virtualenv
@@ -64,6 +66,7 @@ How to configure the BBB as a Mellow Wombat host.
     1. add .bash_aliases
     1. crontab -e (to create stubbed crontab)
     1. add github key
+    1. add AWS credentials
 
 1.  Configure USB drives
     1. two partitions, gpt label, ext4 filesystems
@@ -99,4 +102,3 @@ How to configure the BBB as a Mellow Wombat host.
         1. update [/etc/prometheus/prometheus.yml](./prometheus.yml) to scrape rPi
         1. systemctl restart rsyslog.service
         1. http://wombat:9090/targets should show rPi scrape
-
