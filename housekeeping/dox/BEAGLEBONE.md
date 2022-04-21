@@ -39,8 +39,11 @@ How to configure the BBB as a Mellow Wombat host.
     1. apt-get install gpsd-clients
     1. apt-get install gunicorn
     1. apt-get install locales
+    1. apt-get install netcat
     1. apt-get install ntp
+    1. apt-get install ntpstat
     1. apt-get install prometheus
+    1. apt-get install tcpdump
     1. apt-get install unzip
 
 1.  Install python packages
@@ -54,6 +57,12 @@ How to configure the BBB as a Mellow Wombat host.
     1. wired client shelves route to housekeeping shelf
     1. update [/etc/network/interfaces](./interfaces)
     1. update /etc/sysctl.conf to enable ip_forward
+
+1.  Configure NTP
+    1. tweak /etc/ntp.conf
+    1. broadcast to clients
+iptables -A INPUT -p udp --dport 123 -j ACCEPT
+iptables -A OUTPUT -p udp --sport 123 -j ACCEPT
 
 1.  To use IP masquerade 
     1. wlan0 should be active

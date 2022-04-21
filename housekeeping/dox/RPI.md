@@ -33,3 +33,8 @@ do I need powered USB hub?
 default is BST, make UTC
 
 add wombat as log host to rsyslog.conf
+
+ntpdate ntpstat ntp 
+
+iptables -A OUTPUT -p udp --dport 123 -j ACCEPT
+iptables -A INPUT -p udp --sport 123 -j ACCEPT

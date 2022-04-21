@@ -1,4 +1,4 @@
-# bill of materials
+# Bill of Materials
 1. Housekeeping shelf BOM
 
     1. DC Power 
