@@ -1,0 +1,19 @@
+#
+EDITOR=vi; export EDITOR
+#
+alias ls='ls -FC'
+alias ll='ls -la'
+alias lg='ls -lg'
+alias dirz="ls -la | grep '^d'"
+#
+alias pscript="ps -ef | grep script"
+#
+alias newvenv="virtualenv -p /usr/bin/python3 venv"
+#
+alias emacs="emacs -fn \"9x15bold\" -bg black -fg green"
+#
+alias ping8="ping -c 5 8.8.8.8"
+#
+alias badger="cd /home/gsc/go/src/github.com/guycole/mellow-badger"
+alias wombat="cd /home/gsc/github/mellow-wombat"
+#

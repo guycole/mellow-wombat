@@ -20,6 +20,9 @@ How to configure the rPi as a Mellow Wombat client.
 1.  Install additional packages
     1. apt-get install emacs
     1. apt-get install build-essential
+    1. apt-get install ntpdate
+    1. apt-get install ntpstat
+    1. apg-tet install ntp
 
 1.  Add wombat account
     1. useradd -m wombat 
@@ -28,11 +31,18 @@ How to configure the rPi as a Mellow Wombat client.
     1. crontab -e (to create stubbed crontab)
     1. add github key
 
-do I need powered USB hub?
+1.  Do I need a powered USB hub (for WD Passport USB drive)
+    1. rPi3 seems OK without
 
-default is BST, make UTC
+1.  Change default time from BST to UTC
+    1. update soft link /etc/localtime
+    1. ln -s /usr/share/zoneinfo/GMT /etc/localtime
 
-add wombat as log host to rsyslog.conf
+1.  Send syslog to wombat
+    1. update /etc/rsyslog.conf
+
+1.  update time via ntp 
+
 
 ntpdate ntpstat ntp 
 
