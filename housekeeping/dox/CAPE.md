@@ -12,6 +12,12 @@ The Mellow Wombat housekeeping BeagleBoneBlack supports these hardware items:
 1. Humidity sensor
 1. Acceleromters (vibration) sensors
 
+## Pins
+    | Header | Pin | Name     | Description       |
+    |--------|---- |----------|-------------------|
+    | P8     |  1  | GPIO_99  | Widget Toggle     |
+    | P9     |  46 | I2C1_SCL | Frob Adjuster     |
+
 ## Details
 
 1. 12 VDC power to application shelves
@@ -37,3 +43,4 @@ The Mellow Wombat housekeeping BeagleBoneBlack supports these hardware items:
 
 1. Accelerometers
     1. tbd
+
