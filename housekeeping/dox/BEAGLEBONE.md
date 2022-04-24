@@ -84,7 +84,7 @@ iptables -A OUTPUT -p udp --sport 123 -j ACCEPT
         1. ![fdisk screenshot](./grafix/fdisk.png)
     1. update [/etc/fstab](./fstab) to mount drive at boot
 
-1.  jove /var/log and /var/spool to USB drive
+1.  Move /var/log and /var/spool to USB drive
     1. copy /var to partition p2
     1. ln -s /mnt/p2/var/log /var/log
     1. ln -s /mnt/p2/var/spool /var/spool
