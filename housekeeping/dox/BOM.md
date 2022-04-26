@@ -16,13 +16,14 @@
     1. USB 
         1. [Powered USB Hub](https://www.amazon.com/atolla-Charging-Splitter-Individual-Switches/dp/B083XTKV8V) 4 port, requires 5 VDC.
         1. [USB External Hard Drive](https://www.amazon.com/dp/B07VSH3ML6?ref=ppx_yo2_dt_b_product_details&th=1)
-        1. [USB GPS Receiver](https://www.amazon.com/Navibe-GM720-Receiver-Water-Proof/dp/B000VCIUBS/ref=cm_cr_arp_d_bdcrb_top?ie=UTF8)
         1. [USB WiFi](https://www.amazon.com)
 
     1. Power Control
         1. [Power control relays](https://www.amazon.com/dp/B016EIVIQQ?psc=1&ref=ppx_yo2_dt_b_product_details)
         1. [BeagleBone Prototyping Cape](https://www.farnell.com/datasheets/1691453.pdf)
+        1. [GPS Receiver](https://www.adafruit.com/product/5440)
         1. Parts
+
 
     1. Networking
         1. [Ethernet hub](https://www.amazon.com/NETGEAR-FE108-8-Port-Uplink-Button/dp/B00004Z7Z4) 8 port, 100 MPBS, requires 12 VDC.
