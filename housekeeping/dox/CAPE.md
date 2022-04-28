@@ -13,10 +13,13 @@ The Mellow Wombat housekeeping BeagleBoneBlack supports these hardware items:
 1. Acceleromters (vibration) sensors
 
 ## Pins
-    | Header | Pin | Name     | Description       |
-    |--------|-----|----------|-------------------|
-    | P8     |  1  | GPIO_99  | Widget Toggle     |
-    | P9     | 46  | I2C1_SCL | Frob Adjuster     |
+    | Header | Pin | Name      | Description       |
+    |--------|-----|-----------|-------------------|
+    | P8     |  1  | GPIO_99   | Widget Toggle     |
+    | P9     |  1  | DGND      | Ground            |
+    | P9     |  7  | SYS_5V    | GPS VIN           |
+    | P9     | 24  | UART1_TXD | GPS RX            |
+    | P9     | 26  | UART1_RXD | GPS TX            |
 
 ## Details
 
