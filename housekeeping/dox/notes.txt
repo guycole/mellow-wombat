@@ -57,8 +57,7 @@ https://gpsd.gitlab.io/gpsd/gpsd-time-service-howto.html
    "pps capable gps"
    gpsmon
 
-
-// need rsyslog
+https://mythopoeic.org/beaglebone-green-time-server/
 
 =-=-=-=-=-=-=-> rPi for heeler
 
