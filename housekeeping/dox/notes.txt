@@ -58,6 +58,21 @@ https://gpsd.gitlab.io/gpsd/gpsd-time-service-howto.html
    gpsmon
 
 https://mythopoeic.org/beaglebone-green-time-server/
+https://toptechboy.com/beaglebone-black-gps-lesson-2-sending-commands-to-the-gps-module/
+https://blog.dan.drown.org/beaglebone-black-ntpgps-server/
+https://developer.ridgerun.com/wiki/index.php?title=How_to_use_GPIO_signals
+https://www.kernel.org/doc/html/latest/driver-api/pps.html
+https://www.worldtimesolutions.com/support/ntp/Debian_Lenny_Linux_PPS_support_for_ntpd.html
+
+No /dev/pps
+ppstest /dev/pps0
+
+=-=-=-=-=-=-=-> gps
+
+gpsd /dev/ttyO1 -F /var/run/gpsd.sock
+cgps works
+jobs
+
 
 =-=-=-=-=-=-=-> rPi for heeler
 
