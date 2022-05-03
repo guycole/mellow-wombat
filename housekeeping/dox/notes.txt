@@ -73,6 +73,16 @@ gpsd /dev/ttyO1 -F /var/run/gpsd.sock
 cgps works
 jobs
 
+cgps broken today
+
+can read using python from UART1
+cgps now working from ttyO1 ('O' not zero)
+
+PPS should be a interrupt source?
+
+https://developer.ridgerun.com/wiki/index.php?title=How_to_use_GPIO_signals
+
+there is no choice, must tweak overlay and disable pinmux
 
 =-=-=-=-=-=-=-> rPi for heeler
 
