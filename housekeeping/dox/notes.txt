@@ -84,6 +84,8 @@ https://developer.ridgerun.com/wiki/index.php?title=How_to_use_GPIO_signals
 
 there is no choice, must tweak overlay and disable pinmux
 
+http://www.satsignal.eu/ntp/Raspberry-Pi-NTP.html#user-mode
+
 =-=-=-=-=-=-=-> rPi for heeler
 
 Raspberry Pi OS Lite (Legacy)
