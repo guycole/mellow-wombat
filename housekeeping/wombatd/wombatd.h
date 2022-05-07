@@ -1,11 +1,11 @@
 /*
 ** Title:wombatd.h
 **
-** Overview/Description:
+** Overview/Description: wombat housekeeping status daemon
 **
 ** Compiler/Operating System:
-**    SunOS 4.1.3 (sun4c)
-**    GNU gcc 2.5.8
+**    BeagleBoard.org Debian Buster IoT Image 2020-04-06
+**    gcc version 8.3.0 (Debian 8.3.0-6) 
 */
 
 #define DEFAULT_PLAY "/usr/demo/SOUND/play"

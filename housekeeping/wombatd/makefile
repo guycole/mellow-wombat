@@ -8,17 +8,9 @@
 #   'make ultraclean' removes all executables
 #
 # Operating System/Environment:
-#   OS X 10.9.5
-#   GNU Make 3.81
+#   BeagleBoard.org Debian Buster IoT Image 2020-04-06
+#   GNU Make 4.21
 #
-# Author:
-#   G.S. Cole (guycole at gmail dot com)
-#
-# $Id$
-#
-# $Log$
-#
-
 #
 # Directories.
 #

@@ -10,4 +10,4 @@
 | 28 MAR 22 | badger1 powered up and on cratenet |
 | 10 APR 22 | IP masquerade working, badger1 routes to outside world |
 | 16 APR 22 | rsyslog loghost |
-| 30 APR 22 | GPS w/PPS |
+|  9 MAY 22 | GPS w/PPS |

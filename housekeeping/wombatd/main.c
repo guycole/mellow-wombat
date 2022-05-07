@@ -1,17 +1,14 @@
 /*
 ** Title:main.c
 **
-** Overview/Description:
-**    nonseq ("non-sequitur") randomly picks a sound file from
-**    the specified directory and plays it.
+** Overview/Description: wombat housekeeping status daemon
 **
 ** Compiler/Operating System:
-**    SunOS 4.1.3 (sun4c)
-**    GNU gcc 2.5.8
+**    BeagleBoard.org Debian Buster IoT Image 2020-04-06
+**    gcc version 8.3.0 (Debian 8.3.0-6) 
 */
-static char rcsid[] = "$Id: main.c,v 1.1 1997-12-15 08:44:26 gsc Exp $";
 
-#include "nonseq.h"
+#include "wombatd.h"
 
 #include <stdio.h>
 #include <string.h>
