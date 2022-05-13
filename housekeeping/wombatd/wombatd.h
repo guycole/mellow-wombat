@@ -13,14 +13,13 @@
 #define VERSION_MAJOR_ID 0
 #define VERSION_MINOR_ID 0
 
+#define LOCK_FILE "/var/lock/wombatd"
 #define VERSION_STRING "wombatd"
-#define DEFAULT_PLAY "/usr/demo/SOUND/play"
 
-typedef struct filenamez {
-  char *name;
-  struct filenamez *next;
-} FILENAMEZ, *FILENAMEZ_PTR;
-
-extern void candidates(char *path, FILENAMEZ_PTR * root, int *count);
+#define WOMBAT_OK 0
+#define WOMBAT_MISSING_CONFIG -1
+#define GPS_SHMEM_FAILURE -2
+#define GPS_NO_FIX -3
+#define GPS_TIME_DELTA -4
 
 #endif

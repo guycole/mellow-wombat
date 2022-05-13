@@ -1,0 +1,5 @@
+need pid lock in /var/lock/wombatd
+need configuration file
+read gpsd shmem, discover time delta and fix availability
+where does house status go?
+write to blackbox exporter with libcurl?
