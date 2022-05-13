@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <syslog.h>
 
 extern const char *version_string();
 
@@ -25,4 +26,8 @@ void usage(char *progname)
 int main(int argc, char *argv[])
 {
   printf("%s\n", version_string());
+
+  openlog("wombatd", LOG_CONS | LOG_PID, LOG_LOCAL0);
+  syslog(LOG_ERR, "woot woot");
+  closelog();
 }

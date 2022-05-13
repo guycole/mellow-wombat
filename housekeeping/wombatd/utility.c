@@ -16,7 +16,8 @@ const char *version_string()
 {
   char buffer[128];
 
-  sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID, VERSION_MINOR_ID, __DATE__, __TIME__);
+  sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID,
+          VERSION_MINOR_ID, __DATE__, __TIME__);
 
   return strdup(buffer);
 }

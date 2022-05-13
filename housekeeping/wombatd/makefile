@@ -107,4 +107,4 @@ clean:
 #
 .PHONY ultraclean:
 ultraclean:
-	-@rm -f *~
+	-@rm -f *~ $(WOMBATD)
