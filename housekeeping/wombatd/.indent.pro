@@ -1,1 +1,1 @@
--bap -npsl -nce -cli0.5 -nfc1 -lp -TPHONE_LIST -TPHONE_LIST_PTR
+-kr -ci2 -cli2 -i2 -l80 -nut

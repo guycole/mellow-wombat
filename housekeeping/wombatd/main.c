@@ -1,5 +1,5 @@
 /*
- * Title:main.c *
+ * Title:main.c 
  *
  * Overview/Description: wombat housekeeping status daemon
  *
@@ -16,11 +16,13 @@
 
 extern const char *version_string();
 
-void usage (char *progname) {
-	fprintf(stderr, "usage: %s sound_directory\n", progname);
-	exit(0);
+void usage(char *progname)
+{
+  fprintf(stderr, "usage: %s sound_directory\n", progname);
+  exit(0);
 }
 
-int main (int argc, char *argv[]) {
-	printf("%s\n", version_string());
+int main(int argc, char *argv[])
+{
+  printf("%s\n", version_string());
 }

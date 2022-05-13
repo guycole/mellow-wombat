@@ -17,8 +17,10 @@
 #define DEFAULT_PLAY "/usr/demo/SOUND/play"
 
 typedef struct filenamez {
-	char           *name;
-	struct filenamez *next;
-}		FILENAMEZ   , *FILENAMEZ_PTR;
+  char *name;
+  struct filenamez *next;
+} FILENAMEZ, *FILENAMEZ_PTR;
 
-extern void	candidates(char *path, FILENAMEZ_PTR * root, int *count);
+extern void candidates(char *path, FILENAMEZ_PTR * root, int *count);
+
+#endif

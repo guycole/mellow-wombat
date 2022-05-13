@@ -129,3 +129,9 @@ dmypy.json
 .pyre/
 
 .DS_Store
+
+*.swp
+*.c~
+*.h~
+
+wombatd

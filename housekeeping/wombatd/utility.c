@@ -1,7 +1,7 @@
 /*
- * Title:utility.c *
+ * Title:utility.c 
  * 
- * Overview/Description: wombat housekeeping status daemon *
+ * Overview/Description: wombat housekeeping status daemon 
  * 
  * Compiler/Operating System: 
  *   gcc version 8.3.0 (Debian 8.3.0-6)
@@ -12,10 +12,11 @@
 
 #include "wombatd.h"
 
-const char *version_string() {
-	char buffer [128];
+const char *version_string()
+{
+  char buffer[128];
 
-	sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID, VERSION_MINOR_ID, __DATE__, __TIME__);
+  sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID, VERSION_MINOR_ID, __DATE__, __TIME__);
 
-	return strdup(buffer);
+  return strdup(buffer);
 }
