@@ -1,0 +1,1 @@
+-bap -npsl -nce -cli0.5 -nfc1 -lp -TPHONE_LIST -TPHONE_LIST_PTR

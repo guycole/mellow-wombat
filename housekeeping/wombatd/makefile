@@ -1,8 +1,8 @@
 #
 # Title:makefile
 #
-# Description:
-#
+# Description: wombatd makefile
+#   'make indent' to format source files.
 #   'make size' returns the quantity of lines in this directory
 #   'make clean' removes all core and object files
 #   'make ultraclean' removes all executables
@@ -10,7 +10,6 @@
 # Operating System/Environment:
 #   BeagleBoard.org Debian Buster IoT Image 2020-04-06
 #   GNU Make 4.21
-#
 #
 # Directories.
 #
@@ -21,6 +20,7 @@ LIBDIR = $(DEVDIR)/lib
 #
 # Header Files.
 #
+WOMBATD_H = wombatd.h
 
 #
 # Libraries.
@@ -42,16 +42,35 @@ LATEX = latex
 #
 # Executable Names.
 #
+WOMBATD = wombatd
 
 #
 # Object Files.
 #
-OBJS =
+OBJS = main.o utility.o
 
 #
 # Finally, some work...
 #
-all:
+all: $(WOMBATD)
+
+$(WOMBATD): $(OBJS)
+	$(CC) -o $(WOMBATD) $(OBJS)
+
+main.o: main.c $(WOMBATD_H)
+	$(CC) -c $(CFLAGS) $(CMACS) main.c
+
+utility.o: utility.c $(WOMBATD_H)
+	$(CC) -c $(CFLAGS) $(CMACS) utility.c
+
+#
+#  Format all the source files.
+#
+.PHONY: indent
+indent:
+	-indent $(WOMBATD_H)
+	-indent main.c
+	-indent utility.c
 
 #
 #  Update the TAGS file.
@@ -66,7 +85,7 @@ tags:
 .PHONY: size
 size:
 	-@echo "Size: `pwd`"
-	-@wc -l *.cc makefile
+	-@wc -l *.c makefile
 
 #
 #  Generate dependency file
