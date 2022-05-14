@@ -12,7 +12,7 @@
 
 #include "wombatd.h"
 
-const char *version_string()
+const char *version_string2()
 {
   char buffer[128];
 

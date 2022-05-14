@@ -15,36 +15,45 @@ The Mellow Wombat housekeeping BeagleBoneBlack supports these hardware items:
 ## Pins
     | Header | Pin | Name      | Description       |
     |--------|-----|-----------|-------------------|
-    | P8     |  1  | GPIO_99   | Widget Toggle     |
+    | P8     |  7  | GPIO_66   | Power Relay 6     |
+    | P8     |  8  | GPIO_67   | Power Relay 0     |
+    | P8     |  9  | GPIO_69   | Power Relay 7     |
+    | P8     | 10  | GPIO_68   | Power Relay 1     |
+    | P8     | 11  | GPIO_45   | Door Switch 0     |
+    | P8     | 12  | GPIO_44   | Power Relay 2     |
+    | P8     | 14  | GPIO_26   | Power Relay 3     |
+    | P8     | 15  | GPIO_47   | Door Switch 1     |
+    | P8     | 16  | GPIO_46   | Power Relay 4     |
+    | P8     | 18  | GPIO_65   | Power Relay 5     |
     | P9     |  1  | DGND      | Ground            |
-    | P9     |  7  | SYS_5V    | GPS VIN           |
+    | P9     |  5  | VDD_5V    | Power Relay Vcc   |
+    | P9     |  7  | SYS_5V    | GPS Vin           |
     | P9     | 12  | GPIO_60   | GPS PPP           |
-    | P9     | 24  | UART1_TXD | GPS RX            |
-    | P9     | 26  | UART1_RXD | GPS TX            |
+    | P9     | 19  | I2C2_SCL  | I2C Devices       |
+    | P9     | 20  | I2C2_SDA  | I2C Devices       |
+    | P9     | 24  | UART1_TXD | GPS Rx            |
+    | P9     | 26  | UART1_RXD | GPS Tx            |
 
 ## Details
 
 1. 12 VDC power to application shelves
-    1. relays
+    1. 8x reserved, 4x used.  FET power control to off cape relays.
 
 1. Voltage/current sensors
     1. tbd
 
 1. GPS receiver w/PPS output
-    1. Must be RS-232, not USB.
+    1. Must be UART, not USB.
 
 1. Door switches (for trailer deployment)
-    1. Magnetic reed switch
+    1. 2x reserved.  Magnetic reed switch.
 
 1. Lux sensor
-    1. tbd
+    1. TBD
 
-1. Temperature sensore
-    1. tbd
-
-1. Humidity sensor
-    1. tbd
+1. Temperature/Humidity sensor
+    1. DHT-20 https://www.adafruit.com/product/5183
+    1. i2c device 0x38
 
 1. Accelerometers
-    1. tbd
-
+    1. I2C device

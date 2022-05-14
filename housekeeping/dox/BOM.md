@@ -27,9 +27,13 @@
 
     1. Power Control
         1. [Power control relays](https://www.amazon.com/dp/B016EIVIQQ?psc=1&ref=ppx_yo2_dt_b_product_details)
+
+    1. Cape
         1. [BeagleBone Prototyping Cape](https://www.farnell.com/datasheets/1691453.pdf)
         1. [GPS Receiver](https://www.adafruit.com/product/5440)
-        1. Parts
+        1. [Temperature/Humidity sensor](https://www.adafruit.com/product/5183)
+        1. [Magnetic Switch](https://www.amazon.com/gp/product/B086GYJLML/ref=ox_sc_act_title_1?smid=A88A4JJCDJCGR&psc=1)
+        1. BS270 FET, 220 ohm resistor (4x each) for power control relays
 
     1. USB 
         1. [Powered USB Hub](https://www.amazon.com/atolla-Charging-Splitter-Individual-Switches/dp/B083XTKV8V) 4 port, requires 5 VDC.
