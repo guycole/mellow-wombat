@@ -3,3 +3,5 @@ need configuration file
 read gpsd shmem, discover time delta and fix availability
 where does house status go?
 write to blackbox exporter with libcurl?
+
+need make debug

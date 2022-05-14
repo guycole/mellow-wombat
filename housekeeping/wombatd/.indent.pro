@@ -1,1 +1,1 @@
--kr -ci2 -cli2 -i2 -l80 -nut
+-kr -ci2 -cli2 -i2 -l80 -nut -TBOOLEAN -TCONFIGURATION -TCONFIGURATION_PTR

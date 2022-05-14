@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <syslog.h>
+#include <unistd.h>
 
 extern const char *version_string();
 
@@ -23,28 +24,31 @@ void usage(char *progname)
   exit(0);
 }
 
-const char *get_version_string()
+CONFIGURATION_PTR prepare_configuration()
 {
   char buffer[64];
+  sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID,
+          VERSION_MINOR_ID, __DATE__, __TIME__);
 
-  sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID, VERSION_MINOR_ID, __DATE__, __TIME__);
+  CONFIGURATION_PTR cp = (CONFIGURATION_PTR) malloc(sizeof(CONFIGURATION));
+  cp->configuration_filename = CONFIG_FILENAME;
+  cp->lock_filename = LOCK_FILENAME;
+  cp->version_string = strdup(buffer);
 
-  return strdup(buffer);
+  return (cp);
 }
+
+extern int eclectic(void);
 
 int main(int argc, char *argv[])
 {
-  char *version_string = get_version_string(); 
-  fprintf(stdout, "%s\n", version_string;
-  openlog("wombatd", LOG_CONS|LOG_PID, LOG_LOCAL0);
-  syslog(LOG_INFO, version_string);
-  free(version_string);
+  CONFIGURATION_PTR config = prepare_configuration();
+  fprintf(stdout, "%s\n", config->version_string);
+  openlog("wombatd", LOG_CONS | LOG_PID, LOG_LOCAL0);
+  syslog(LOG_INFO, config->version_string);
 
-  int run_flag = 0;
-  while(run_flag) {
-	  print("run flag true");
-	  sleep(5);
-  }
+  int status = eclectic();
+  printf("return status:%d\n", status);
 
   syslog(LOG_INFO, "graceful exit");
   closelog();

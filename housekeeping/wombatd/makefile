@@ -47,7 +47,7 @@ WOMBATD = wombatd
 #
 # Object Files.
 #
-OBJS = main.o utility.o
+OBJS = eclectic.o main.o utility.o
 
 #
 # Finally, some work...
@@ -56,6 +56,9 @@ all: $(WOMBATD)
 
 $(WOMBATD): $(OBJS)
 	$(CC) -o $(WOMBATD) $(OBJS)
+
+eclectic.o: eclectic.c $(WOMBATD_H)
+	$(CC) -c $(CFLAGS) $(CMACS) eclectic.c
 
 main.o: main.c $(WOMBATD_H)
 	$(CC) -c $(CFLAGS) $(CMACS) main.c
@@ -69,6 +72,7 @@ utility.o: utility.c $(WOMBATD_H)
 .PHONY: indent
 indent:
 	-indent $(WOMBATD_H)
+	-indent eclectic.c
 	-indent main.c
 	-indent utility.c
 

@@ -1,7 +1,7 @@
 /*
  * Title:utility.c 
  * 
- * Overview/Description: wombat housekeeping status daemon 
+ * Overview/Description: utility functionsx
  * 
  * Compiler/Operating System: 
  *   gcc version 8.3.0 (Debian 8.3.0-6)
