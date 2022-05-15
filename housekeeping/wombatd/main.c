@@ -10,6 +10,7 @@
 
 #include "wombatd.h"
 
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,6 +39,10 @@ CONFIGURATION_PTR prepare_configuration()
   return (cp);
 }
 
+void signal_handler(int signal) {
+  printf("inside handler:%d\n", signal);
+}
+
 extern int eclectic(void);
 
 int main(int argc, char *argv[])
@@ -47,8 +52,15 @@ int main(int argc, char *argv[])
   openlog("wombatd", LOG_CONS | LOG_PID, LOG_LOCAL0);
   syslog(LOG_INFO, config->version_string);
 
+  signal(SIGHUP, signal_handler);
+
   int status = eclectic();
   printf("return status:%d\n", status);
+
+  for (int ndx=0; ndx<100; ndx++) {
+    print("%d\n", ndx);
+    sleep(1);
+  }
 
   syslog(LOG_INFO, "graceful exit");
   closelog();
