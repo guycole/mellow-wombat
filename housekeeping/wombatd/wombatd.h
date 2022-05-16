@@ -28,6 +28,8 @@
 #define DOOR_0_EVENT -100
 #define DOOR_1_EVENT -101
 
+#define TIMER_DELAY 1
+
 /*
  * boolean definitions
  */

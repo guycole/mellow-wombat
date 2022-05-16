@@ -55,7 +55,7 @@ OBJS = eclectic.o main.o utility.o
 all: $(WOMBATD)
 
 $(WOMBATD): $(OBJS)
-	$(CC) -o $(WOMBATD) $(OBJS)
+	$(CC) -o $(WOMBATD) $(OBJS) -lrt
 
 eclectic.o: eclectic.c $(WOMBATD_H)
 	$(CC) -c $(CFLAGS) $(CMACS) eclectic.c
