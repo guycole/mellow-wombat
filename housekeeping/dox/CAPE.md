@@ -24,6 +24,7 @@ The Mellow Wombat housekeeping BeagleBoneBlack supports these hardware items:
     | P8     | 14  | GPIO_26   | Power Relay 3 (out) |
     | P8     | 15  | GPIO_47   | Door Switch 1 (in)  |
     | P8     | 16  | GPIO_46   | Power Relay 4 (out) |
+    | P8     | 17  | GPIO_27   | Buzzer (out)        |
     | P8     | 18  | GPIO_65   | Power Relay 5 (out) |
     | P9     |  1  | DGND      | Ground              |
     | P9     |  5  | VDD_5V    | Power Relay Vcc     |
