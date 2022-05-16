@@ -17,6 +17,7 @@ power and necessary RF connections for the receivers along w/network connectivit
 + Location/time (GPS)
 + Environmental sensors (temperature, humidity, etc)
 + Security sensors (vibration, door monitoring)
++ Audio alert
 + Solar charging activity
 
 ## Documentation
