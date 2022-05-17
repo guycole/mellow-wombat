@@ -13,27 +13,27 @@ The Mellow Wombat housekeeping BeagleBoneBlack supports these hardware items:
 1. Acceleromters (vibration) sensors
 
 ## Pins
-    | Header | Pin | Name      | Description       |
-    |--------|-----|-----------|-------------------|
-    | P8     |  7  | GPIO_66   | Power Relay 6     |
-    | P8     |  8  | GPIO_67   | Power Relay 0     |
-    | P8     |  9  | GPIO_69   | Power Relay 7     |
-    | P8     | 10  | GPIO_68   | Power Relay 1     |
-    | P8     | 11  | GPIO_45   | Door Switch 0     |
-    | P8     | 12  | GPIO_44   | Power Relay 2     |
-    | P8     | 14  | GPIO_26   | Power Relay 3     |
-    | P8     | 15  | GPIO_47   | Door Switch 1     |
-    | P8     | 16  | GPIO_46   | Power Relay 4     |
-    | P8     | 17  | GPIO_27   | Buzzer            |
-    | P8     | 18  | GPIO_65   | Power Relay 5     |
-    | P9     |  1  | DGND      | Ground            |
-    | P9     |  5  | VDD_5V    | Power Relay Vcc   |
-    | P9     |  7  | SYS_5V    | GPS Vin           |
-    | P9     | 12  | GPIO_60   | GPS PPP           |
-    | P9     | 19  | I2C2_SCL  | I2C Devices       |
-    | P9     | 20  | I2C2_SDA  | I2C Devices       |
-    | P9     | 24  | UART1_TXD | GPS Rx            |
-    | P9     | 26  | UART1_RXD | GPS Tx            |
+    | Header | Pin | Name      | Description         |
+    |--------|-----|-----------|---------------------|
+    | P8     |  7  | GPIO_66   | Power Relay 6 (out) |
+    | P8     |  8  | GPIO_67   | Power Relay 0 (out) |
+    | P8     |  9  | GPIO_69   | Power Relay 7 (out) |
+    | P8     | 10  | GPIO_68   | Power Relay 1 (out) |
+    | P8     | 11  | GPIO_45   | Door Switch 0 (in)  |
+    | P8     | 12  | GPIO_44   | Power Relay 2 (out) |
+    | P8     | 14  | GPIO_26   | Power Relay 3 (out) |
+    | P8     | 15  | GPIO_47   | Door Switch 1 (in)  |
+    | P8     | 16  | GPIO_46   | Power Relay 4 (out) |
+    | P8     | 17  | GPIO_27   | Buzzer (out)        |
+    | P8     | 18  | GPIO_65   | Power Relay 5 (out) |
+    | P9     |  1  | DGND      | Ground              |
+    | P9     |  5  | VDD_5V    | Power Relay Vcc     |
+    | P9     |  7  | SYS_5V    | GPS Vin             |
+    | P9     | 12  | GPIO_60   | GPS PPP (in)        |
+    | P9     | 19  | I2C2_SCL  | I2C Devices         |
+    | P9     | 20  | I2C2_SDA  | I2C Devices         |
+    | P9     | 24  | UART1_TXD | GPS Rx              |
+    | P9     | 26  | UART1_RXD | GPS Tx              |
 
 ## Details
 

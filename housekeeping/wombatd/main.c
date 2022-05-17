@@ -15,9 +15,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <syslog.h>
+#include <time.h>
 #include <unistd.h>
 
-extern const char *version_string();
+extern int eclectic(CONFIGURATION_PTR configuration);
+
+CONFIGURATION gConfiguration;
 
 void usage(char *progname)
 {
@@ -25,43 +28,91 @@ void usage(char *progname)
   exit(0);
 }
 
-CONFIGURATION_PTR prepare_configuration()
+void setup()
 {
   char buffer[64];
+  int status;
+
   sprintf(buffer, "wombatd %d.%d compiled on %s at %s", VERSION_MAJOR_ID,
           VERSION_MINOR_ID, __DATE__, __TIME__);
 
-  CONFIGURATION_PTR cp = (CONFIGURATION_PTR) malloc(sizeof(CONFIGURATION));
-  cp->configuration_filename = CONFIG_FILENAME;
-  cp->lock_filename = LOCK_FILENAME;
-  cp->version_string = strdup(buffer);
+  gConfiguration.configuration_filename = strdup(CONFIG_FILENAME);
+  gConfiguration.lock_filename = strdup(LOCK_FILENAME);
+  gConfiguration.version_string = strdup(buffer);
 
-  return (cp);
-}
-
-void signal_handler(int signal) {
-  printf("inside handler:%d\n", signal);
-}
-
-extern int eclectic(void);
-
-int main(int argc, char *argv[])
-{
-  CONFIGURATION_PTR config = prepare_configuration();
-  fprintf(stdout, "%s\n", config->version_string);
   openlog("wombatd", LOG_CONS | LOG_PID, LOG_LOCAL0);
-  syslog(LOG_INFO, config->version_string);
+  syslog(LOG_INFO, "%s", gConfiguration.version_string);
 
-  signal(SIGHUP, signal_handler);
+  timer_t timer_id = 0;
 
-  int status = eclectic();
-  printf("return status:%d\n", status);
-
-  for (int ndx=0; ndx<100; ndx++) {
-    print("%d\n", ndx);
-    sleep(1);
+  status = timer_create(CLOCK_REALTIME, NULL, &timer_id);
+  if (status != 0) {
+    // TODO should be fatal
+    fprintf(stderr, "timer create failure\n");
   }
+
+  struct itimerspec timer_value;
+  timer_value.it_value.tv_sec = TIMER_DELAY;
+  timer_value.it_value.tv_nsec = 0;
+  timer_value.it_interval.tv_sec = TIMER_DELAY;
+  timer_value.it_interval.tv_nsec = 0;
+
+  status = timer_settime(timer_id, TIMER_ABSTIME, &timer_value, NULL);
+  if (status != 0) {
+    // TODO should be fatal
+    fprintf(stderr, "timer set failure\n");
+  }
+
+  printf("set status:%d\n", status);
+}
+
+void shutdown()
+{
+  free(gConfiguration.configuration_filename);
+  free(gConfiguration.lock_filename);
+  free(gConfiguration.version_string);
 
   syslog(LOG_INFO, "graceful exit");
   closelog();
+}
+
+void signal_handler(int signal)
+{
+  printf("inside handler:%d\n", signal);
+
+  switch (signal) {
+    case SIGALRM:              // poll for changes
+      printf("alarm noted\n");
+      int status = eclectic(&gConfiguration);
+      // TODO bad status should be fatal
+      printf("return status:%d\n", status);
+      break;
+    case SIGHUP:               // reset
+      printf("sighup noted\n");
+      break;
+  }
+}
+
+int main(int argc, char *argv[])
+{
+  signal(SIGALRM, signal_handler);
+//  signal(SIGINT, signal_handler);
+  signal(SIGHUP, signal_handler);
+
+  setup();
+
+  fprintf(stdout, "%s\n", gConfiguration.version_string);
+
+  //TODO command line options
+  //TODO assert lock
+  //TODO demon
+
+  for (int ndx = 0; ndx < 10; ndx++) {
+    printf("%d\n", ndx);
+    sleep(1);
+  }
+
+  shutdown();
+
+  return (WOMBAT_OK);
 }

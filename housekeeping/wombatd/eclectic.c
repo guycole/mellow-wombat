@@ -16,16 +16,17 @@
 #include <syslog.h>
 #include <unistd.h>
 
-int eclectic(void)
+int eclectic(CONFIGURATION_PTR cp)
 {
   printf("eclectic\n");
-  return (0);
+  printf("%s\n", cp->version_string);
 
-  /*
-     int run_flag = 0;
-     while (run_flag) {
-     printf("run flag true");
-     sleep(5);
-     }
-   */
+  // test for GPS fix
+  // test for GPS time sync
+  // ensure power relays match
+  // test door switches
+  // collect temperature and humidity
+  // collect acceleromters
+
+  return (0);
 }
