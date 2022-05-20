@@ -1,13 +1,14 @@
 /*
- * Title:eclectic.c 
+ * Title: eclectic.c 
  *
- * Overview/Description: wombatd 
+ * Overview/Description: wombat polling
  *
  * Compiler/Operating System:
  *   gcc version 8.3.0 (Debian 8.3.0-6)
  *   BeagleBoard.org Debian Buster IoT Image 2020-04-06
  */
 
+#include "beaglebone.h"
 #include "wombatd.h"
 
 #include <stdio.h>

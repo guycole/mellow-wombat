@@ -14,17 +14,12 @@
 # Directories.
 #
 DEVDIR = $(HOME)
-INCDIR = $(DEVDIR)/include
-LIBDIR = $(DEVDIR)/lib
 
 #
 # Header Files.
 #
+BEAGLEBONE_H = beaglebone.h
 WOMBATD_H = wombatd.h
-
-#
-# Libraries.
-#
 
 #
 # Configurations.
@@ -37,7 +32,6 @@ CFLAGS = -g -Wall -I$(INCDIR)
 #
 CC = gcc
 INDENT = indent
-LATEX = latex
 
 #
 # Executable Names.
@@ -45,9 +39,14 @@ LATEX = latex
 WOMBATD = wombatd
 
 #
+# Source Files.
+#
+SRCS = beaglebone.c eclectic.c main.c 
+
+#
 # Object Files.
 #
-OBJS = eclectic.o main.o utility.o
+OBJS = beaglebone.o eclectic.o main.o 
 
 #
 # Finally, some work...
@@ -57,31 +56,21 @@ all: $(WOMBATD)
 $(WOMBATD): $(OBJS)
 	$(CC) -o $(WOMBATD) $(OBJS) -lrt
 
-eclectic.o: eclectic.c $(WOMBATD_H)
+beaglebone.o: beaglebone.c $(BEAGLEBONE_H)
+	$(CC) -c $(CFLAGS) $(CMACS) beaglebone.c
+
+eclectic.o: eclectic.c $(BEAGLEBONE_H) $(WOMBATD_H)
 	$(CC) -c $(CFLAGS) $(CMACS) eclectic.c
 
 main.o: main.c $(WOMBATD_H)
 	$(CC) -c $(CFLAGS) $(CMACS) main.c
-
-utility.o: utility.c $(WOMBATD_H)
-	$(CC) -c $(CFLAGS) $(CMACS) utility.c
 
 #
 #  Format all the source files.
 #
 .PHONY: indent
 indent:
-	-indent $(WOMBATD_H)
-	-indent eclectic.c
-	-indent main.c
-	-indent utility.c
-
-#
-#  Update the TAGS file.
-#
-.PHONY: tags
-tags:
-	-@etags *.cc
+	-indent $(BEAGLEBONE_H) $(WOMBATD_H) $(SRCS)
 
 #
 #  Determine the size of source files in this subdirectory.
@@ -90,14 +79,6 @@ tags:
 size:
 	-@echo "Size: `pwd`"
 	-@wc -l *.c makefile
-
-#
-#  Generate dependency file
-#
-.PHONY: depend
-depend:
-	-@rm ./depend.include
-	$(CC) $(DEPEND_FLAG) $(CPPFLAGS) *.cc > ./depend.include
 
 #
 #  Cleanup this subdirectory.
@@ -109,6 +90,6 @@ clean:
 #
 #  Nuke all the executables.
 #
-.PHONY ultraclean:
+.PHONY: ultraclean
 ultraclean:
 	-@rm -f *~ $(WOMBATD)

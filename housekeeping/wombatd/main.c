@@ -95,6 +95,11 @@ void signal_handler(int signal)
 
 int main(int argc, char *argv[])
 {
+  if(geteuid()!=0)
+    fprintf(stderr, "must run as root user\n");
+    return (WOMBAT_NOT_ROOT);
+}
+
   signal(SIGALRM, signal_handler);
 //  signal(SIGINT, signal_handler);
   signal(SIGHUP, signal_handler);
