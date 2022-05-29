@@ -33,6 +33,7 @@
         1. [GPS Receiver](https://www.adafruit.com/product/5440)
         1. [Temperature/Humidity sensor](https://www.adafruit.com/product/5183)
         1. [Magnetic Switch](https://www.amazon.com/gp/product/B086GYJLML/ref=ox_sc_act_title_1?smid=A88A4JJCDJCGR&psc=1)
+        1. [Buzzer](https://www.amazon.com/dp/B09V3H38JP?ref=ppx_yo2ov_dt_b_product_details&th=1)
         1. BS270 FET, 220 ohm resistor (4x each) for power control relays
 
     1. USB 
