@@ -1,0 +1,15 @@
+python manage.py runserver
+
+django-admin startproject mellow
+
+python manage.py startapp wombat
+python manage.py startapp hyena
+python manage.py startapp heeler
+python manage.py startapp manatee
+
+python manage.py migrate
+
+python manage.py makemigrations heeler
+python manage.py makemigrations hyena
+python manage.py makemigrations manatee
+python manage.py makemigrations wombat
