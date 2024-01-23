@@ -13,3 +13,5 @@ python manage.py makemigrations heeler
 python manage.py makemigrations hyena
 python manage.py makemigrations manatee
 python manage.py makemigrations wombat
+
+python manage.py createsuperuser

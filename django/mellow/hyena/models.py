@@ -1,6 +1,21 @@
 from django.db import models
 
-# event log
+# adsb_exchange tech
+class AdsbExchange(models.Model):
+    id = models.BigAutoField(primary_key = True)
+  
+    adsb_hex = models.CharField(max_length=16)
+    category = models.CharField(max_length=8)
+    emergency = models.CharField(max_length=8)
+    flight = models.CharField(max_length=16)
+    model = models.CharField(max_length=24)
+    registration = models.CharField(max_length=12)
+    ladd_flag = models.BooleanField()
+    military_flag = models.BooleanField()
+    pia_flag = models.BooleanField()
+    wierdo_flag = models.BooleanField()
+
+# raw data from dump1090
 class Observation(models.Model):
     id = models.BigAutoField(primary_key = True)
 
