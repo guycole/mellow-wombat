@@ -15,6 +15,14 @@ class AdsbExchange(models.Model):
     pia_flag = models.BooleanField()
     wierdo_flag = models.BooleanField()
 
+# file load
+class LoadLog(models.Model):
+    id = models.BigAutoField(primary_key = True)
+    file_name = models.CharField(max_length=48, unique=True)
+    load_time = models.DateTimeField(auto_now_add=True)
+    obs_time = models.DateTimeField(auto_now_add=True)
+    population = models.IntegerField()
+
 # raw data from dump1090
 class Observation(models.Model):
     id = models.BigAutoField(primary_key = True)
