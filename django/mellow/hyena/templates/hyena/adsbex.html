@@ -1,0 +1,43 @@
+{% extends "hyena/base.html" %}
+
+{% block content %}
+
+{% block title %} ADSB Exchange {% endblock %}
+
+<div class="container">
+
+{% if adsbex_list %}
+    <table>
+      <tr>
+        <th>adsb_hex</th>
+        <th>category</th>
+        <th>flight</th>
+        <th>model</th>
+        <th>registration</th>
+        <th>LADD</th>
+        <th>military</th>
+        <th>PIA</th>
+        <th>wierdo</th>
+      </tr>
+
+    {% for row in adsbex_list %}
+        <tr>
+            <td><a href="/hyena/{{ row.id }}/">{{ row.adsb_hex }}</a></td>
+            <td>{{ row.category }}</td>
+            <td>{{ row.flight }}</td>
+            <td>{{ row.model }}</td>
+            <td>{{ row.registration }}</td>
+            <td>{{ row.ladd_flag }}</td>
+            <td>{{ row.military_flag }}</td>
+            <td>{{ row.pia_flag }}</td>
+            <td>{{ row.wierdo_flag }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>no adsb exchange items are available.</p>
+{% endif %}
+
+</div>
+
+{% endblock %}

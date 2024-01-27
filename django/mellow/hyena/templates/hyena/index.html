@@ -1,0 +1,9 @@
+{% if latest_observation_list %}
+    <ul>
+    {% for observation in latest_observation_list %}
+        <li><a href="/hyena/{{ observation.id }}/">{{ observation.adsb_hex }}</a> {{ observation.flight }} {{ observation.range }} {{observation.bearing }} {{ observation.altitude }} {{observation.speed }} {{ observation.track }} {{ observation.obs_time }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>no observations are available.</p>
+{% endif %}

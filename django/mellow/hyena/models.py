@@ -15,6 +15,12 @@ class AdsbExchange(models.Model):
     pia_flag = models.BooleanField()
     wierdo_flag = models.BooleanField()
 
+    def __repr__(self):
+        return f"{self.id} {self.adsb_hex} {self.category} {self.flight} {self.model} {self.registration} {self.ladd_flag} {self.military_flag} {self.pia_flag} {self.wierdo_flag}"
+
+    def __str__(self):
+        return f"{self.id} {self.adsb_hex} {self.category} {self.flight} {self.model} {self.registration} {self.ladd_flag} {self.military_flag} {self.pia_flag} {self.wierdo_flag}"
+
 # file load
 class LoadLog(models.Model):
     id = models.BigAutoField(primary_key = True)
@@ -22,6 +28,12 @@ class LoadLog(models.Model):
     load_time = models.DateTimeField(auto_now_add=True)
     obs_time = models.DateTimeField(auto_now_add=True)
     population = models.IntegerField()
+
+    def __repr__(self):
+        return f"{self.id} {self.file_name} {self.load_time} {self.obs_time} {self.population}"
+
+    def __str__(self):
+        return f"{self.id} {self.file_name} {self.load_time} {self.obs_time} {self.population}"
 
 # raw data from dump1090
 class Observation(models.Model):
@@ -39,11 +51,11 @@ class Observation(models.Model):
     track = models.IntegerField()
 
     def __repr__(self):
-        return f"{self.id} {self.obs_time} {self.adsb_hex} {self.flight}"
+        return f"{self.id} {self.adsb_hex} {self.flight} {self.range} {self.bearing} {self.altitude} {self.speed} {self.track} {self.obs_time}"
 
     def __str__(self):
-        return f"{self.id} {self.obs_time} {self.adsb_hex} {self.flight}"
-
+        return f"{self.id} {self.adsb_hex} {self.flight} {self.range} {self.bearing} {self.altitude} {self.speed} {self.track} {self.obs_time}"
+    
 # ;;; Local Variables: ***
 # ;;; mode:python ***
 # ;;; End: ***
