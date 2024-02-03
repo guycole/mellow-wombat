@@ -47,3 +47,26 @@ class AdsbExViewOrderByRegistration(TemplateView):
         context["adsbex_list"] = AdsbExchange.objects.order_by("registration")
         return context
     
+class ObsViewOrderByAdsb(TemplateView):
+    template_name = "hyena/observation.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["obs_list"] = Observation.objects.order_by("adsb_hex", )
+        return context
+
+class ObsViewOrderByFlight(TemplateView):
+    template_name = "hyena/observation.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["obs_list"] = Observation.objects.order_by("flight", "obs_time")
+        return context
+
+class ObsViewOrderByTime(TemplateView):
+    template_name = "hyena/observation.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["obs_list"] = Observation.objects.order_by("obs_time")
+        return context

@@ -13,6 +13,8 @@ rm heeler/migrations/000*
 rm hyena/migrations/000*
 rm manatee/migrations/000*
 rm wombat/migrations/000*
+#
 source ../venv/bin/activate
-python manage.py makemigrations
 python manage.py migrate
+python manage.py makemigrations
+#
