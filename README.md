@@ -1,14 +1,14 @@
 # mellow-wombat
-Crate, housekeeping and collection shelves for Mellow Wombat
+Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler) [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
 ## Introduction
-Mellow Wombat is a framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  Mellow Wombat can also be remotely tasked when connectivity exists.  
+Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  MW is designed to fit within [Costco Storage Crates](https://www.costco.com/greenmade-12-gallon-storage-bin%2c-4-pack.product.4000229972.html) which are weather resistant durable and inexpensive.  The only external resources to an MW crate are an external power source and antennas.
 
-Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface is minimal, and there is an emphasis on automatic storage of selected emitters.
+Within the "crate" is a wooden "frame" which contains "shelves" where the subsystems reside.
 
-Mellow Wombat is a modular system which resides in a "crate" and each module is contained on a "shelf" (located within the crate).  Each shelf receives 12 VDC power and necessary RF connections for the receivers along w/network connectivity via an internal wired LAN.
+Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  MW can also be remotely tasked when connectivity exists.  
 
-There are various Mellow Wombat crates, each with varying hardware and collection capabilities.
+Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface is minimal, and there is an emphasis on automatic collection/storage of selected emitters.  MW offers 
 
 ## Overview
 ![overview](https://github.com/guycole/mellow-wombat/blob/main/grafix/overview.png)
