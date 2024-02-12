@@ -1,5 +1,5 @@
 # mellow-wombat
-Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler) [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
+Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler), [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
 ## Introduction
 Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  MW is designed to fit within [Costco Storage Crates](https://www.costco.com/greenmade-12-gallon-storage-bin%2c-4-pack.product.4000229972.html) which are weather resistant durable and inexpensive.  The only external resources to an MW crate are an external power source and antennas.
