@@ -6,8 +6,23 @@ mellow net 172.16/12
 172.16.1.0/16 = hyena
 172.16.2.0/16 = manatee
 
-
 10.168.crate.project
 crate1 = 01
 
 project 01 = 
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-an-ethernet-connection_configuring-and-managing-networking
+
+
+  271  nmcli c show
+  272  nmcli c modify "Wired connection 1" connection.id "wombat-net"
+  273  nmcli c show
+  274  nmcli c show wombat-net
+  275  nmcli c show wombat-net
+  276  nmcli c show
+  277  nmcli connection modify Internal-LAN ipv4.method manual ipv4.addresses 10.168.2.1/16 ipv4.gateway 10.168.2.1 ipv4.dns 8.8.8.8 ipv4.dns-search braingang.net
+  278  nmcli connection modify wombat-net ipv4.method manual ipv4.addresses 10.168.2.1/16 ipv4.gateway 10.168.2.1 ipv4.dns 8.8.8.8 ipv4.dns-search braingang.net
+  279  ifconfig -a
+  280  history
+
+https://www.makeuseof.com/raspberry-pi-set-static-ip/
