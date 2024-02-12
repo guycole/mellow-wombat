@@ -5,7 +5,7 @@
 ## catalog
 | Subsystem | Description                                      |
 | --------- | ------------------------------------------------ |
-| Wombat    | Django et al                                     |
+| Wombat    | django et al                                     |
 | Heeler    | collection                                       |
 | Hyena     | dump1090 and dump978 collection                  |
 | Manatee   | ais collection                                   |
