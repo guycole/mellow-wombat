@@ -2,11 +2,11 @@
 Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler), [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
 ## Introduction
-Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  MW is designed to fit within [Costco Storage Crates](https://www.costco.com/greenmade-12-gallon-storage-bin%2c-4-pack.product.4000229972.html) which are weather resistant durable and inexpensive.  The only external resources to an MW crate are an external power source and antennas.
+Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  MW is designed to fit within [Costco Storage Crates](https://www.costco.com/greenmade-12-gallon-storage-bin%2c-4-pack.product.4000229972.html) which are weather resistant durable and inexpensive.  The only required external resources to an MW crate are external power and antennas.
 
-Within the "crate" is a wooden "frame" which contains "shelves" where the subsystems reside.
+Within the "crate" is a wooden "frame" which contains "shelves" where the subsystems reside.  MW provides power, network and RF distribution to the shelves.  There is a "housekeeper" computer which monitors and controls the shelves as necessary.
 
-Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  MW can also be remotely tasked when connectivity exists.  
+Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  MW can also be remotely tasked when connectivity exists.  The housekeeper also supports scheduled activities.  
 
 Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface is minimal, and there is an emphasis on automatic collection/storage of selected emitters.  MW offers 
 
