@@ -8,7 +8,7 @@ Within the "crate" is a wooden "frame" which contains "shelves" where the subsys
 
 Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  MW can also be remotely tasked when connectivity exists.  The housekeeper also supports scheduled activities.  
 
-Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface is minimal, and there is an emphasis on automatic collection/storage of selected emitters.  MW offers 
+Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface (provided by housekeeper) is minimal, and there is an emphasis on automatic collection/storage of selected emitters.
 
 ## Overview
 ![overview](https://github.com/guycole/mellow-wombat/blob/main/grafix/overview.png)
@@ -21,11 +21,11 @@ Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Softwar
 + [WiFi collection](https://github.com/guycole/mellow-wombat/tree/main/wifi/README.md)
 
 ## Crate Catalog
-| Crate | Description                                      |
-| ----- | ------------------------------------------------ |
-|     1 | Original Mellow Elephant container               |
-|     2 | Mellow Wombat system: housekeeping, rtlsdr, wifi |
-|     3 | Mellow Wombat system: housekeeping, hackrf1      |
+| Crate | Description (Shelves)                                      |
+| ----- | ---------------------------------------------------------- |
+|     1 | Original Mellow Wombat development container               |
+|     2 | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
+|     3 | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
 
 ## Assembled
 ![dimensions](https://github.com/guycole/mellow-wombat/blob/main/grafix/crate_dimensions.png)
