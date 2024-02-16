@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@bd(((0jpv$^3g$-ewynju=dunv4708h$@=%_%d08y-+k6jduy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.75']
 
 
 # Application definition
@@ -79,9 +79,19 @@ WSGI_APPLICATION = 'mellow.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'OPTIONS': { 'options': '-c search_path=mellow' },
+        'NAME': 'mellow_v1',
+        'USER': 'mellow_admin',
+        'PASSWORD': 'bogus',
+        'HOST': 'localhost',
+        'PORT': '',
     }
+
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
 }
 
 

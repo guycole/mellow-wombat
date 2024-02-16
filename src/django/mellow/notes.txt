@@ -15,3 +15,21 @@ python manage.py makemigrations manatee
 python manage.py makemigrations wombat
 
 python manage.py createsuperuser
+
+gunicorn --bind 0.0.0.0:8000 mellow.wsgi
+
+create database mellow_v1;
+create user mellow_admin with password 'bogus';
+
+alter role mellow_admin set client_encoding to 'utf8';
+alter role mellow_admin set default_transaction_isolation to 'read committed';
+alter role mellow_admin set timezone to 'UTC';
+
+\connect mellow_v1;
+CREATE SCHEMA mellow AUTHORIZATION mellow_admin;
+
+grant all privileges on database mellow_v1 to mellow_admin;
+
+https://gist.github.com/axelbdt/74898d80ceee51b69a16b575345e8457
+
+\dt mellow.*
