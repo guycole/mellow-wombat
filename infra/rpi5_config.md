@@ -1,5 +1,6 @@
 # rpi5 configuration
-Each crate typically has a [raspberry pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) as a [housekeeper](http://fixme).
+Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) as a [housekeeper](http://fixme).
+
 
  is a [django](https://www.djangoproject.com/) application
 
