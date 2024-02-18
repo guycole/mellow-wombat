@@ -1,28 +1,28 @@
 # mellow-wombat
 Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler), [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
-## Introduction
-Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  MW is designed to fit within [Costco Storage Crates](https://costco.com/.product.4000205525.html) which are weather resistant durable and inexpensive.  The only required external resources to an MW crate are external power and antennas.
+Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface (provided by [housekeeper](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)) is minimal, and there is an emphasis on automatic collection/storage of selected emitters.
 
-Within the "crate" is a wooden "frame" which contains "shelves" where the subsystems reside.  MW provides power, network and RF distribution to the shelves.  There is a ["housekeeper"](fixme) computer which monitors and controls the shelves as necessary.
+## Introduction
+Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  MW is designed to fit within [Costco Storage Bin](https://costco.com/.product.4000205525.html) which are weather resistant, durable and inexpensive.  The only external resources to an "storage bin" is power and antennas.
+
+Within the "storage bin" is a [wooden "crate"](https://github.com/guycole/mellow-wombat/blob/main/grafix/crate_dimensions.png) which contains ["shelves"](https://github.com/guycole/mellow-wombat/blob/main/grafix/first_power.png) where the subsystems reside.  Mellow Wombat provides power, network and RF distribution to the shelves.  There is a ["housekeeper"](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md) computer which monitors and controls the shelves as necessary.
 
 Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  MW can also be remotely tasked when connectivity exists.  The housekeeper also supports scheduled activities.  
-
-Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface (provided by housekeeper) is minimal, and there is an emphasis on automatic collection/storage of selected emitters.
 
 ## Deployment
 ![deployment](https://github.com/guycole/mellow-wombat/blob/main/grafix/deployment_18feb.png)
 
 ## Shelf Catalog
-+ [Mellow Heeler](https://github.com/guycole/mellow-wombat/tree/main/hackrf1/README.md)
-+ [Mellow Hyena](https://github.com/guycole/mellow-wombat/tree/main/rtlsdr/README.md)
-+ [Mellow Koala](https://github.com/guycole/mellow-wombat/tree/main/usrp1/README.md)
-+ [Mellow Manatee](https://github.com/guycole/mellow-wombat/tree/main/wifi/README.md)
-+ [Mellow Wombat](https://github.com/guycole/mellow-wombat/blob/main/housekeeper/README.md)
++ [Mellow Heeler](https://github.com/guycole/mellow-wombat/blob/main/shelf/heeler.md)
++ [Mellow Hyena](https://github.com/guycole/mellow-wombat/blob/main/shelf/hyena.md)
++ [Mellow Koala](https://github.com/guycole/mellow-wombat/blob/main/shelf/koala.md)
++ [Mellow Manatee](https://github.com/guycole/mellow-wombat/blob/main/shelf/manatee.md)
++ [Mellow Wombat](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)
 
 ## Crate Catalog
-| Crate       | Description (Shelves)                                      |
-| ----------- | ---------------------------------------------------------- |
-| [01](fixme) | Original Mellow Wombat development container               |
-| [02](fixme) | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
-| [03](fixme) | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
+| Crate                                                                     | Description (Shelves)                                      |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | Original Mellow Wombat development container               |
+| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
+| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
