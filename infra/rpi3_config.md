@@ -1,0 +1,1 @@
+https://www.makeuseof.com/raspberry-pi-set-static-ip/
