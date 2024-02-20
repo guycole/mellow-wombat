@@ -17,13 +17,16 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
 
 ## Debian Bookworm
 1. [changes])(https://www.debian.org/releases/bookworm/amd64/release-notes/ch-information.en.html)
-1. rsyslog is gone, replaced with journalctl (oh, this sucks...)
+1. rsyslog is gone, replaced with journalctl (oh, this sucks...) journalctl -fe
 1. nmcli is the latest sparkly network management tool
     1. https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-an-ethernet-connection_configuring-and-managing-networking
     1. ```nmcli c show```
     1. ```nmcli c modify "Wired connection 1" connection.id "wombat-net"```
     1. ```nmcli c show wombat-net```
-    1. ```nmcli connection modify wombat-net ipv4.method manual ipv4.addresses 10.168.0.0/18 ipv4.gateway 10.168.1.1 ipv4.dns 8.8.8.8 ipv4.dns-search braingang.net```
+    1. ```nmcli connection modify wombat-net ipv4.method manual ipv4.addresses 10.168.1.1/18 ipv4.gateway 10.168.1.1 ipv4.dns 8.8.8.8 ipv4.dns-search braingang.net```
+    1. ```reboot```
+    1. ```ip address show eth0```
+    1. ```ip route show default```
 
 ## mellow-net
 1. I want simultaneous WiFi and wired ethernet w/IP forwarding.
