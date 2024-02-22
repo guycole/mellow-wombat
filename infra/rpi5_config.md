@@ -22,12 +22,14 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
     1. https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/configuring-an-ethernet-connection_configuring-and-managing-networking
     1. ```nmcli c show```
     1. ```nmcli c modify preconfigured connection.id pogonip```
-    1. ```nmcli c modify "Wired connection 1" connection.id "wombat-net"```
+    1. ```nmcli c modify "Wired connection 1" connection.id "eth0"```
     1. ```nmcli c show wombat-net```
-    1. ```nmcli connection modify wombat-net ipv4.method manual ipv4.addresses 10.168.1.1/18 ipv4.gateway 10.168.1.1 ipv4.dns 8.8.8.8 ipv4.dns-search braingang.net```
+    1. ```nmcli connection modify eth0 ipv4.method manual ipv4.addresses 10.168.1.3/18 ipv4.gateway 10.168.1.1 ipv4.dns '10.168.1.1,8.8.8.8' ipv4.dns-search braingang.net```
     1. ```reboot```
     1. ```ip address show eth0```
     1. ```ip route show default```
+1. Will not bridge
+    1. https://gist.github.com/plembo/f7abd2d9b6f76e7afdece02dae7e5097
 
 ## mellow-net
 1. I want simultaneous WiFi and wired ethernet w/IP forwarding.

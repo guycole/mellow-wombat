@@ -9,7 +9,7 @@ ff02::2		ip6-allrouters
 10.168.1.5 waifu
 #
 # wombat 
-#10.168.2.1 rpi5a
+#10.168.2.1 rpi5a odroidc4
 #
 # mellow hyena
 10.168.2.32 rpi3a

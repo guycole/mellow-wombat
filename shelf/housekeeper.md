@@ -26,17 +26,17 @@ Housekeeper performs the shared support functions which the application shelves 
 + 10.168.1.0/24 = 10.168.1.0 to 10.168.1.254 (crate 1 address range)
 + 10.168.2.0/24 = 10.168.2.0 to 10.168.2.254 (crate 2 address range)
 + 10.168.3.0/24 = 10.168.3.0 to 10.168.3.254 (crate 3 address range)
++ 10.168.x.1 wombat (odroid gateway)
 + 10.168.1.3 boris
-+ 10.168.1.5 waifu
-+ 10.168.x.1 wombat (gateway)
++ 10.168.x.5 housekeeper (rpi5) 
 
-| CIDR            | First Address | Last Address | Reservation |
-| --------------- | ------------- | ------------ | ----------- |
-| 10.168.x.0/28   | 10.168.x.1    | 10.168.x.14  | Wombat      |
-| 10.168.x.16/28  | 10.168.x.17   | 10.168.x.30  | Heeler      |
-| 10.168.x.32/28  | 10.168.x.33   | 10.168.x.46  | Hyena       |
-| 10.168.x.48/28  | 10.168.x.49   | 10.168.x.62  | Koala       |
-| 10.168.x.64/28  | 10.168.x.65   | 10.168.x.78  | Manatee     |
-| 10.168.x.80/28  | 10.168.x.81   | 10.168.x.94  | Available   |
-| 10.168.x.96/28  | 10.168.x.97   | 10.168.x.110 | Available   |
-| 10.168.x.112/28 | 10.168.x.113  | 10.168.x.126 | Available   |
+| CIDR            | First Address | Last Address | Reservation   |
+| --------------- | ------------- | ------------ | ------------- |
+| 10.168.x.0/28   | 10.168.x.1    | 10.168.x.14  | Wombat        |
+| 10.168.x.16/28  | 10.168.x.17   | 10.168.x.30  | Heeler        |
+| 10.168.x.32/28  | 10.168.x.33   | 10.168.x.46  | Hyena         |
+| 10.168.x.48/28  | 10.168.x.49   | 10.168.x.62  | Koala         |
+| 10.168.x.64/28  | 10.168.x.65   | 10.168.x.78  | Manatee       |
+| 10.168.x.80/28  | 10.168.x.81   | 10.168.x.94  | Development 1 |
+| 10.168.x.96/28  | 10.168.x.97   | 10.168.x.110 | Available     |
+| 10.168.x.112/28 | 10.168.x.113  | 10.168.x.126 | Available     |
