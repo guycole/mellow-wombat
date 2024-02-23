@@ -29,3 +29,5 @@ The anemic [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-
 ## Relevant Links
 1. https://www.makeuseof.com/raspberry-pi-set-static-ip/
 1. https://www.tomshardware.com/how-to/static-ip-raspberry-pi
+1. https://stackoverflow.com/questions/63030641/how-to-install-awscli-version-2-on-raspberry-pi
+1. https://vortac.io/2020/06/02/installing-dump1090-on-raspberrypi/
