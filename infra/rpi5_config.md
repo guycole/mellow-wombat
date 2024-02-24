@@ -15,6 +15,14 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
     1.  Add applications
         1. After image creation.
 
+1. Add wombat user group and minion account (for rsync(1))
+    1. ```groupadd wombat```
+    1. ```useradd -m -s /bin/bash minion```
+    1. ```adduser minion wombat```
+    1. create empty ssh key so rsyn(1) can copy files without a password
+        1. ```ssh-keygen -t ed25519 -C "minion@braingang.net"```
+        1. ```ssh-copy-id -i ~/.ssh/id_ed25519.pub rpi3b```
+
 ## Debian Bookworm
 1. [changes])(https://www.debian.org/releases/bookworm/amd64/release-notes/ch-information.en.html)
 1. rsyslog is gone, replaced with journalctl (oh, this sucks...) journalctl -fe
@@ -39,12 +47,19 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
     1. apt-get install ansible
     1. apt-get install sshpass
 1. do not use ssh-copy-id/authorized keys
+1. ```ansible --version```
+    ```ansible [core 2.14.3]```
 
 ## postgresql
 1. apt-get postgresql-all (postgresql 15)
 
 ## prometheus
 1. apt-get install prometheus
+
+## rsync
+1. rsync(1) to copy files from collection shelves to housekeeper
+    1. cron(8) from minion account 
+    1. /var/mellow (source and destination, must be wombat group)
 
 ## Relevant Links
 1. https://repost.aws/questions/QUHZgXbr_vTjqk8VNX-GLGzA/installing-aws-cli-v2-on-raspberry-pi-4b-with-raspbian-os

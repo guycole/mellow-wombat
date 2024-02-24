@@ -19,6 +19,18 @@ The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b
         1. dump1090
         1. dump978
 
+1. Add wombat user group and minion account (for rsync(1))
+    1. ```groupadd wombat```
+    1. ```useradd -m -s /bin/bash minion```
+    1. ```adduser minion wombat```
+    1. from minion@housekeeper ```ssh-copy-id -i ~/.ssh/id_ed25519.pub rpi3b```
+
+1. Create the export directory
+    1. ```mkdir /var/mellow```
+    1. ```chgrp wombat /var/mellow```
+    1. ```chmod 775 /var/mellow```
+    1. Each collection system needs a raw subdirectory under /var/mellow, i.e. "/var/mellow/hyena/raw" and should be readable from minion user group (for rsync(1) to copy).
+
 ## Networking
 1.  When first booted, there will be WiFi connectivity (wlan0) and eth0 under DHCP
 1.  The 32 bit release is unburdened by network manager
@@ -29,6 +41,20 @@ The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b
     1. ```static ip_address=10.168.1.82/18```
     1. ```static_routers=10.168.1.1```
     1. ```static domain_name_servers=10.168.1.1 8.8.8.8```
+
+## Validation
+1.  Can ping other hosts on local wombatnet (eth)
+1.  Can obtain software updates via wombatnet (eth) and not via wifi
+1.  Can build and execute librtlsdr, dump1090, etc.
+1.  Can obtain from github and run applications like mellow-hyena, etc
+1.  Collection results appear in /var/mellow/application/raw
+1.  Collection output files have correct device
+1.  rsync(8) from housekeeper is able to copy collection files
+1.  ansible ping from housekeeper works
+1.  aws cli is able to write collection files to s3 via wombatnet (eth)
+
+## Cleanup
+1.  Update [inventory.md](https://github.com/guycole/mellow-wombat/blob/main/infra/inventory.md)
 
 ## Relevant Links
 1. https://www.makeuseof.com/raspberry-pi-set-static-ip/
