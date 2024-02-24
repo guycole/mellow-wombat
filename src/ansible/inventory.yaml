@@ -1,0 +1,9 @@
+crate01:
+  hosts:
+    rpi4d:
+      ansible_host: 10.168.1.81
+    rpi3b:
+      ansible_host: 10.168.1.82
+  vars:
+    ansible_user: gsc
+    ansible_password: bogus

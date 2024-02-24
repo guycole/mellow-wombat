@@ -1,5 +1,5 @@
 # rpi3 configuration
-The anemic [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) is useful as a [rtl-sdr](https://www.rtl-sdr.com/) host for less challenging, narrowband emitters.
+The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) is useful as a [rtl-sdr](https://www.rtl-sdr.com/) host for less challenging, narrowband emitters.
 
 ## Initial Configuration Steps
 1. Create an image using the [raspberry pi imager](https://www.raspberrypi.com/news/raspberry-pi-imager-imaging-utility/).  Currently this is "Raspberry Pi Legacy (32 bit)" released 2023-12-05.
@@ -13,7 +13,11 @@ The anemic [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-
     1.  Wired ethernet enabled (for mellow-net).
         1. After image creation.
     1.  Add applications
-        1. After image creation.
+        1. AWS CLI
+        1. GitHub and mellow repositories
+        1. rtl-sdr
+        1. dump1090
+        1. dump978
 
 ## Networking
 1.  When first booted, there will be WiFi connectivity (wlan0) and eth0 under DHCP

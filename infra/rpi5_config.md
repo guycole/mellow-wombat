@@ -23,25 +23,28 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
     1. ```nmcli c show```
     1. ```nmcli c modify preconfigured connection.id pogonip```
     1. ```nmcli c modify "Wired connection 1" connection.id "eth0"```
-    1. ```nmcli c show wombat-net```
-    1. ```nmcli connection modify eth0 ipv4.method manual ipv4.addresses 10.168.1.3/18 ipv4.gateway 10.168.1.1 ipv4.dns '10.168.1.1,8.8.8.8' ipv4.dns-search braingang.net```
+    1. ```nmcli c show eth0```
+    1. ```nmcli c modify eth0 ipv4.method manual ipv4.addresses 10.168.1.7/18 ipv4.gateway 10.168.1.1 ipv4.dns '10.168.1.1,8.8.8.8' ipv4.dns-search braingang.net```
     1. ```reboot```
     1. ```ip address show eth0```
     1. ```ip route show default```
-1. Will not bridge
+1. Will not bridge (this does not work)
     1. https://gist.github.com/plembo/f7abd2d9b6f76e7afdece02dae7e5097
 
 ## mellow-net
-1. I want simultaneous WiFi and wired ethernet w/IP forwarding.
-1. I want access via WiFi and access via wired ethernet.
 1. Shelf IP assignments in [housekeeper.md](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)
 
 ## ansible
-1. do not install via pip, use apt-get ansible
+1. do not install via pip
+    1. apt-get install ansible
+    1. apt-get install sshpass
 1. do not use ssh-copy-id/authorized keys
 
 ## postgresql
-1. TBD
+1. apt-get postgresql-all (postgresql 15)
 
 ## prometheus
-1. TBD
+1. apt-get install prometheus
+
+## Relevant Links
+1. https://repost.aws/questions/QUHZgXbr_vTjqk8VNX-GLGzA/installing-aws-cli-v2-on-raspberry-pi-4b-with-raspbian-os

@@ -1,0 +1,1 @@
+odroid c4 for wifi gateway
