@@ -21,7 +21,6 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
     1. ```adduser minion wombat```
     1. create empty ssh key so rsyn(1) can copy files without a password
         1. ```ssh-keygen -t ed25519 -C "minion@braingang.net"```
-        1. ```ssh-copy-id -i ~/.ssh/id_ed25519.pub rpi3b```
 
 ## Debian Bookworm
 1. [changes])(https://www.debian.org/releases/bookworm/amd64/release-notes/ch-information.en.html)
@@ -52,6 +51,7 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
 
 ## postgresql
 1. apt-get postgresql-all (postgresql 15)
+1. schema creation from django
 
 ## prometheus
 1. apt-get install prometheus
@@ -60,6 +60,20 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
 1. rsync(1) to copy files from collection shelves to housekeeper
     1. cron(8) from minion account 
     1. /var/mellow (source and destination, must be wombat group)
+
+## Validation
+1.  Can ping other hosts on local wombatnet (eth)
+1.  Can obtain software updates via wombatnet (eth) and not via wifi
+1.  Can obtain from github and run applications like mellow-hyena, etc
+1.  Collection results appear in /var/mellow/application/raw
+    1. minion crontab invokes rsync(1) every minute
+1.  ansible ping works
+1.  psql (postgresql) works
+1.  prometheus collects node activity
+1.  django renders, plays nice with postgresql
+
+## Cleanup
+1.  Update [inventory.md](https://github.com/guycole/mellow-wombat/blob/main/infra/inventory.md)
 
 ## Relevant Links
 1. https://repost.aws/questions/QUHZgXbr_vTjqk8VNX-GLGzA/installing-aws-cli-v2-on-raspberry-pi-4b-with-raspbian-os

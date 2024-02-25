@@ -1,5 +1,5 @@
 # rpi4 configuration
-The anemic [raspberry pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) is useful as a [rtl-sdr](https://www.rtl-sdr.com/) host for less challenging, narrowband emitters.
+The [raspberry pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) is useful as a [rtl-sdr](https://www.rtl-sdr.com/) host for any rtl-sdr task.
 
 ## Initial Configuration Steps
 1. Create an image using the [raspberry pi imager](https://www.raspberrypi.com/news/raspberry-pi-imager-imaging-utility/).  Currently this is "Raspberry Pi OS (64 bit)" which is a port of "Debian Bookworm" released 2023-12-05.
@@ -29,7 +29,7 @@ The anemic [raspberry pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-
     1. ```mkdir /var/mellow```
     1. ```chgrp wombat /var/mellow```
     1. ```chmod 775 /var/mellow```
-    1. Each collection system needs a raw subdirectory under /var/mellow, i.e. "/var/mellow/hyena/raw" and should be readable from minion user group (for rsync(1) to copy).
+    1. Each collection system needs a raw subdirectory under /var/mellow, i.e. "/var/mellow/hyena/raw" and should be readable from wombat user group (for rsync(1) to copy).
 
 ## Debian Bookworm
 1. [changes])(https://www.debian.org/releases/bookworm/amd64/release-notes/ch-information.en.html)
@@ -52,7 +52,7 @@ The anemic [raspberry pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-
 1.  Can obtain from github and run applications like mellow-hyena, etc
 1.  Collection results appear in /var/mellow/application/raw
 1.  Collection output files have correct device
-1.  rsync(8) from housekeeper is able to copy collection files (cron(8) in minion account)
+1.  rsync(1) from housekeeper is able to copy collection files (cron(8) in minion account)
 1.  ansible ping from housekeeper works
 1.  aws cli is able to write collection files to s3 via wombatnet (eth)
 

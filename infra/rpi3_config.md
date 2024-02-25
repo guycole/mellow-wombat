@@ -29,7 +29,7 @@ The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b
     1. ```mkdir /var/mellow```
     1. ```chgrp wombat /var/mellow```
     1. ```chmod 775 /var/mellow```
-    1. Each collection system needs a raw subdirectory under /var/mellow, i.e. "/var/mellow/hyena/raw" and should be readable from minion user group (for rsync(1) to copy).
+    1. Each collection system needs a raw subdirectory under /var/mellow, i.e. "/var/mellow/hyena/raw" and should be readable from wombat user group (for rsync(1) to copy).
 
 ## Networking
 1.  When first booted, there will be WiFi connectivity (wlan0) and eth0 under DHCP
@@ -49,7 +49,7 @@ The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b
 1.  Can obtain from github and run applications like mellow-hyena, etc
 1.  Collection results appear in /var/mellow/application/raw
 1.  Collection output files have correct device
-1.  rsync(8) from housekeeper is able to copy collection files
+1.  rsync(1) from housekeeper is able to copy collection files
 1.  ansible ping from housekeeper works
 1.  aws cli is able to write collection files to s3 via wombatnet (eth)
 
