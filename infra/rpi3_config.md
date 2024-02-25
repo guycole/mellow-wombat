@@ -1,7 +1,7 @@
 # rpi3 configuration
 The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) is useful as a [rtl-sdr](https://www.rtl-sdr.com/) host for less challenging, narrowband emitters.
 
-## Initial Configuration Steps
+## Configuration Steps
 1. Create an image using the [raspberry pi imager](https://www.raspberrypi.com/news/raspberry-pi-imager-imaging-utility/).  Currently this is "Raspberry Pi Legacy (32 bit)" released 2023-12-05.
 1. Configuration as a rpi3 host requires:
     1.  SSH enabled (because headless).

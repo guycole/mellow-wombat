@@ -1,7 +1,7 @@
 # rpi5 configuration
 Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/products/raspberry-pi-5/) as a [housekeeper](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md).
 
-## Initial Configuration Steps
+## Configuration Steps
 1. Create an image using the [raspberry pi imager](https://www.raspberrypi.com/news/raspberry-pi-imager-imaging-utility/).  Currently this is "Raspberry Pi OS (64 bit)" which is a port of "Debian Bookworm" released 2023-12-05.
 1. Configuration as a housekeeper requires:
     1.  SSH enabled (because housekeeper is usually headless).

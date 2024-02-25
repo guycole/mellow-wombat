@@ -1,7 +1,7 @@
 # rpi4 configuration
 The [raspberry pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) is useful as a [rtl-sdr](https://www.rtl-sdr.com/) host for any rtl-sdr task.
 
-## Initial Configuration Steps
+## Configuration Steps
 1. Create an image using the [raspberry pi imager](https://www.raspberrypi.com/news/raspberry-pi-imager-imaging-utility/).  Currently this is "Raspberry Pi OS (64 bit)" which is a port of "Debian Bookworm" released 2023-12-05.
 1. Configuration as a rpi4 host requires:
     1.  SSH enabled (because headless).
