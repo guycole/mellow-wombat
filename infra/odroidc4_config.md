@@ -5,10 +5,10 @@ Each crate typically has one [odroid c4](https://www.hardkernel.com/shop/odroid-
 1. Create an image using the [balena etcher](https://github.com/balena-io/etcher).  Currently this is [Ubuntu Minimal 20.04.4 LTS (v1.5)](https://wiki.odroid.com/odroid-c4/os_images/ubuntu/minimal/20220228).
 
 1. Configuration as a gateway requires:
-    1.  Create a [netplan](fixme) file to configure network interfaces wlan0 and eth0.
+    1.  Create a [/etc/netplan file](https://github.com/guycole/mellow-wombat/blob/main/infra/50-cloud-init.yaml) file to configure network interfaces wlan0 and eth0.
         1. wombatnet will expect gateway to be at 10.168.x.1 where 'x' is crate number.
     1.  Update the hostname to reflect the crate
-        1.  ```hostnamectl set-hostname crate01```
+        1.  ```hostnamectl set-hostname wombat01```
     1.  Update /etc.rc.local to configure ip masquerade at boot.
 ```
 #
@@ -24,6 +24,9 @@ iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
 ```        
 
 ## Hardware
-+ [ODROID-C4](https://www.hardkernel.com/shop/odroid-c4/)
-+ [USB WiFi](https://www.hardkernel.com/shop/wifi-module-5bk/)
-+ [12V2A Wall Wart](https://www.hardkernel.com/shop/12v-2a-power-supply-us-plug/)
+1. [ODROID-C4](https://www.hardkernel.com/shop/odroid-c4/)
+1. [USB WiFi](https://www.hardkernel.com/shop/wifi-module-5bk/)
+1. [12V2A Wall Wart](https://www.hardkernel.com/shop/12v-2a-power-supply-us-plug/)
+
+## Relevant Links
+1. https://linuxconfig.org/ubuntu-20-04-connect-to-wifi-from-command-line
