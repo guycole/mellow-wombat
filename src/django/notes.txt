@@ -1,2 +1,4 @@
 gunicorn --bind 0.0.0.0:8000 mellow.wsgi
 
+psql -U wombat -h localhost -d wombat_v1
+
