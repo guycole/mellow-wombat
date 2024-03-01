@@ -1,10 +1,8 @@
 # mellow-wombat
 Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler), [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
-Mellow Wombat is different from most [SDR](https://en.wikipedia.org/wiki/Software-defined_radio) projects in that the user interface (provided by [housekeeper](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)) is minimal, and there is an emphasis on automatic collection/storage of selected emitters.
-
 ## Introduction
-Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  A MW deployment consists of a [wooden "crate"](https://github.com/guycole/mellow-wombat/blob/main/grafix/crate_dimensions.png) which contains ["shelves"](https://github.com/guycole/mellow-wombat/blob/main/grafix/first_power.png) where the subsystems reside.  Mellow Wombat provides power, network and RF distribution to the shelves.  There is a ["housekeeper"](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md) computer which monitors and controls the shelves as necessary.
+Mellow Wombat is a physical framework which supports a portable RF collection system consisting of radio receivers, computers, networking and storage.  A MW deployment consists of a [wooden "crate"](https://github.com/guycole/mellow-wombat/blob/main/grafix/crate_dimensions.png) which contains ["shelves"](https://github.com/guycole/mellow-wombat/blob/main/grafix/first_power.png) where the subsystems reside.  Mellow Wombat provides monitoring, power, network and RF distribution to the shelves.  The ["housekeeper"](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md) computer is responsible for monitoring and control of the shelves as necessary.
 
 MW is designed to fit within [Costco Storage Bin](https://costco.com/.product.4000205525.html) which are weather resistant, durable and inexpensive.  The only external resources to an "storage bin" is power and antennas.
 

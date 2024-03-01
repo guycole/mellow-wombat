@@ -30,3 +30,57 @@ grant all privileges on database mellow_v1 to mellow_admin;
 https://gist.github.com/axelbdt/74898d80ceee51b69a16b575345e8457
 
 \dt mellow.*
+
+
+postgres@rpi5a:~/15$ history
+    1  psql
+    2  docker images
+    3  psql
+    4  which createdb
+    5  createdb mellow_v1
+    6  psql mellow_v1
+    7  which createuser
+    8  man createuser
+    9  createuser -e -l -P -r -s hyena_admin
+   10  \l
+   11  psqlg
+   12  pgsql
+   13  psql
+   14  createuser -e -l -P -r -s wombat_admin
+   15  deleteuser
+   16  man createuser
+   17  dropuser wombat_admin
+   18  psql -U wombat_admin
+   19  psql -U wombat_admin -h localhost
+   20  psql -U wombat_admin -h localhost
+   21  psql
+   22  dropuser wombat_admin
+   23  dropuser hyena_admin
+   24  dropuser bogus
+   25  createuser -e -l -P -r -s wombat_admin
+   26  psql wombat_admin
+   27  psql wombat_admin -d mellow_v1;
+   28  dropdb mellow_v1;
+   29  dropdb mellow_v1;
+   30  \q
+   31  exit
+   32  psql
+   33  createuser -e -l -P -r -s wombat
+   34  createdb wombat_v1
+   35  psql
+   36  psql -U wombat -h localhost
+   37  psql -U wombat -h localhost -d wombat_v1;
+   38  man createdb
+   39  createdb -e -E UTF8 -l en_US.UTF-8 -T template0 testaroo
+   40  createdb -e -E UTF8 -l 'en_US.UTF-8' -T template0 testaroo
+   41  createdb -e -E UTF8 -l en_US -T template0 testaroo
+   42  createdb -e -E UTF8 -l 'en_US.UTF-8' -T template0 testaroo
+   43  psql
+   44  pwd
+   45  ll
+
+grant usage on schema public to public;
+grant create on schema public to public;
+
+ 1222  psql -U wombat -h localhost -d wombat_v1 < dropall.psql
+batbat
