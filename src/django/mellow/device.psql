@@ -1,0 +1,3 @@
+insert into hyena_device(altitude, latitude, longitude, name, note, retired_date, start_date) values(123, 12.34, 23.45, 'test', 'test', '3-3-2024', '3-3-2024');
+insert into hyena_device(altitude, latitude, longitude, name, note, retired_date, start_date) values(123, 12.34, 23.45, 'rpi3b-adsb-test', 'test', '3-3-2024', '3-3-2024');
+insert into hyena_device(altitude, latitude, longitude, name, note, retired_date, start_date) values(123, 12.34, 23.45, 'rpi4d-adsb-test', 'test', '3-3-2024', '3-3-2024');

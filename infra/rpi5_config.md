@@ -22,6 +22,20 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
     1. create empty ssh key so rsyn(1) can copy files without a password
         1. ```ssh-keygen -t ed25519 -C "minion@braingang.net"```
 
+1. Add ansible
+    1. apt-get install ansible
+    1. apt-get install sshpass
+
+1. Add prometheus
+    1. apt-get install prometheus
+
+1. Add postgres
+    1. apt-get install postgresql-all
+
+1. Python
+    1. apt-get install virtualenv
+    1. apt-get install gunicorn
+
 ## Debian Bookworm
 1. [changes])(https://www.debian.org/releases/bookworm/amd64/release-notes/ch-information.en.html)
 1. rsyslog is gone, replaced with journalctl (oh, this sucks...) journalctl -fe
@@ -51,9 +65,11 @@ Each crate typically has one [raspberry pi 5](https://www.raspberrypi.com/produc
 
 ## postgresql
 1. apt-get postgresql-all (postgresql 15)
+    1. ```PostgreSQL 15.6 (Debian 15.6-0+deb12u1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit```
+
 1. schema creation from django
 
-## prometheus
+## prometheus (v2.42.0)
 1. apt-get install prometheus
 
 ## rsync

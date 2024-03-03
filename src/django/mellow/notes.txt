@@ -1,35 +1,9 @@
-python manage.py runserver
-
 django-admin startproject mellow
-
 python manage.py startapp wombat
 python manage.py startapp hyena
-python manage.py startapp heeler
-python manage.py startapp manatee
 
 python manage.py migrate
-
-python manage.py makemigrations heeler
-python manage.py makemigrations hyena
-python manage.py makemigrations manatee
 python manage.py makemigrations wombat
 
-python manage.py createsuperuser
+python manage.py createsuperuser (admin/bogus)
 
-gunicorn --bind 0.0.0.0:8000 mellow.wsgi
-
-create database mellow_v1;
-create user mellow_admin with password 'bogus';
-
-alter role mellow_admin set client_encoding to 'utf8';
-alter role mellow_admin set default_transaction_isolation to 'read committed';
-alter role mellow_admin set timezone to 'UTC';
-
-\connect mellow_v1;
-CREATE SCHEMA mellow AUTHORIZATION mellow_admin;
-
-grant all privileges on database mellow_v1 to mellow_admin;
-
-https://gist.github.com/axelbdt/74898d80ceee51b69a16b575345e8457
-
-\dt mellow.*

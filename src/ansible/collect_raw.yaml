@@ -1,0 +1,11 @@
+- name: collect_raw
+  hosts: crate01
+  tasks:
+   - name: fetch fresh heeler
+     fetch:
+       src: /var/mellow/heeler/raw/*
+       dest: /var/mellow/heeler/raw
+
+   - name: print message
+     ansible.builtin.debug:
+      msg: hello world

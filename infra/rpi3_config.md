@@ -41,6 +41,9 @@ The [raspberry pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b
     1. ```static ip_address=10.168.1.82/18```
     1. ```static_routers=10.168.1.1```
     1. ```static domain_name_servers=10.168.1.1 8.8.8.8```
+  
+## prometheus (v2.42.0)
+1. apt-get install prometheus-node-exporter
 
 ## Validation
 1.  Can ping other hosts on local wombatnet (eth)

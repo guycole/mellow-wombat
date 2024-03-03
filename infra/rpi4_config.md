@@ -45,6 +45,9 @@ The [raspberry pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b
     1. ```ip address show eth0```
     1. ```ip route show default```
 
+## prometheus (v2.42.0)
+1. apt-get install prometheus-node-exporter
+
 ## Validation
 1.  Can ping other hosts on local wombatnet (eth)
 1.  Can obtain software updates via wombatnet (eth) and not via wifi

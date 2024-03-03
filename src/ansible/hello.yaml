@@ -1,0 +1,9 @@
+- name: first playbook
+  hosts: crate01
+  tasks:
+   - name: ping my hosts
+     ansible.builtin.ping:
+
+   - name: print message
+     ansible.builtin.debug:
+      msg: hello world

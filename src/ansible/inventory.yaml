@@ -7,3 +7,24 @@ crate01:
   vars:
     ansible_user: gsc
     ansible_password: bogus
+crate02:
+  hosts:
+    rpi4a:
+      ansible_host: 10.168.2.34
+    rpi4c:
+      ansible_host: 10.168.2.65
+    rpi3a:
+      ansible_host: 10.168.2.33
+  vars:
+    ansible_user: gsc
+    ansible_password: bogus
+crate03:
+  hosts:
+    rpi4b:
+      ansible_host: 10.168.3.34
+    rpi3c:
+      ansible_host: 10.168.3.33
+  vars:
+    ansible_user: gsc
+    ansible_password: bogus
+
