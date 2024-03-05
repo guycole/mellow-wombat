@@ -9,7 +9,7 @@ MW is designed to fit within [Costco Storage Bin](https://costco.com/.product.40
 Mellow Wombat can run autonomously for extended periods, and will share observations to a remote host when connectivity is restored.  MW can also be remotely tasked when connectivity exists.  The housekeeper also supports scheduled activities.  
 
 ## Deployment
-![deployment](https://github.com/guycole/mellow-wombat/blob/main/grafix/magic-draw/wombat_deployment.jpg)
+![deployment](https://github.com/guycole/mellow-wombat/blob/main/grafix/wombat_deployment.jpg)
 
 ## Shelf Catalog (Collectors)
 + [Mellow Heeler](https://github.com/guycole/mellow-wombat/blob/main/shelf/heeler.md)
