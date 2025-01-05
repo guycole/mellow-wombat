@@ -19,8 +19,8 @@ Mellow Wombat can run autonomously for extended periods, and will share observat
 + [Mellow Wombat](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)
 
 ## Crate Catalog
-| Crate                                                                     | Description (Shelves)                                      |
-| ------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | Original Mellow Wombat development container               |
-| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
-| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | Mellow Wombat system: housekeeping, heeler, hyena, manatee |
+| Crate                                                                     | Description (Shelves)                           |
+| ------------------------------------------------------------------------- | ----------------------------------------------- |
+| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | AC Power to 12V, 2 Shelves, Anderson            |
+| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | AC Power to 12V, 3 Shelves, Vallejo             |
+| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | AC Power, No Shelves: various development hosts |
