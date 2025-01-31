@@ -1,5 +1,21 @@
 from django.db import models
 
+# update
+class Heeler(models.Model):
+    bssid = models.CharField(max_length=32)
+    frequency = models.CharField(max_length=32)
+    ssid = models.CharField(max_length=32)
+    time_stamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("ssid",)
+
+    def __repr__(self):
+        return self.ssid
+
+    def __str__(self):
+        return self.ssid
+
 class Personality(models.Model):
     id = models.BigAutoField(primary_key = True)
  
