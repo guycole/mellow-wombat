@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Personality
+from .models import Host
 
-admin.site.register(Personality)
+admin.site.register(Host)

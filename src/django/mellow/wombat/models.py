@@ -1,6 +1,6 @@
 from django.db import models
 
-class Personality(models.Model):
+class Host(models.Model):
     id = models.BigAutoField(primary_key = True)
  
     crate_id = models.IntegerField()
