@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&z%ch=lq6e_13t+5^uk^@5ummgv-5no@87%+k))kys(nu$olpv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.168.1.7']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,9 +78,15 @@ WSGI_APPLICATION = 'mellow.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
+        'OPTIONS': { 'options': '-c search_path=wombat_v1' },
+        'NAME': 'wombat',
+        'USER': 'wombat_django',
+=======
         'OPTIONS': { 'options': '-c search_path=public' },
-        'NAME': 'mellow_v1',
+        'NAME': 'wombat_v1',
         'USER': 'mellow',
+>>>>>>> b3faa8a116bf8c0421a5879130463a4688c0f5af
         'PASSWORD': 'batabat',
         'HOST': 'localhost',
         'PORT': '5432',

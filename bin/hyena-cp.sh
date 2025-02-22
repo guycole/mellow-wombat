@@ -10,7 +10,11 @@
 PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
 echo "start move"
-cd /var/mellow/wombat-raw
-scp -i ~/.ssh/id_rsa gsc@192.168.1.71:~/github/mellow-hyena/aws_export/* .
+#cd /var/mellow/wombat-raw
+cd /mnt/pp1/gsc/wombat
+#scp -i ~/.ssh/id_rsa gsc@192.168.1.71:~/github/mellow-hyena/aws_export/* .
+scp -i ~/.ssh/id_rsa gsc@rpi3b:/var/mellow/* .
 echo "end move"
+#
+ scp -r -i ~/.ssh/id_rsa gsc@rpi3b:/var/mellow/* .
 #
