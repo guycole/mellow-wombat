@@ -1,0 +1,15 @@
+rpi os 32 bit 2024-11-19 (Debian Bookworm)
+
+create user account (gsc) and wifi passwords when writing usd.
+
+Update packages
+install uuid-runtime
+configure eth0 (static IP address)
+
+disable bluetooth
+
+update hosts
+update .bash_aliases
+update .ssh (github)
+
+26 JAN rpi3c add mellow skunk and update heeler
