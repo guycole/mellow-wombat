@@ -1,0 +1,57 @@
+{% extends "skunk/base.html" %}
+
+{% block taskbar %}
+    <h2>Mellow Skunk</h2>
+
+    <div>
+        {% if host_list %}
+            <table border="5" cellpadding="5">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Host Name</th>
+                        <th>Location</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for host in host_list %}
+                        <tr style="outline:thin solid">
+                            <td>{{ host.host }}</td>
+                            <td>{{ host.location }}</td>
+                            <td>{{ host.latitude }}</td>
+                            <td>{{ host.longitude }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Must define collection host</p>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if task_list %}
+            <table border="5" cellpadding="5">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for task in task_list %}
+                        <tr style="outline:thin solid">
+                            <td><a href="/skunk/{{ task.name }}">{{ task.name }}</a></td>
+                            <td>{{ task.active_flag }}</td>                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Must define collection tasks</p>
+        {% endif %}       
+    </div>
+{% endblock %}

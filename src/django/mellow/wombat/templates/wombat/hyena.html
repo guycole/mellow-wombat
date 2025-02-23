@@ -1,0 +1,31 @@
+{% extends "skunk/base.html" %}
+
+{% block taskbar %}
+    <h2>Mellow Skunk/Hyena</h2>
+  
+    <div>
+        {% if observation_list %}
+            <table border="5" cellpadding="5">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Obs Time</th>
+                        <th>Hex</th>
+                        <th>Flight</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for obs in observation_list %}
+                        <tr style="outline:thin solid">
+                            <td>{{ obs.time_stamp }}</td>
+                            <td>{{ obs.hex }}</td>
+                            <td>{{ obs.flight }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Must define hyena observation</p>
+        {% endif %}
+    </div>
+{% endblock %}
