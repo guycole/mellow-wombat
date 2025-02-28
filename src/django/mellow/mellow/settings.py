@@ -80,8 +80,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS': { 'options': '-c search_path=wombat_v1' },
         'NAME': 'wombat',
-        'USER': 'wombat_django',
-        'PASSWORD': 'batabat',
+        'USER': 'wombat_admin',
+        'PASSWORD': 'woofwoof',
         'HOST': 'localhost',
         'PORT': '5432',
     }

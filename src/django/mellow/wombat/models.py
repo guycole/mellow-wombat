@@ -1,20 +1,20 @@
 from django.db import models
 
-# update
-#class Heeler(models.Model):
-#    bssid = models.CharField(max_length=32)
-#    frequency = models.CharField(max_length=32)
-#    ssid = models.CharField(max_length=32)
-#    time_stamp = models.DateTimeField(auto_now_add=True)
-#
-#    class Meta:
-#        ordering = ("ssid",)
-#
-#    def __repr__(self):
-#        return self.ssid
-#
-#    def __str__(self):
-#        return self.ssid
+class Heeler(models.Model):
+    bssid = models.CharField(max_length=32)
+    frequency_mhz = models.CharField(max_length=32)
+    signal_dbm = models.IntegerField()
+    ssid = models.CharField(max_length=32)
+    time_stamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ("ssid",)
+
+    def __repr__(self):
+        return self.ssid
+
+    def __str__(self):
+        return self.ssid
 
 class Host(models.Model):
     id = models.BigAutoField(primary_key = True)
@@ -28,4 +28,3 @@ class Host(models.Model):
 
     def __str__(self):
         return f"{self.id} {self.crate_id} {self.crate_location} {self.crate_name}"
-
