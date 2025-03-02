@@ -1,4 +1,6 @@
 #
+psql -U postgres template1 (or psql -U gsc template1)
+#
 # (linux) su - postgres
 createuser -U postgres -d -e -l -P -r -s wombat_admin
 woofwoof
