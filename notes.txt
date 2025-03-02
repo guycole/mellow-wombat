@@ -1,0 +1,2 @@
+psql -U mellow -h localhost -d wombat_v1
+

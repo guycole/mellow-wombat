@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'hyena.apps.HyenaConfig',
     'wombat.apps.WombatConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'mellow.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +77,7 @@ WSGI_APPLICATION = 'mellow.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'OPTIONS': { 'options': '-c search_path=wombat_v1' },
+        'OPTIONS': { 'options': '-c search_path=wombat_v1,public' },
         'NAME': 'wombat',
         'USER': 'wombat_admin',
         'PASSWORD': 'woofwoof',
