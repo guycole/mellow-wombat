@@ -6,5 +6,5 @@ app_name = "wombat"
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("wombat/heeler/", views.HeelerView.as_view(), name="heeler-list"),
+    path("heeler/", views.HeelerView.as_view(), name="heeler-list"),
 ]
