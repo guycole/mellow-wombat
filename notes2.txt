@@ -13,3 +13,8 @@ step 1 install wombat package
   postgresql
   rsyslog loghost
 
+dpkg-deb --build ./mellow_wombat_package_1.0_all
+
+sudo dpkg -i mellow_package_1.0_all.deb
+
+

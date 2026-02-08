@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Title: gateway_copy.sh
+# Title: odroid-n2.sh
 # Description: odroid n2 file system load
 # Development Environment: 
 # Author: Guy Cole (guycole at gmail dot com)
@@ -24,14 +24,14 @@ root_dst_uuid="fixme"
 #
 echo "start gateway copy"
 #
-$mount $root_src /mnt/source
-$mount $root_dst /mnt/target
+$mount /dev/sda2 /mnt/source
+$mount /dev/sdb2 /mnt/target
 #
 $mkdir -p /mnt/target/boot
-$mount $boot_dst /mnt/target/boot
+$mount /dev/sdb1 /mnt/target/boot
 #
 $mkdir -p /mnt/source/boot
-$mount -o ro $boot_src /mnt/source/boot
+$mount -o ro /dev/sda1 /mnt/source/boot
 #
 $rsync -aAXH --numeric-ids --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} /mnt/source/ /mnt/target/
 #
@@ -39,5 +39,13 @@ $rsync -aHv /mnt/source/boot/ /mnt/target/boot/
 #
 # fix fstab
 #
+BOOT_UUID=$(/usr/sbin/blkid -s UUID -o value /dev/sdb1)
+ROOT_UUID=$(/usr/sbin/blkid -s UUID -o value /dev/sdb2)
+ROOT_PART_UUID=$(/usr/sbin/blkid -s PARTUUID -o value /dev/sdb2)
+#
+echo "root uuid ${ROOT_UUID}"
+echo "boot uuid ${BOOT_UUID}"
+echo "root part ${ROOT_PART_UUID}"
+
 echo "end gateway copy"
 #

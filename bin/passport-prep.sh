@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+# Title: passport-prep.sh
+# Description: prepare a 4TB passport drive for wombat gateway
+# Development Environment: 
+# Author: Guy Cole (guycole at gmail dot com)
+#
+PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin; export PATH
+#
+if [[ -z "$1" ]]; then
+    echo "Usage ./passport_prep.sh root_fs (/dev/sda)"
+    exit 1
+else
+    boot_dev="${1}1"
+    root_dev="${1}2"
+    
+    echo "boot device ${boot_dev}"
+    echo "root device ${root_dev}"
+fi
+
+if [ $(id -u) -ne 0 ]; then
+   echo "Error: must run as root"
+   exit 1
+fi
+
+echo "start passport preparation"
+#
+sfdisk $1 <<'EOF'
+label: gpt
+size=256M, type=uefi
+type=linux
+EOF
+#
+sfdisk --part-label $1 1 EFI
+sfdisk --part-label $1 2 ROOT
+#
+mkfs.vfat -F32 -n EFI $boot_dev
+mkfs.ext4 -b 4096 -L ROOT $root_dev
+#
+echo "end passport preparation"
+#
