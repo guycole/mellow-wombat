@@ -1,0 +1,15 @@
+step 0 prepare usb drive for booting odroid n2+
+  enable wifi
+  update apt
+  add rsync  
+
+step 1 install wombat package
+  ip forwarding/masqerade
+  ansible
+  dhcp?
+  docker
+  dns?
+  ntp/gps
+  postgresql
+  rsyslog loghost
+
