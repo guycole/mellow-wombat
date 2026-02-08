@@ -77,10 +77,12 @@ sed -i -E "s/root=UUID=[0-9a-fA-F-]+/root=UUID=${ROOT_UUID}/g" "${FILE_NAME}"
 #
 # cleanup
 #
+sync
 umount "${SOURCE}/boot"
 umount $SOURCE
 umount "${TARGET}/boot"
 umount $TARGET
+sync
 #
 echo "end gateway copy"
 #
