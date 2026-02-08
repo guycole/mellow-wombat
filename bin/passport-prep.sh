@@ -2,13 +2,13 @@
 #
 # Title: passport-prep.sh
 # Description: prepare a 4TB passport drive for wombat gateway
-# Development Environment: 
+# Development Environment: ubuntu 22.04.5 LTS
 # Author: Guy Cole (guycole at gmail dot com)
 #
 PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin; export PATH
 #
 if [[ -z "$1" ]]; then
-    echo "Usage ./passport_prep.sh root_fs (/dev/sda)"
+    echo "Usage ./passport-prep.sh root_fs (/dev/sda)"
     exit 1
 else
     boot_dev="${1}1"

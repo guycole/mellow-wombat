@@ -2,46 +2,61 @@
 #
 # Title: odroid-n2.sh
 # Description: odroid n2 file system load
-# Development Environment: 
+# Development Environment: ubuntu 22.04.5 LTS
 # Author: Guy Cole (guycole at gmail dot com)
+#
+# run as root, all USB devices should be unmounted
 #
 PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin; export PATH
 #
-#blkid="/usr/sbin/blkid"
-#chroot="/usr/sbin/chroot"
-#mkdir="/usr/bin/mkdir"
-#mount="/usr/bin/mount"
-#rsync="/usr/bin/rsync"
-#uuidgen="/usr/bin/uuidgen"
+# Argument validation: require exactly two string arguments
+if [[ $# -ne 2 ]]; then
+    echo "Usage: ./odroid-n2.sh <source> <target> (e.g., /dev/sda /dev/sdb)"
+    exit 1
+fi
+# Check both arguments are non-empty strings (not just whitespace)
+if [[ -z "${1// }" || -z "${2// }" ]]; then
+    echo "Error: Both arguments must be non-empty strings."
+    exit 1
+fi
+
+boot_dev="${1}1"
+root_dev="${1}2"
+echo "boot device ${boot_dev}"
+echo "root device ${root_dev}"
 #
-device_src="/dev/sda"
-boot_src="/dev/sda1" # vfat
-root_src="/dev/sda2" # ext4
-device_dst="/dev/sdb"
-boot_dst="/dev/sdb1" # vfat
-boot_dst_uuid="fixme"
-root_dst="/dev/sdb2" # ext4
-root_dst_uuid="fixme"
+if [ $(id -u) -ne 0 ]; then
+   echo "Error: must run as root"
+   exit 1
+fi
 #
 echo "start gateway copy"
 #
-mount /dev/sda2 /mnt/source
-mount /dev/sdb2 /mnt/target
+SOURCE_DEV1="${1}1"
+SOURCE_DEV2="${1}2"
+TARGET_DEV1="${2}1"
+TARGET_DEV2="${2}2"
 #
-mkdir -p /mnt/target/boot
-mount /dev/sdb1 /mnt/target/boot
+SOURCE="/mnt/source"
+TARGET="/mnt/target"
 #
-mkdir -p /mnt/source/boot
-mount -o ro /dev/sda1 /mnt/source/boot
+mount $SOURCE_DEV2 $SOURCE
+mount $TARGET_DEV2 $TARGET
 #
-rsync -aAXH --numeric-ids --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} /mnt/source/ /mnt/target/
+mkdir -p "${TARGET}/boot"
+mount $TARGET_DEV1 "${TARGET}/boot"
 #
-rsync -aHv /mnt/source/boot/ /mnt/target/boot/
+mkdir -p "${SOURCE}/boot"
+mount -o ro $SOURCE_DEV1 "${SOURCE}/boot"
+#
+rsync -aAXH --numeric-ids --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} "${SOURCE}/" "${TARGET}/"
+#
+rsync -aHv "${SOURCE}/boot/" "${TARGET}/boot/"
 #
 # fix fstab
 #
-BOOT_UUID=$(blkid -s UUID -o value /dev/sdb1)
-ROOT_UUID=$(blkid -s UUID -o value /dev/sdb2)
+BOOT_UUID=$(blkid -s UUID -o value $TARGET_DEV1)
+ROOT_UUID=$(blkid -s UUID -o value $TARGET_DEV2)
 #
 echo "root uuid ${ROOT_UUID}"
 echo "boot uuid ${BOOT_UUID}"
