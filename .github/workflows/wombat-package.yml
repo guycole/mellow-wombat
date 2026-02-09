@@ -1,0 +1,26 @@
+name: wombat package
+
+run-name: ${{ github.actor }} is testing out GitHub Actions
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Debian package
+        run: |
+          dpkg-deb --build mellow_wombat_package_1.0_all
+
+      - name: Upload .deb as release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: mellow_wombat_package_1.0_all.deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,10 @@
+Package: mellow-wombat
+Architecture: all
+Version: 1.0
+Essential: no
+Priority: optional
+Section: misc
+Maintainer: guycole <guycole@gmail.com>
+Standards-Version: 4.7.0
+Description: base mellow wombat install
+Depends: atop,build-essential,emacs,git,postgresql,tmux,uuid-runtime

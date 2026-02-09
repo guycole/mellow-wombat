@@ -1,0 +1,31 @@
+#!/bin/sh -e
+
+USER_NAME="wombat"
+GROUP_NAME="wombat"
+
+case "$1" in
+    install)
+        echo "xxx xxx install xxx xxx"
+
+        if ! getent group "${GROUP_NAME}" >/dev/null; then
+            echo "xxx xxx addgroup xxx xxx"
+            addgroup "${GROUP_NAME}"
+        fi
+
+        if ! getent passwd "${USER_NAME}" >/dev/null; then
+            echo "xxx xxx adduser xxx xxx"
+            adduser --quiet --ingroup "${GROUP_NAME}" --gecos "wombat" "${USER_NAME}"
+            usermod -aG plugdev ${USER_NAME}
+            usermod -aG sudo ${USER_NAME}
+        fi
+
+        ;;
+
+    abort-install|abort-upgrade|abort-deconfigure)
+        ;;
+
+    *)
+        echo "preinst called with unknown argument \`$1'" >&2
+        exit 1
+        ;;
+esac
