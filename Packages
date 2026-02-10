@@ -5,10 +5,10 @@ Essential: no
 Maintainer: guycole <guycole@gmail.com>
 Depends: atop,build-essential,emacs,git,postgresql,tmux,uuid-runtime
 Filename: ./mellow_wombat_package_1.0_all.deb
-Size: 1774
-MD5sum: 5a81572c0c7a6fd494170b4d0019a2d2
-SHA1: 8de1860b6ad5688ced457762651e5d0a9589cd1e
-SHA256: 4dd672f491120a759d0e31b6be3dba474c25a7dc2fd36e267411cca47fa884d8
+Size: 1804
+MD5sum: 14a694c64462d4417dc5acdec875a358
+SHA1: 93bd00ab08ba42900d1ba9477b9b93a828947d2f
+SHA256: 9f45181a3180dceba0d956cb2aa135675989ae4333ad54d216e1c40d722dcfae
 Section: misc
 Priority: optional
 Description: base mellow wombat install
