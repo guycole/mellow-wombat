@@ -2,11 +2,14 @@
 Each crate typically has one [odroid n4](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) as a wired ethernet to wifi bridge.  This is the gateway device for wombatnet, and offers a reverse proxy for mellow koala.
 
 ## Install Operating System On Thumb Drive
-1. At the end of this process, there should be a bootable USB thumb drive with most of the debian packages needed for a successful wombat deployment.
+At the end of this step, there should be a bootable USB thumb drive with most of the debian packages needed for a successful wombat deployment.
 
 1. Create an image using [balena etcher](https://github.com/balena-io/etcher) on a USB memory stick.  The current candidate is [Ubuntu Minimal 22.04.4 LTS (v4.9)](https://odroid.in/ubuntu_22.04lts/C4_HC4/ubuntu-22.04-4.9-minimal-odroid-c4-hc4-20220705.img.xz).
 
 1. Verify by booting odroid n4 from USB memory stick.  Petitboot should discover the stick and boot to Ubuntu.
+
+## Configure WiFi and perform package maintenance
+At the end of this step, the USB thumb drive will have an updated Ubuntu and the packages needed for a happy wombat.
 
 1. Install [WiFi Adapter](https://www.tp-link.com/us/home-networking/usb-adapter/archer-t2u-plus/) and verify using lsusb(8).  Configure WiFi device (wlan0) like this:
 
@@ -17,9 +20,13 @@ nmcli dev wifi connect "YOUR_SSID" password "YOUR_PASSWORD"
 nmcli dev status
 ```
 
-1. Once the WiFi is configured, update packages via apt-get(8) update/upgrade.
+1. Once the WiFi is configured, update packages via apt-get(8) update/upgrade, then install packages for wombat.
 
-1. apt-get(8) install atop,build-essential,emacs,git,postgresql,tmux,uuid-runtime
+```
+apt-get update
+apt-get upgrade -y
+apt-get install atop build-essential emacs git postgresql tmux uuid-runtime
+```
 
 1. 
 
