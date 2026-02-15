@@ -1,10 +1,25 @@
 # odroid n4 configuration
 Each crate typically has one [odroid n4](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) as a wired ethernet to wifi bridge.  This is the gateway device for wombatnet, and offers a reverse proxy for mellow koala.
 
-## Install Operating System
-1. At the end of this process, there should be a bootable USB drive with most of the debian packages needed for a successful wombat deployment.
+## Install Operating System On Thumb Drive
+1. At the end of this process, there should be a bootable USB thumb drive with most of the debian packages needed for a successful wombat deployment.
 
-1. Create an image using the [balena etcher](https://github.com/balena-io/etcher) on a USB memory stick.  Currently this is [Ubuntu Minimal 22.04.4 LTS (v4.9)](https://odroid.in/ubuntu_22.04lts/C4_HC4/ubuntu-22.04-4.9-minimal-odroid-c4-hc4-20220705.img.xz).
+1. Create an image using the [balena etcher](https://github.com/balena-io/etcher) on a USB memory stick.  The current candidate is [Ubuntu Minimal 22.04.4 LTS (v4.9)](https://odroid.in/ubuntu_22.04lts/C4_HC4/ubuntu-22.04-4.9-minimal-odroid-c4-hc4-20220705.img.xz).
+
+1. Verify by booting odroid n4 from USB memory stick.  Petitboot should discover the stick and boot to Ubuntu.
+
+1. Install [WiFi Adapter](https://www.tp-link.com/us/home-networking/usb-adapter/archer-t2u-plus/) and verify using lsusb(8).  Configure 
+
+```
+nmcli radio wifi on
+nmcli dev wifi list
+nmcli dev wifi connect "YOUR_SSID" password "YOUR_PASSWORD"
+nmcli dev status
+```
+
+1. 
+
+## xxxxxxx
 
 1. Use the [passport-prep.sh](https://github.com/guycole/mellow-wombat/blob/main/bin/passport-prep.sh) script to partition the 4TB [Western Digital Passport USB Drive](https://www.westerndigital.com/products/portable-drives/wd-my-passport-usb-3-0-hdd?sku=WDBPKJ0040BBK-WESN).
 
@@ -14,8 +29,6 @@ Each crate typically has one [odroid n4](https://www.hardkernel.com/shop/odroid-
 1. At the end of this process, there should be WiFi connectivity and the mellow-wombat debian package installed.
 
 1. Login as root/odroid.  
-
-1. Install [WiFi Adapter](https://www.tp-link.com/us/home-networking/usb-adapter/archer-t2u-plus/) and verify using lsusb(8).
 
 1. Configure WiFi using netplan
 nmcli connection show
