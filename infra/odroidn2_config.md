@@ -6,7 +6,7 @@ At the end of this step, there should be a bootable USB thumb drive with most of
 
 1. Create an image using [balena etcher](https://github.com/balena-io/etcher) on a USB memory stick.  The current candidate is [Ubuntu Minimal 22.04.4 LTS (v4.9)](https://odroid.in/ubuntu_22.04lts/C4_HC4/ubuntu-22.04-4.9-minimal-odroid-c4-hc4-20220705.img.xz).
 
-1. Verify by booting odroid n4 from USB memory stick.  Petitboot should discover the stick and boot to Ubuntu.
+1. Verify by booting odroid n4 from USB memory stick.  Petitboot should discover the stick and boot to Ubuntu.  Ensure MMC/SPI slide switch is set to SPI.
 
 ## Configure WiFi and perform package maintenance
 At the end of this step, the USB thumb drive will have an updated Ubuntu and the packages needed for a happy wombat.
@@ -20,15 +20,27 @@ nmcli dev wifi connect "YOUR_SSID" password "YOUR_PASSWORD"
 nmcli dev status
 ```
 
-1. Once the WiFi is configured, update packages via apt-get(8) update/upgrade, then install packages for wombat.
+1. Once the WiFi is configured, update packages via apt-get(8) update/upgrade, then install debian packages for wombat.
 
 ```
-apt-get update
-apt-get upgrade -y
-apt-get install atop build-essential emacs git postgresql tmux uuid-runtime
+apt-get update && upgrade -y
+apt-get install -y atop build-essential emacs git postgresql tmux uuid-runtime
+apt-get install -y cmake libusb-1.0-0-dev virtualenv
+
+apt-get install -y software-properties-common
+apt-add-repository --yes --update ppa:ansible/ansible
+apt-get install -y ansible
+
 ```
 
-1. 
+1. Install debian mellow packages
+
+```
+(as root) wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
+(as root) echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
+apt update
+apt install mellow-wombat
+```
 
 
 ## xxxxxxx
