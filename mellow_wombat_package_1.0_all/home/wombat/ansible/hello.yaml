@@ -1,0 +1,10 @@
+---
+- name: hello
+  hosts: crate03
+  tasks:
+   - name: ping hosts
+     ansible.builtin.ping:
+
+   - name: print message
+     ansible.builtin.debug:
+       msg: hello world

@@ -1,0 +1,12 @@
+---
+- name: shutdown 
+  hosts: crate03
+  become: true
+  become_user: root
+  tasks:
+   - name: shutdown
+     community.general.shutdown:
+
+   - name: print message
+     ansible.builtin.debug:
+       msg: shutdown
