@@ -1,5 +1,5 @@
 # odroid n4 configuration
-Each crate typically has one [odroid n4](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) as a wired ethernet to wifi bridge.  This is the gateway device for wombatnet, and offers a reverse proxy for mellow koala.
+Each crate typically has one [odroid n4](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) as a wired ethernet (wombatnet) to wifi bridge.  Called the gateway it offers routing for collectors to get updates and a reverse proxy for mellow koala.
 
 ## Install Operating System On Thumb Drive
 At the end of this step, there should be a bootable USB thumb drive with most of the debian packages needed for a successful wombat deployment.
@@ -9,7 +9,7 @@ At the end of this step, there should be a bootable USB thumb drive with most of
 1. Verify by booting odroid n4 from USB memory stick.  Petitboot should discover the stick and boot to Ubuntu.  Ensure MMC/SPI slide switch is set to SPI.
 
 ## Configure WiFi and perform package maintenance
-At the end of this step, the USB thumb drive will have an updated Ubuntu and the packages needed for a happy wombat.
+At the end of this step, the bootable USB thumb drive will have an updated Ubuntu and the packages needed for a happy wombat.
 
 1. Install [WiFi Adapter](https://www.tp-link.com/us/home-networking/usb-adapter/archer-t2u-plus/) and verify using lsusb(8).  Configure WiFi device (wlan0) like this:
 
@@ -27,20 +27,29 @@ apt-get update && upgrade -y
 apt-get install -y atop build-essential emacs git postgresql tmux uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 
-apt-get install -y software-properties-common
 apt-add-repository --yes --update ppa:ansible/ansible
 apt-get install -y ansible
 
-apt install iptables-persistent
+apt-get install iptables-persistent
 ```
 
-1. Install debian mellow packages
+## Install debian mellow wombat package
+This step installs the debian mellow wombat package, which creates the wombat user.
+
+1. Install debian mellow wombat packages
 
 ```
 (as root) wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
 (as root) echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
 apt update
 apt install mellow-wombat
+```
+
+1. Create the GitHub key for access.  Each gateway needs a dedicated key.  Example is within wombat account.  Then clone the wombat github repository.
+
+```
+ssh-keygen -t ed25519 -C "guycole@gmail.com"
+git clone git@github.com:guycole/mellow-wombat.git
 ```
 
 ## Configure for Masquerade and eth0/wlan0 bridge
@@ -94,6 +103,25 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ping -c 5 8.8.8.8
 curl -v -L https://www.zapanote.com
 ```
+
+## Checkpoint
+At this point, the candidate wombat gateway should have
+
+1. Boot from USB thumb drive
+1. Access outside internet via WiFi
+1. Freshly updated packages (including mellow-wombat)
+1. IP Masquerade works from collectors on eth0
+
+## Boot from USB Passport Drive
+Prepare and move to a bootable USB Passport Drive
+
+1. Insert the USB Passport drive, unmount any filesystems from the drive
+1. Invoke the [passport-prep.sh](https://github.com/guycole/mellow-wombat/blob/main/bin/passport-prep.sh) script to partition and format drive
+1. Insert the bootable USB thumb drive (from above), unmount any filesystems from the drive
+1. Invoke the [odroid-n2.sh](https://github.com/guycole/mellow-wombat/blob/main/bin/odroid-n2.sh) script to copy from thumb drive to passport
+1. Install the Passport drive on gateway n2 and verify boot
+
+
 
 ## START HERE
 
