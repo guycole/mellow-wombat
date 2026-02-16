@@ -45,14 +45,7 @@ apt update
 apt install mellow-wombat
 ```
 
-1. Create the GitHub key for access.  Each gateway needs a dedicated key.  Example is within wombat account.  Then clone the wombat github repository.
-
-```
-ssh-keygen -t ed25519 -C "guycole@gmail.com"
-git clone git@github.com:guycole/mellow-wombat.git
-```
-
-## Configure for Masquerade and eth0/wlan0 bridge
+## Configure for IP Masquerade and eth0/wlan0 bridge
 At the end of this step, the wired collectors should have access to the outside world via gateway and IP Masquerade.  Note the internet consensus is to create a file for netplan (which did not work).  nmtui was a success.
 
 1. Connect a wired collector via ethernet.  Should have a static IP to match wombatnet.
@@ -121,7 +114,14 @@ Prepare and move to a bootable USB Passport Drive
 1. Invoke the [odroid-n2.sh](https://github.com/guycole/mellow-wombat/blob/main/bin/odroid-n2.sh) script to copy from thumb drive to passport
 1. Install the Passport drive on gateway n2 and verify boot
 
+## Wombat Account Setup
+When the "mellow-wombat" package was installed, the "wombat" user account was created.  The "wombat" account is used for running wombat jobs, managing the collectors via ansible, etc.
 
+1. Create the GitHub key for access.  Each gateway needs a dedicated key, login as wombat, create the key and add to GitHub.  Then clone the mellow-wombat repo.
+```
+ssh-keygen -t ed25519 -C "guycole@gmail.com"
+git clone git@github.com:guycole/mellow-wombat.git
+```
 
 ## START HERE
 
