@@ -21,6 +21,11 @@ case "$1" in
 
         ;;
 
+    upgrade)
+        echo "xxx xxx upgrade xxx xxx"
+
+        ;;
+
     abort-install|abort-upgrade|abort-deconfigure)
         ;;
 

@@ -7,4 +7,4 @@ Section: misc
 Maintainer: guycole <guycole@gmail.com>
 Standards-Version: 4.7.0
 Description: base mellow wombat install
-Depends: atop,build-essential,emacs,git,postgresql,tmux,uuid-runtime
+Depends: atop,build-essential,cmake,emacs,git,libusb-1.0-0-dev,postgresql,tmux,uuid-runtime,virtualenv
