@@ -1,3 +1,5 @@
+wombat package creates wombat user account
+
 # mellow-wombat
 Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler), [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
