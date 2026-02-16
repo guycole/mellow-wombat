@@ -31,6 +31,7 @@ apt-get install -y software-properties-common
 apt-add-repository --yes --update ppa:ansible/ansible
 apt-get install -y ansible
 
+apt install iptables-persistent
 ```
 
 1. Install debian mellow packages
@@ -41,6 +42,63 @@ apt-get install -y ansible
 apt update
 apt install mellow-wombat
 ```
+
+## Configure for Masquerade and eth0/wlan0 bridge
+At the end of this step, the wired collectors should have access to the outside world via gateway and IP Masquerade.  Note the internet consensus is to create a file for netplan (which did not work).  nmtui was a success.
+
+1. Connect a wired collector via ethernet.  Should have a static IP to match wombatnet.
+
+1. Update /etc/sysctl.conf
+
+```
+edit /etc/sysctl.conf
+net.ipv4.ip_forward=1
+sysctl -b
+```
+
+1. Masquerade rules
+```
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+iptables -A FORWARD -i wlan0 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+netfilter-persistent save
+```
+
+```
+iptables --list
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere            
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination    
+```
+
+1. On a wired (ethernet) collector
+
+```
+route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.168.2.1      0.0.0.0         UG    100    0        0 eth0
+10.168.2.1      0.0.0.0         255.255.255.255 UH    100    0        0 eth0
+```
+
+1. On a wired (ethernet) collector
+
+```
+ping -c 5 8.8.8.8
+curl -v -L https://www.zapanote.com
+```
+
+## START HERE
+
+
+1. Install 50-cloud-init.yaml, then netplan apply
 
 
 ## xxxxxxx
