@@ -23,7 +23,7 @@ nmcli dev status
 1. Once the WiFi is configured, update packages via apt-get(8) update/upgrade, then install debian packages for wombat.
 
 ```
-apt-get update && upgrade -y
+apt-get update && apt-get upgrade -y
 apt-get install -y atop build-essential emacs git postgresql tmux uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 
@@ -31,6 +31,22 @@ apt-add-repository --yes --update ppa:ansible/ansible
 apt-get install -y ansible
 
 apt-get install iptables-persistent
+```
+
+## Install docker
+Because we need containers
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+apt-get update
+
+apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+usermod -aG docker wombat
+docker run hello-world
 ```
 
 ## Install debian mellow wombat package
@@ -48,7 +64,7 @@ apt install mellow-wombat
 ## Configure for IP Masquerade and eth0/wlan0 bridge
 At the end of this step, the wired collectors should have access to the outside world via gateway and IP Masquerade.  Note the internet consensus is to create a file for netplan (which did not work).  nmtui was a success.
 
-1. Define hostname
+1. Define hostname (using nmtui)
 
 1. Connect a wired collector via ethernet.  Should have a static IP to match wombatnet.
 

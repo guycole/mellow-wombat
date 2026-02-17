@@ -33,7 +33,7 @@ curl -v -L https://www.zapanote.com
 Update Debian and Mellow Package
 
 ```
-apt-get update && upgrade -y
+apt-get update && apt-get upgrade -y
 apt-get install -y atop build-essential git tmux uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 ```
@@ -41,8 +41,8 @@ apt-get install -y cmake libusb-1.0-0-dev virtualenv
 ```
 wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
 echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
-apt update
-apt install mellow-wombat
+apt-get update
+apt-get install mellow-wombat
 ```
 
 ## Configure Wombat User Account
