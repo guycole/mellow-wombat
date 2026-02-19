@@ -1,0 +1,17 @@
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+      - 10.168.2.1/18
+
+  wifis:
+    wlan0:
+      dhcp4: yes
+      optional: true
+      access-points:
+        "braingang2":
+          password: "bogus"
