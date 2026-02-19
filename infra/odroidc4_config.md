@@ -1,5 +1,5 @@
 # Odroid c4 Configuration
-The [odroid c4](https://www.hardkernel.com/shop/odroid-c4/) is a SBC used by mellow as a collector.  These are configured to use ethernet to gateway.  The gateway manages and supports collectors and will provide outside connectivity (if available) location, time, tasking, etc.  
+The [odroid c4](https://www.hardkernel.com/shop/odroid-c4/) is a SBC used by mellow as a collector.  
 
 ## Configuration Steps
 At the end of this step, the collector will be provisioned with a static IP address and a wombat account.  Mellow applications will run as the wombat user, so github will also be provisioned.
@@ -34,7 +34,7 @@ Update Debian and Mellow Package
 
 ```
 apt-get update && apt-get upgrade -y
-apt-get install -y atop build-essential git tmux uuid-runtime
+apt-get install -y atop build-essential git rsyslog tmux uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 ```
 
