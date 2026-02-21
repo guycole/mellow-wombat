@@ -1,0 +1,67 @@
+{
+    "creationEpochTime":1771695427,
+    "creationIso8601Time": "blah",
+    "project":"wombat",
+    "schemaVersion":1,
+    "crate": [
+	{
+	    "id": 1,
+	    "location": "barn",
+	    "multicoupler": {
+		"antenna": "discone",
+		"type": "MCA208M"
+	    },
+	    "sbc": [
+		{
+
+		    "eth0": "10.168.1.1",
+		    "gps": "None",
+		    "name": "xxx",
+		    "role": "gateway",
+		    "storage": "4 TB Passport",
+		    "type": "odroid n2",
+		    "wifi": "AC600"
+		},
+		{
+		  
+		    "eth0": "10.168.1.1",
+		    "name": "odroidc4c",
+		    "role": "collector",
+		    "storage": "16 GB microSD",
+		    "type": "odroid c4",
+		    "wifi": "None",
+		    "receiver": {
+			"id": 1,
+			"type": "rtl-sdr-v3",
+			"antenna": "multicoupler"
+		    }
+		},
+		{  
+		    "eth0": "10.168.1.1",
+		    "name": "rpi4c",
+		    "role": "collector",
+		    "storage": "16 GB microSD",
+		    "type": "rpi4",
+		    "wifi": "None",
+		    "receiver": {
+			"id": 1,
+			"type": "rtl-sdr-v3",
+			"antenna": "multicoupler"
+		    }
+		}
+	    ]
+	},
+	{
+	    "id": 2,
+	    "location": "barn"
+	},
+	{
+	    "id": 3,
+	    "location": "barn"
+	},
+	{
+	    "id": 4,
+	    "location": "barn"
+	}
+    ]
+}
