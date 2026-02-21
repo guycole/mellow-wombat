@@ -38,19 +38,6 @@ apt-get install -y ansible
 apt-get install iptables-persistent
 ```
 
-## Configure Gateway Loghost
-Gateway acts as loghost for the crate
-
-```
-mkdir /var/log/wombat
-chown syslog:adm /var/log/wombat
-copy 13-wombatnet.conf /etc/rsyslog.d
-systemctl restart rsyslog
-iptables -A INPUT -p udp --dport 514 -j ACCEPT
-iptables -A INPUT -p tcp --dport 514 -j ACCEPT
-netfilter-persistent save
-```
-
 ### Install docker
 Install and test docker
 
@@ -119,18 +106,30 @@ ping -c 5 8.8.8.8
 curl -v -L https://www.zapanote.com
 ```
 
-Must Also test logging
+### Configure Gateway Loghost
+Gateway acts as loghost for the crate
 
-## Checkpoint
+```
+mkdir /var/log/wombat
+chown syslog:adm /var/log/wombat
+copy 13-wombatnet.conf /etc/rsyslog.d
+systemctl restart rsyslog
+iptables -A INPUT -p udp --dport 514 -j ACCEPT
+iptables -A INPUT -p tcp --dport 514 -j ACCEPT
+netfilter-persistent save
+logger "test" (and ensure message appears at loghost)
+```
+
+### Checkpoint
 At this point, the candidate wombat gateway should have
 
 1. Boot from USB thumb drive
 1. Access outside internet via WiFi
 1. Freshly updated packages (including mellow-wombat)
 1. IP Masquerade works from collectors on eth0
-1. Remote loggingd
+1. Remote logging
 
-## Boot from USB Passport Drive
+### Boot from USB Passport Drive
 Prepare and move to a bootable USB Passport Drive
 
 1. Insert the USB Passport drive, unmount any filesystems from the drive
@@ -139,14 +138,23 @@ Prepare and move to a bootable USB Passport Drive
 1. Invoke the [odroid-n2.sh](https://github.com/guycole/mellow-wombat/blob/main/bin/odroid-n2.sh) script to copy from thumb drive to passport
 1. Install the Passport drive on gateway n2 and verify boot
 
-## Install debian mellow wombat package
+### Set Hostname
+Now update hostname from odroid to wombatXX
+
+```
+hostnamectl set-hostname wombat03
+edit /etc/hosts
+hostnamectl (to verify)
+```
+
+### Install debian mellow wombat package
 This step installs the debian mellow wombat package, which creates the wombat user.
 
 1. Install debian mellow wombat packages
 
 ```
-(as root) wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
-(as root) echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
+wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
 apt update
 apt install mellow-wombat
 usermod -aG docker wombat
