@@ -129,7 +129,7 @@ At this point, the candidate wombat gateway should have
 1. IP Masquerade works from collectors on eth0
 1. Remote logging
 
-### Boot from USB Passport Drive
+## Boot from USB Passport Drive
 Prepare and move to a bootable USB Passport Drive
 
 1. Insert the USB Passport drive, unmount any filesystems from the drive
@@ -147,7 +147,7 @@ edit /etc/hosts
 hostnamectl (to verify)
 ```
 
-### Install debian mellow wombat package
+### Install Debian Mellow Wombat Package
 This step installs the debian mellow wombat package, which creates the wombat user.
 
 1. Install debian mellow wombat packages
@@ -160,7 +160,7 @@ apt install mellow-wombat
 usermod -aG docker wombat
 ```
 
-## Wombat Account Setup
+### Wombat Account Setup
 When the "mellow-wombat" package was installed, the "wombat" user account was created.  The "wombat" account is used for running wombat jobs, managing the collectors via ansible, etc.
 
 1. Create the GitHub key for access.  Each gateway needs a dedicated key, login as wombat, create the key and add to GitHub.  Then clone the mellow-wombat repo.
@@ -171,7 +171,5 @@ git clone git@github.com:guycole/mellow-wombat.git
 
 1. Configure AWS account.  Each gateway has a dedicated AWS key.
 
-## Prepare Ansible
+### Prepare Ansible
 The gateway is also an ansible control node for the collectors in this crate.
-
-need syslog config

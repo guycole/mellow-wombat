@@ -17,7 +17,7 @@ alias ping8="ping -c 5 8.8.8.8"
 alias pscript="ps -ef | grep script"
 #
 alias cdgh="cd /home/wombat/Documents/github"
-alias varmel="cd /var/mellow"
+alias varbat="cd /var/wombat"
 #
 alias heeler="cd /home/wombat/Documents/github/mellow-heeler"
 alias hyena="cd /home/wombat/Documents/github/mellow-hyena"

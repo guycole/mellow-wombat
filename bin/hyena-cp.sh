@@ -1,20 +1,20 @@
 #!/bin/bash
 #
-# Title: hyena-cp.sh
-# Description: copy files from hyena to wombat
-# Development Environment: macOS Monterey 12.6.9
+# Title: hyena-mv.sh
+# Description: copy files from collector to gateway
+# Development Environment: ubuntu 22.04.05 LTS
 # Author: Guy Cole (guycole at gmail dot com)
-#
-# http://www.linuxproblem.org/art_9.html
 #
 PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
-echo "start move"
-#cd /var/mellow/wombat-raw
-cd /mnt/pp1/gsc/wombat
-#scp -i ~/.ssh/id_rsa gsc@192.168.1.71:~/github/mellow-hyena/aws_export/* .
-scp -i ~/.ssh/id_rsa gsc@rpi3b:/var/mellow/* .
-echo "end move"
+DEST_DIR=/var/wombat/hyena/fresh
+SRC_DIR=/var/wombat/hyena
 #
- scp -r -i ~/.ssh/id_rsa gsc@rpi3b:/var/mellow/* .
+echo "start move"
+#
+rsync -av --remove-source-files wombat@odroidc4c:${SRC_DIR} ${DEST_DIR}
+rsync -av wombat@odroidc4c:${SRC_DIR} ${DEST_DIR}
+
+#
+echo "end move"
 #
