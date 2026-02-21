@@ -32,8 +32,6 @@ apt-get update && apt-get upgrade -y
 apt-get install -y atop build-essential emacs git postgresql tmux uuid-runtime
 apt-get install -y awscli cmake libusb-1.0-0-dev virtualenv
 
-rsyslog?
-
 apt-add-repository --yes --update ppa:ansible/ansible
 apt-get install -y ansible
 
@@ -44,8 +42,13 @@ apt-get install iptables-persistent
 Gateway acts as loghost for the crate
 
 ```
-copy 13-loghost.conf /etc/rsyslog.d
-setup firewall rules
+mkdir /var/log/wombat
+chown syslog:adm /var/log/wombat
+copy 13-wombatnet.conf /etc/rsyslog.d
+systemctl restart rsyslog
+iptables -A INPUT -p udp --dport 514 -j ACCEPT
+iptables -A INPUT -p tcp --dport 514 -j ACCEPT
+netfilter-persistent save
 ```
 
 ### Install docker
@@ -60,7 +63,7 @@ echo "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.d
 apt-get update
 
 apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-usermod -aG docker wombat
+(reboot to start docker.service)
 docker run hello-world
 ```
 
@@ -76,7 +79,7 @@ At the end of this step, the wired collectors should have access to the outside 
 ```
 edit /etc/sysctl.conf
 net.ipv4.ip_forward=1
-sysctl -b
+sysctl -p /etc/sysctl.conf
 ```
 
 1. Masquerade rules
@@ -146,6 +149,7 @@ This step installs the debian mellow wombat package, which creates the wombat us
 (as root) echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
 apt update
 apt install mellow-wombat
+usermod -aG docker wombat
 ```
 
 ## Wombat Account Setup
