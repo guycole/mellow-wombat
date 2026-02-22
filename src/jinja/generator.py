@@ -77,21 +77,8 @@ class Generator:
                 self.write_hosts_file(inventory)
             elif task == "collect":
                 self.write_collect_file(inventory)
-            elif task == "rsync":
-                print("rsync")
             else:
                 print("unknown task")
-
-#        print(epoch_seconds)
-#        dt_object_utc = datetime.datetime.fromtimestamp(epoch_seconds, tz=zoneinfo.ZoneInfo("UTC"))
-#        iso8601_timestamp = dt_object_utc.isoformat()
-#        print(iso8601_timestamp)
-
-#        jh = json_helper.JsonHelper()
-#        payload = jh.json_reader(file_name)
-#        print(payload)
-#        print(type(payload))
-#        jh.json_writer("output.json", payload)
 
 print("start")
 
