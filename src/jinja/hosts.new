@@ -1,0 +1,18 @@
+#
+# generated for: wombat02
+# epoch: 1771723168
+# ISO8601: 2026-02-22T01:19:28+00:00
+#
+127.0.0.1	localhost
+127.0.1.1	wombat02
+#
+::1		localhost ip6-localhost ip6-loopback
+ff02::1		ip6-allnodes
+ff02::2		ip6-allrouters
+#
+10.168.2.1	n2a
+10.168.2.101	c4c
+10.168.2.103	c4d
+10.168.2.105	pi4c
+10.168.2.107	pi4d
+#

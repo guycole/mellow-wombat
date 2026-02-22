@@ -7,8 +7,8 @@
 #
 PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
-DEST_DIR=/var/wombat/hyena/fresh
-SRC_DIR=/var/wombat/hyena
+DEST_DIR=/var/wombat
+SRC_DIR=/var/wombat/fresh
 #
 echo "start move"
 #
@@ -18,3 +18,12 @@ rsync -av wombat@odroidc4c:${SRC_DIR} ${DEST_DIR}
 #
 echo "end move"
 #
+DEST_DIR=/var/wombat
+SRC_DIR=/var/wombat/fresh
+#
+rsync -av --remove-source-files wombat@c4c:${SRC_DIR} ${DEST_DIR}
+rsync -av --remove-source-files wombat@c4d:${SRC_DIR} ${DEST_DIR}
+rsync -av --remove-source-files wombat@pi4c:${SRC_DIR} ${DEST_DIR}
+rsync -av --remove-source-files wombat@pi4d:${SRC_DIR} ${DEST_DIR}
+#
+wombat@wombat02:720>
