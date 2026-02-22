@@ -1,1 +1,0 @@
-beaglebone black for GPS and time

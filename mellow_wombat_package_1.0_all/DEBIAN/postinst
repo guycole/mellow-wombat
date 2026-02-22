@@ -4,10 +4,7 @@ case "$1" in
     configure)
         echo "xxx xxx configure xxx xxx"
 
-        chown wombat:crontab wombat
-
-        chown wombat:wombat /home/wombat/.bash_aliases
-        chown -R wombat:wombat /home/wombat/Documents
+        chown -R wombat:wombat /home/wombat
 
         chown -R wombat:wombat /var/wombat
 

@@ -1,9 +1,0 @@
-django-admin startproject mellow
-python manage.py startapp wombat
-python manage.py startapp hyena
-
-python manage.py migrate
-python manage.py makemigrations wombat
-
-python manage.py createsuperuser (admin/bogus)
-
