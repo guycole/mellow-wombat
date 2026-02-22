@@ -5,8 +5,7 @@ network:
   ethernets:
     eth0:
       dhcp4: no
-      addresses:
-      - 10.168.2.1/18
+      addresses: [10.168.2.1/18]
 
   wifis:
     wlan0:

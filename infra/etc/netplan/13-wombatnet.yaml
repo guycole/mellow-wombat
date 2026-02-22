@@ -1,0 +1,14 @@
+# use for odroid collectors
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses: [10.168.2.101/18]
+      routes:
+        - to: default
+          via: 10.168.2.1
+      nameservers:
+        addresses: [8.8.8.8]

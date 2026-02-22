@@ -63,7 +63,7 @@
                 },
                 {
                     "eth0": "10.168.2.107",
-                    "name": "pi4d",
+                    "name": "pi4o",
                     "role": "collector",
                     "storage": "16 GB microSD",
                     "type": "rpi4",
