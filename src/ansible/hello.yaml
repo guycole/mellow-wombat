@@ -1,5 +1,5 @@
 - name: first playbook
-  hosts: crate01
+  hosts: crate02
   tasks:
    - name: ping my hosts
      ansible.builtin.ping:

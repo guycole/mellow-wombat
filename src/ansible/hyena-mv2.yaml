@@ -1,0 +1,11 @@
+---
+- name: fetch collected hyena files
+  hosts: crate02
+  gather_facts: false 
+
+  tasks:
+   - name: fetch hyena files
+     ansible.posix.synchronize:
+       src: /var/wombat/hyena/*
+       dest: /var/wombat/hyena/fresh
+       mode: pull
