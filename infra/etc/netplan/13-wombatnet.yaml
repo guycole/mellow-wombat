@@ -1,0 +1,22 @@
+oot@odroid:/etc/netplan# cat 13*
+network:
+  version: 2
+  renderer: networkd
+
+  ethernets:
+    eth0:
+      dhcp4: no
+      addresses:
+      - 10.168.2.1/18
+      nameservers:
+        addresses: [8.8.8.8]
+  wifis:
+    wlan0:
+      dhcp4: yes
+      access-points:
+        "braingang":
+          password: "redacted"
+        "ATTebV5XEa":
+          password: "redacted"
+        "TMOBILE-F441":
+          password: "redacted"

@@ -163,6 +163,13 @@ git clone git@github.com:guycole/mellow-wombat.git
 
 1. Configure AWS account.  Each gateway has a dedicated AWS key.
 
+## Prometheus
+Prometheus is easy to install, this will also start the node exporter for the gateway.
+```
+apt-get install prometheus
+http://192.168.1.107:9090/classic/graph?g0.range_input=1h&g0.expr=node_cpu_seconds_total&g0.tab=0
+```
+
 ## Prepare Ansible
 The gateway is also an ansible control node for the collectors in this crate.
 

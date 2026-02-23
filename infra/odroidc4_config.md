@@ -48,5 +48,12 @@ apt-get install mellow-wombat
 ## Configure Wombat User Account
 Wombat users all share same github GPG key for crate.  There is also a RSA key for ansible.  Copy these from gateway.
 
+## Prometheus node exporter
+Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gateway
+
+```
+apt-get install prometheus-node-exporter
+```
+
 ## Ansible Test
 Invoke ping-crate.sh for the target crate
