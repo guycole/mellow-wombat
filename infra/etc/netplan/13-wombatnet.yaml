@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 oot@odroid:/etc/netplan# cat 13*
+=======
+# use for odroid collectors
+>>>>>>> 168c7f2abdcf578774031d84d9cedf24624ace50
 network:
   version: 2
   renderer: networkd
@@ -6,6 +10,7 @@ network:
   ethernets:
     eth0:
       dhcp4: no
+<<<<<<< HEAD
       addresses:
       - 10.168.2.1/18
       nameservers:
@@ -20,3 +25,11 @@ network:
           password: "redacted"
         "TMOBILE-F441":
           password: "redacted"
+=======
+      addresses: [10.168.2.101/18]
+      routes:
+        - to: default
+          via: 10.168.2.1
+      nameservers:
+        addresses: [8.8.8.8]
+>>>>>>> 168c7f2abdcf578774031d84d9cedf24624ace50

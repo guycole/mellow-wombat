@@ -1,0 +1,11 @@
+---
+crate02:
+  hosts:
+    odroidc4c:
+      ansible_host: 10.168.2.101
+    odroidc4d:
+      ansible_host: 10.168.2.103
+    rpi4c:
+      ansible_host: 10.168.2.105
+    rpi4d:
+      ansible_host: 10.168.2.107

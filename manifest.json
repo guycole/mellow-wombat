@@ -1,0 +1,13 @@
+{
+  "project": "wombat",
+  "timestamp": 1739564402,
+  "version": 1,
+  "inventory": {
+    "crates": [ {
+        "gateway": {"hostname": "bogus"},
+        "collectors": [
+            {"hostname": "bogus"}
+        ]
+    }, {}]
+  }
+}

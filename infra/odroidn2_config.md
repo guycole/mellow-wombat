@@ -38,19 +38,6 @@ apt-get install -y ansible
 apt-get install iptables-persistent
 ```
 
-## Configure Gateway Loghost
-Gateway acts as loghost for the crate
-
-```
-mkdir /var/log/wombat
-chown syslog:adm /var/log/wombat
-copy 13-wombatnet.conf /etc/rsyslog.d
-systemctl restart rsyslog
-iptables -A INPUT -p udp --dport 514 -j ACCEPT
-iptables -A INPUT -p tcp --dport 514 -j ACCEPT
-netfilter-persistent save
-```
-
 ### Install docker
 Install and test docker
 
@@ -119,16 +106,28 @@ ping -c 5 8.8.8.8
 curl -v -L https://www.zapanote.com
 ```
 
-Must Also test logging
+### Configure Gateway Loghost
+Gateway acts as loghost for the crate
 
-## Checkpoint
+```
+mkdir /var/log/wombat
+chown syslog:adm /var/log/wombat
+copy 13-wombatnet.conf /etc/rsyslog.d
+systemctl restart rsyslog
+iptables -A INPUT -p udp --dport 514 -j ACCEPT
+iptables -A INPUT -p tcp --dport 514 -j ACCEPT
+netfilter-persistent save
+logger "test" (and ensure message appears at loghost)
+```
+
+### Checkpoint
 At this point, the candidate wombat gateway should have
 
 1. Boot from USB thumb drive
 1. Access outside internet via WiFi
 1. Freshly updated packages (including mellow-wombat)
 1. IP Masquerade works from collectors on eth0
-1. Remote loggingd
+1. Remote logging
 
 ## Boot from USB Passport Drive
 Prepare and move to a bootable USB Passport Drive
@@ -139,20 +138,29 @@ Prepare and move to a bootable USB Passport Drive
 1. Invoke the [odroid-n2.sh](https://github.com/guycole/mellow-wombat/blob/main/bin/odroid-n2.sh) script to copy from thumb drive to passport
 1. Install the Passport drive on gateway n2 and verify boot
 
-## Install debian mellow wombat package
+### Set Hostname
+Now update hostname from odroid to wombatXX
+
+```
+hostnamectl set-hostname wombat03
+edit /etc/hosts
+hostnamectl (to verify)
+```
+
+### Install Debian Mellow Wombat Package
 This step installs the debian mellow wombat package, which creates the wombat user.
 
 1. Install debian mellow wombat packages
 
 ```
-(as root) wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
-(as root) echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
+wget -O - https://guycole.github.io/mellow-wombat/KEY.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/mellow-wombat.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/mellow-wombat.gpg] https://guycole.github.io/mellow-wombat ./" | tee /etc/apt/sources.list.d/mellow-wombat.list
 apt update
 apt install mellow-wombat
 usermod -aG docker wombat
 ```
 
-## Wombat Account Setup
+### Wombat Account Setup
 When the "mellow-wombat" package was installed, the "wombat" user account was created.  The "wombat" account is used for running wombat jobs, managing the collectors via ansible, etc.
 
 1. Create the GitHub key for access.  Each gateway needs a dedicated key, login as wombat, create the key and add to GitHub.  Then clone the mellow-wombat repo.
@@ -163,14 +171,12 @@ git clone git@github.com:guycole/mellow-wombat.git
 
 1. Configure AWS account.  Each gateway has a dedicated AWS key.
 
-## Prometheus
+### Prometheus
 Prometheus is easy to install, this will also start the node exporter for the gateway.
 ```
 apt-get install prometheus
 http://192.168.1.107:9090/classic/graph?g0.range_input=1h&g0.expr=node_cpu_seconds_total&g0.tab=0
 ```
 
-## Prepare Ansible
+### Prepare Ansible
 The gateway is also an ansible control node for the collectors in this crate.
-
-need syslog config

@@ -1,0 +1,3 @@
+#
+*/6 * * * * /home/wombat/Documents/github/mellow-wombat/bin/collection02.sh > /dev/null 2>&1
+#
