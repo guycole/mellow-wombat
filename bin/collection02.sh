@@ -11,5 +11,5 @@ SRC_DIR=/var/wombat/fresh
 rsync -av --remove-source-files wombat@c4c:${SRC_DIR} ${DEST_DIR}
 rsync -av --remove-source-files wombat@c4d:${SRC_DIR} ${DEST_DIR}
 rsync -av --remove-source-files wombat@pi4c:${SRC_DIR} ${DEST_DIR}
-rsync -av --remove-source-files wombat@pi4d:${SRC_DIR} ${DEST_DIR}
+rsync -av --remove-source-files wombat@pi4o:${SRC_DIR} ${DEST_DIR}
 #
