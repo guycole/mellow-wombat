@@ -54,3 +54,10 @@ From the gateway, copy ssh key (example)
 ```
 ssh-copy-id wombat@10.168.2.101
 ```
+
+### Prometheus node exporter
+Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gateway
+
+```
+apt-get install prometheus-node-exporter
+```
