@@ -1,0 +1,12 @@
+power
+ multcoupler
+ ethernet hub
+ gateway
+ 8x collectors (for multicoupler)
+ 2x collectors (for ADSB and Wifi collection)
+---
+13 wall warts
+
+12 RTL-SDR
+ 2 WiFi dongles
+

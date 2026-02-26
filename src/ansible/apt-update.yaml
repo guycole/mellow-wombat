@@ -1,0 +1,10 @@
+---
+- name: apt-update
+  become: true
+  hosts: "{{ target_hosts }}"
+  tasks:
+    - name: run apt update
+      ansible.builtin.apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 3600

@@ -7,5 +7,5 @@ crate02:
       ansible_host: 10.168.2.103
     rpi4c:
       ansible_host: 10.168.2.105
-    rpi4d:
+    rpi4o:
       ansible_host: 10.168.2.107

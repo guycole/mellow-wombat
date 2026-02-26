@@ -1,0 +1,11 @@
+- name: reboot
+  hosts: crate01 crate02 crate03
+  become: true
+  become_user: root
+  tasks:
+   - name: reboot
+     ansible.builtin.reboot:
+
+   - name: print message
+     ansible.builtin.debug:
+       msg: reboot
