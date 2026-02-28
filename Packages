@@ -3,12 +3,12 @@ Version: 1.0
 Architecture: all
 Essential: no
 Maintainer: guycole <guycole@gmail.com>
-Depends: atop,build-essential,cmake,git,libusb-1.0-0-dev,rsync,tmux,uuid-runtime,virtualenv
+Depends: atop,awscli,build-essential,cmake,git,libusb-1.0-0-dev,rsync,tmux,uuid-runtime,virtualenv
 Filename: ./mellow_wombat_package_1.0_all.deb
-Size: 1956
-MD5sum: 594c634797e6bbe84b57840c2aaa7e88
-SHA1: 197b388f824d4f9426647fb18351d0f1ad4b59e7
-SHA256: ab17cbc070c840a33edb5d4418b86330d0328a105c4013e03e456d80adfaff1d
+Size: 1920
+MD5sum: 12d819f34a94d25487c4de2bcdf2b632
+SHA1: ab0b0e9f6bda869734fc4f57325808e31f50524f
+SHA256: 8cdf0805c1e2641e74818a03d3e57c4457e25644500406dba9c5b68f49420efc
 Section: misc
 Priority: optional
 Description: base mellow wombat install
