@@ -5,6 +5,16 @@
     "schemaVersion": 1,
     "crate": [
         {
+            "name": "wombat01",
+            "location": "barn",
+            "sbc": [
+                {
+                    "name": "pi3c",
+                    "task": "heeler"
+                }       
+            ]
+        },
+        {
             "name": "wombat02",
             "sbc": [
                 {

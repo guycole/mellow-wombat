@@ -29,7 +29,7 @@ nmcli dev status
 
 ```
 apt-get update && apt-get upgrade -y
-apt-get install -y atop build-essential emacs git postgresql tmux uuid-runtime
+apt-get install -y atop build-essential chrony emacs git postgresql tmux uuid-runtime
 apt-get install -y awscli cmake libusb-1.0-0-dev virtualenv
 
 apt-add-repository --yes --update ppa:ansible/ansible
@@ -120,6 +120,14 @@ netfilter-persistent save
 logger "test" (and ensure message appears at loghost)
 ```
 
+### Verify NTP 
+Ensure NTP is working
+
+```
+systemctl status chrony
+chronyc sources
+```
+
 ### Checkpoint
 At this point, the candidate wombat gateway should have
 
@@ -128,6 +136,7 @@ At this point, the candidate wombat gateway should have
 1. Freshly updated packages (including mellow-wombat)
 1. IP Masquerade works from collectors on eth0
 1. Remote logging
+1. NTP sync via WiFi
 
 ## Boot from USB Passport Drive
 Prepare and move to a bootable USB Passport Drive

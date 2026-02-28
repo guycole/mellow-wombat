@@ -4,6 +4,39 @@
     "project": "wombat",
     "schemaVersion": 1,
     "crate": [
+            {
+            "name": "wombat01",
+            "location": "barn",
+            "multicoupler": {
+                "id": 2,
+                "antenna": "discone",
+                "type": "MCA208M"
+            },
+            "sbc": [
+                {
+                    "eth0": "10.168.1.1",
+                    "gps": "None",
+                    "name": "n2b",
+                    "role": "gateway",
+                    "storage": "4 TB Passport",
+                    "type": "odroid n2",
+                    "wifi": "AC600"
+                },
+                {
+                    "eth0": "10.168.1.109",
+                    "name": "pi3c",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi3",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 2,
+                        "type": "ac-1300",
+                        "antenna": "whip"
+                    }
+                }
+            ]
+        },
         {
             "name": "wombat02",
             "location": "barn",

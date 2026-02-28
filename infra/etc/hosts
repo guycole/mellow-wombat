@@ -12,29 +12,31 @@ ff02::2		ip6-allrouters
 10.168.0.39	bb23
 #
 # wombat crate 1 (shasta)
-10.168.1.1      wombat01
+10.168.1.1      gw01
+10.168.1.109	pi3c
+10.168.1.111	pi4a
+10.168.1.113	pi4n
+10.168.1.115	pi4x
 #
-10.168.1.201	rpi3b
-10.168.1.202	rpi3c
-# 
 # wombat crate 2 (dev)
-10.168.2.1      wombat02
-10.168.2.101	odroidc4c
-10.168.2.103	odroidc4d
-10.168.2.105	rpi4c
-10.168.2.107	rpi4d
+10.168.2.1      gw02
+10.168.2.101	c4c
+10.168.2.103	c4d
+10.168.2.105	pi4c
+10.168.2.107	pi4d
 #
 # wombat crate 3 (development)
-10.168.3.1	wombat03
-10.168.3.7	rpi5a
+10.168.3.1	    gw03
+10.168.3.7	    rpi5a
 #10.168.3.104	rpi4d
 10.168.3.200	rpi3a
 #
 # wombat crate 4 (vallejo)
-10.168.4.1	wombat04
+10.168.4.1      gw04
 10.168.4.8	rpi5b
 10.168.4.105	rpi4h
 10.168.4.106	rpi4i
 10.168.4.107	rpi4j
 10.168.4.108	rpi4k
+# 10.168.1.201	rpi3b
 #
