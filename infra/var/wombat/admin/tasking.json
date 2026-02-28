@@ -1,0 +1,30 @@
+{
+    "creationEpochTime": 1771713445,
+    "creationIso8601Time": "2026-02-21T22:37:25+00:00",
+    "project": "wombat",
+    "schemaVersion": 1,
+    "crate": [
+        {
+            "name": "wombat02",
+            "sbc": [
+                {
+                    "name": "c4c",
+                    "task": "hyena"
+                },
+                {
+                    "name": "c4d",
+                    "task": "heeler"
+                },
+                {
+                    "name": "pi4o",
+                    "task": "mastodon"
+                }
+            ]
+        },
+        {
+            "name": "wombat03",
+            "location": "barn",
+            "sbc": []
+        }
+    ]
+}
