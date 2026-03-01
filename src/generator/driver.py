@@ -17,7 +17,9 @@ class Driver:
     def execute(self, file_name: str) -> None:
         epoch_seconds = int(time.time())
         print(epoch_seconds)
-        dt_object_utc = datetime.datetime.fromtimestamp(epoch_seconds, tz=zoneinfo.ZoneInfo("UTC"))
+        dt_object_utc = datetime.datetime.fromtimestamp(
+            epoch_seconds, tz=zoneinfo.ZoneInfo("UTC")
+        )
         iso8601_timestamp = dt_object_utc.isoformat()
         print(iso8601_timestamp)
 

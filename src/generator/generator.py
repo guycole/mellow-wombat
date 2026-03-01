@@ -18,7 +18,9 @@ class Generator:
         self.args = args
         self.epoch_seconds = int(time.time())
 
-        dt_object_utc = datetime.datetime.fromtimestamp(self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC"))
+        dt_object_utc = datetime.datetime.fromtimestamp(
+            self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC")
+        )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
     def write_collect_file(self, inventory: dict[str, any]) -> None:
@@ -41,8 +43,10 @@ class Generator:
                 if crate["name"] == crate_name:
                     for sbc in crate["sbc"]:
                         if sbc["role"] == "collector":
-                            out_file.write(f"rsync -av --remove-source-files wombat@{sbc['name']}:${{SRC_DIR}} ${{DEST_DIR}}\n")
-            
+                            out_file.write(
+                                f"rsync -av --remove-source-files wombat@{sbc['name']}:${{SRC_DIR}} ${{DEST_DIR}}\n"
+                            )
+
     def write_hosts_file(self, inventory: dict[str, any]) -> None:
         # write a fresh hosts file with the inventory data
         crate = self.args[2]
@@ -80,11 +84,12 @@ class Generator:
             else:
                 print("unknown task")
 
+
 print("start")
 
 #
 # python generator.py inventory.json collect wombat02 (4 args)
-# python generator.py inventory.json hosts wombat02 
+# python generator.py inventory.json hosts wombat02
 # argv[1] = json inventory filename
 # argv[2] = task, i.e. "collect" or "hosts"
 #
@@ -93,7 +98,7 @@ print("start")
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         ndx = len(sys.argv) - 1
-        args = sys.argv[-ndx:len(sys.argv)]
+        args = sys.argv[-ndx : len(sys.argv)]
         generator = Generator(args)
         generator.execute()
     else:

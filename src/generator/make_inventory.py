@@ -18,27 +18,39 @@ class InventoryGenerator:
         self.args = args
         self.epoch_seconds = int(time.time())
 
-        dt_object_utc = datetime.datetime.fromtimestamp(self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC"))
+        dt_object_utc = datetime.datetime.fromtimestamp(
+            self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC")
+        )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
     def write_inventory_file(self, inventory: dict[str, any]) -> None:
 
         with open("inventory.new", "w") as inventory_file:
             inventory_file.write(f"---\n")
-            print(inventory)
+
             for crate in inventory["crate"]:
                 inventory_file.write(f"{crate['name']}:\n")
-                if "sbc" in crate and len(crate["sbc"]) > 0:
-                    inventory_file.write("  hosts:\n")
+
+                # only collectors allowed in ansible inventory
+                candidates = []
                 for sbc in crate["sbc"]:
-                    inventory_file.write(f"    {sbc['name']}:\n")
-                    inventory_file.write(f"      ansible_host: {sbc['eth0']}\n")
+                    if sbc["role"] == "collector":
+                        candidates.append(sbc)
+                    else:
+                        print(f"skipping {sbc['name']} with role {sbc['role']}")
+
+                if len(candidates) > 0:
+                    inventory_file.write("  hosts:\n")
+                    for candidate in candidates:
+                        inventory_file.write(f"    {candidate['name']}:\n")
+                        inventory_file.write(f"      ansible_host: {candidate['eth0']}\n")
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
         inventory = jh.json_reader(self.args[0])
 
         self.write_inventory_file(inventory)
+
 
 print("start")
 
@@ -52,7 +64,7 @@ print("start")
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         ndx = len(sys.argv) - 1
-        args = sys.argv[-ndx:len(sys.argv)]
+        args = sys.argv[-ndx : len(sys.argv)]
         generator = InventoryGenerator(args)
         generator.execute()
     else:

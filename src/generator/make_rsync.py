@@ -18,7 +18,9 @@ class RsyncGenerator:
         self.args = args
         self.epoch_seconds = int(time.time())
 
-        dt_object_utc = datetime.datetime.fromtimestamp(self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC"))
+        dt_object_utc = datetime.datetime.fromtimestamp(
+            self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC")
+        )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
     def write_rsync_file(self, inventory: dict[str, any]) -> None:
@@ -41,7 +43,9 @@ class RsyncGenerator:
                 if crate["name"] == crate_name:
                     for sbc in crate["sbc"]:
                         if sbc["role"] == "collector":
-                            out_file.write(f"rsync -av --remove-source-files wombat@{sbc['name']}:${{SRC_DIR}} ${{DEST_DIR}}\n")
+                            out_file.write(
+                                f"rsync -av --remove-source-files wombat@{sbc['name']}:${{SRC_DIR}} ${{DEST_DIR}}\n"
+                            )
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
@@ -49,10 +53,11 @@ class RsyncGenerator:
 
         self.write_rsync_file(inventory)
 
+
 print("start")
 
 #
-# python make_rsync.py catalog.json wombat02 
+# python make_rsync.py catalog.json wombat02
 # argv[1] = json catalog filename
 # argv[2] = target crate name
 #
@@ -61,7 +66,7 @@ print("start")
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         ndx = len(sys.argv) - 1
-        args = sys.argv[-ndx:len(sys.argv)]
+        args = sys.argv[-ndx : len(sys.argv)]
         generator = RsyncGenerator(args)
         generator.execute()
     else:

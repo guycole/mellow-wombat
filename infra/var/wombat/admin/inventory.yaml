@@ -1,28 +1,21 @@
-crate01:
+---
+wombat01:
   hosts:
-    rpi4d:
-      ansible_host: 10.168.1.81
-    rpi3b:
-      ansible_host: 10.168.1.82
-  vars:
-    ansible_user: gsc
-    ansible_password: bogus
-crate02:
+    pi3c:
+      ansible_host: 10.168.1.109
+wombat02:
   hosts:
-    odroidc4c:
+    c4c:
       ansible_host: 10.168.2.101
-    odroidc4d:
+    c4d:
       ansible_host: 10.168.2.103
-    rpi4c:
+    pi4c:
       ansible_host: 10.168.2.105
-    rpi4o:
+    pi4o:
       ansible_host: 10.168.2.107
-crate03:
+wombat03:
+wombat04:
   hosts:
-    rpi4b:
-      ansible_host: 10.168.3.34
-    rpi3c:
-      ansible_host: 10.168.3.33
-  vars:
-    ansible_user: gsc
-    ansible_password: bogus
+    pi3b:
+      ansible_host: 10.168.3.111
+wombat05:
