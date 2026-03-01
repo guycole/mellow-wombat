@@ -24,9 +24,9 @@ There is only one gateway per crate, and it is typically a [Odroid N2](https://w
 + [Mellow Wombat](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)
 
 ## Crate Catalog
-| Crate                                                                     | Location          |
-| ------------------------------------------------------------------------- | ----------------- |
-| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | Anderson          |
-| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | Available         |
-| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | Development hosts |
-| [04](https://github.com/guycole/mellow-wombat/blob/main/crate/crate04.md) | Vallejo           |
+| Crate                                                                     | Status      |
+| ------------------------------------------------------------------------- | ----------- |
+| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | Tasked      |
+| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | Available   |
+| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | Development |
+| [04](https://github.com/guycole/mellow-wombat/blob/main/crate/crate04.md) | Tasked.     |
