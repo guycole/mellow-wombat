@@ -31,10 +31,10 @@ schema_v1 = {
                         "properties": {
                             "id": {"type": "number"},
                             "antenna": {"type": "string"},
-                            "type": {"type": "string"}
+                            "type": {"type": "string"},
                         },
                         "required": ["id", "antenna", "type"],
-                        "additionalProperties": False
+                        "additionalProperties": False,
                     },
                     "sbc": {
                         "type": "array",
@@ -53,21 +53,28 @@ schema_v1 = {
                                     "properties": {
                                         "id": {"type": "number"},
                                         "type": {"type": "string"},
-                                        "antenna": {"type": "string"}
+                                        "antenna": {"type": "string"},
                                     },
                                     "required": ["id", "type", "antenna"],
-                                    "additionalProperties": False
-                                }
+                                    "additionalProperties": False,
+                                },
                             },
-                            "required": ["eth0", "name", "role", "storage", "type", "wifi"],
-                            "additionalProperties": False
-                        }
-                    }
+                            "required": [
+                                "eth0",
+                                "name",
+                                "role",
+                                "storage",
+                                "type",
+                                "wifi",
+                            ],
+                            "additionalProperties": False,
+                        },
+                    },
                 },
                 "required": ["name", "location", "sbc"],
-                "additionalProperties": False
-            }
-        }
+                "additionalProperties": False,
+            },
+        },
     },
     "required": [
         "creationEpochTime",
@@ -100,7 +107,7 @@ class JsonHelper:
 
         return results
 
-    def json_writer(self, file_name:str, payload: dict[str, any]) -> None:
+    def json_writer(self, file_name: str, payload: dict[str, any]) -> None:
         try:
             with open(file_name, "w") as out_file:
                 json.dump(payload, out_file, indent=4)
