@@ -42,7 +42,7 @@ Update Debian and Mellow Package
 
 ```
 apt-get update && apt-get upgrade -y
-apt-get install -y atop build-essential git rsyslog tmux uuid-runtime
+apt-get install -y atop build-essential chrony git rsyslog tmux uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 ```
 
@@ -57,6 +57,12 @@ apt-get install mellow-wombat
 From the gateway, copy ssh key (example)
 ```
 ssh-copy-id wombat@10.168.2.101
+```
+
+### Configure chrony to use gateway as NTP host
+```
+edit /etc/chrony/chrony.conf
+server 10.168.1.1
 ```
 
 ### Prometheus node exporter

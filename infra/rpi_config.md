@@ -55,6 +55,12 @@ From the gateway, copy ssh key (example)
 ssh-copy-id wombat@10.168.2.101
 ```
 
+### Configure chrony to use gateway as NTP host
+```
+edit /etc/chrony/chrony.conf
+server 10.168.1.1
+```
+
 ### Prometheus node exporter
 Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gateway
 
