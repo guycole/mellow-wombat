@@ -1,7 +1,7 @@
 {
     "creationEpochTime": 1771713445,
     "creationIso8601Time": "2026-02-21T22:37:25+00:00",
-    "project": "wombat",
+    "project": "wombat-catalog",
     "schemaVersion": 1,
     "crate": [
             {
@@ -111,7 +111,40 @@
         },
         {
             "name": "wombat03",
-            "location": "barn",
+            "location": "boat",
+            "sbc": []
+        },
+        {
+            "name": "wombat04",
+            "location": "trailer",
+            "sbc": [
+                {
+                    "eth0": "10.168.3.1",
+                    "gps": "None",
+                    "name": "n2c",
+                    "role": "gateway",
+                    "storage": "4 TB Passport",
+                    "type": "odroid n2",
+                    "wifi": "AC600"
+                },
+                {
+                    "eth0": "10.168.3.111",
+                    "name": "pi3b",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi3",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 2,
+                        "type": "ac-1300",
+                        "antenna": "whip"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "wombat05",
+            "location": "stub",
             "sbc": []
         }
     ]
