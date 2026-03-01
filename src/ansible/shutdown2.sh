@@ -1,3 +1,3 @@
 #
-ansible-playbook -i crate2-inventory.yaml shutdown.yaml
+ansible-playbook -i inventory.yaml shutdown.yaml --extra-vars "target_hosts=wombat02"
 #
