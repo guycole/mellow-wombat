@@ -1,3 +1,5 @@
+wombat package creates wombat user account
+
 # mellow-wombat
 Physical packaging, control and monitoring of RF collection systems like [heeler](https://github.com/guycole/mellow-heeler), [hyena](https://github.com/guycole/mellow-hyena) and [manatee](https://github.com/guycole/mellow-manatee).
 
@@ -16,7 +18,7 @@ Mellow Wombat consists of a "gateway" which manages a fleet of "collectors".  Al
 ## Gateway
 There is only one gateway per crate, and it is typically a [Odroid N2](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) with 4GB of RAM and a 4TB [Western Digital Passport USB Drive](https://www.westerndigital.com/products/portable-drives/wd-my-passport-usb-3-0-hdd?sku=WDBPKJ0040BBK-WESN).  The gateway manages outside (the crate) connectivity (either wired or WiFi).  Gateway configuration described [here](https://github.com/guycole/mellow-wombat/blob/main/infra/odroidn2_config.md).
 
-## Collector Catalog
+## Shelf Catalog (Collectors)
 + [Mellow Heeler](https://github.com/guycole/mellow-wombat/blob/main/shelf/heeler.md)
 + [Mellow Hyena](https://github.com/guycole/mellow-wombat/blob/main/shelf/hyena.md)
 + [Mellow Koala](https://github.com/guycole/mellow-wombat/blob/main/shelf/koala.md)
@@ -24,9 +26,8 @@ There is only one gateway per crate, and it is typically a [Odroid N2](https://w
 + [Mellow Wombat](https://github.com/guycole/mellow-wombat/blob/main/shelf/housekeeper.md)
 
 ## Crate Catalog
-| Crate                                                                     | Location          |
-| ------------------------------------------------------------------------- | ----------------- |
-| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | Anderson          |
-| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | Available         |
-| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | Development hosts |
-| [04](https://github.com/guycole/mellow-wombat/blob/main/crate/crate04.md) | Vallejo           |
+| Crate                                                                     | Description (Shelves)                           |
+| ------------------------------------------------------------------------- | ----------------------------------------------- |
+| [01](https://github.com/guycole/mellow-wombat/blob/main/crate/crate01.md) | AC Power to 12V, 2 Shelves, Anderson            |
+| [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | AC Power to 12V, 3 Shelves, Vallejo             |
+| [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | AC Power, No Shelves: various development hosts |
