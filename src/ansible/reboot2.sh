@@ -1,3 +1,3 @@
 #
-ansible-playbook -i crate2-inventory.yaml reboot_all.yaml
+ansible-playbook -i inventory.yaml reboot.yaml --extra-vars "target_hosts=wombat02"
 #

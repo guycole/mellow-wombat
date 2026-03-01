@@ -1,5 +1,6 @@
+---
 - name: shutdown
-  hosts: crate03
+  hosts: "{{ target_hosts }}"
   become: true
   become_user: root
   tasks:

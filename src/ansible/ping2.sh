@@ -1,3 +1,3 @@
 #
-ansible crate02 -m ping -i crate2-inventory.yaml
+ansible wombat02 -m ping -i inventory.yaml
 #
