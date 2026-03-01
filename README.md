@@ -30,3 +30,4 @@ There is only one gateway per crate, and it is typically a [Odroid N2](https://w
 | [02](https://github.com/guycole/mellow-wombat/blob/main/crate/crate02.md) | Available   |
 | [03](https://github.com/guycole/mellow-wombat/blob/main/crate/crate03.md) | Development |
 | [04](https://github.com/guycole/mellow-wombat/blob/main/crate/crate04.md) | Tasked      |
+| [05](https://github.com/guycole/mellow-wombat/blob/main/crate/crate05.md) | Planned     |

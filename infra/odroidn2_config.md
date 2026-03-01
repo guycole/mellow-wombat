@@ -172,6 +172,11 @@ usermod -aG docker wombat
 ### Wombat Account Setup
 When the "mellow-wombat" package was installed, the "wombat" user account was created.  The "wombat" account is used for running wombat jobs, managing the collectors via ansible, etc.
 
+1. Create a RSA key for ansible
+```
+ssh-keygen -t rsa -b 4096 (no passphrase)
+```
+
 1. Create the GitHub key for access.  Each gateway needs a dedicated key, login as wombat, create the key and add to GitHub.  Then clone the mellow-wombat repo.
 ```
 ssh-keygen -t ed25519 -C "guycole@gmail.com"

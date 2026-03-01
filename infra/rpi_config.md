@@ -52,7 +52,13 @@ apt-get install mellow-wombat
 ### Configure Wombat User Account
 From the gateway, copy ssh key (example)
 ```
-ssh-copy-id wombat@10.168.2.101
+ssh-copy-id -i ~/.ssh/id_rsa.pub wombat@10.168.2.101
+```
+
+Update /etc/sudoers (note the NOPASSWD)
+```
+# Allow members of group sudo to execute any command
+%sudo	ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 
 ### Configure chrony to use gateway as NTP host

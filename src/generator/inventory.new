@@ -1,0 +1,27 @@
+---
+wombat01:
+  hosts:
+    n2b:
+      ansible_host: 10.168.1.1
+    pi3c:
+      ansible_host: 10.168.1.109
+wombat02:
+  hosts:
+    n2a:
+      ansible_host: 10.168.2.1
+    c4c:
+      ansible_host: 10.168.2.101
+    c4d:
+      ansible_host: 10.168.2.103
+    pi4c:
+      ansible_host: 10.168.2.105
+    pi4o:
+      ansible_host: 10.168.2.107
+wombat03:
+wombat04:
+  hosts:
+    n2c:
+      ansible_host: 10.168.3.1
+    pi3b:
+      ansible_host: 10.168.3.111
+wombat05:
