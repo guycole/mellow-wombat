@@ -1,0 +1,22 @@
+--
+-- Title: heeler_daily_score.psql
+-- Description: heeler daily file population
+--
+-- score_date is report date
+-- file_quantity is total daily files for platform
+-- obs_quantity is total daily observations for platform
+-- platform is collection platform
+--
+create table heeler_daily_score (
+  id             bigserial    primary key,
+  score_date     date         not null default CURRENT_DATE,
+  file_quantity  smallint     not null,
+  obs_quantity   smallint     not null,
+  platform       varchar(16)  not null
+);
+
+grant select, insert, update, delete on heeler_daily_score to wombat_client;
+grant usage, select on sequence heeler_daily_score_id_seq to wombat_client;
+
+create index heeler_daily_score_date on heeler_daily_score(score_date);
+create unique index heeler_daily_score_date_platform on heeler_daily_score(score_date, platform);
