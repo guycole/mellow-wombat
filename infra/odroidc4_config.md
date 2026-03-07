@@ -70,6 +70,8 @@ Update /etc/sudoers (note the NOPASSWD)
 ```
 edit /etc/chrony/chrony.conf
 server 10.168.1.1
+systemctl status chrony
+chronyc sources
 ```
 
 ### Prometheus node exporter

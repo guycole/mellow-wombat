@@ -126,6 +126,7 @@ Ensure NTP is working
 ```
 systemctl status chrony
 chronyc sources
+edit /etc/chrony/chrony.conf to "allow 10.168.0.0/18"
 ```
 
 ### Checkpoint
