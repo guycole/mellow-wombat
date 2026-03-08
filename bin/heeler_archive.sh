@@ -7,20 +7,30 @@
 #
 PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
-TODAY=$(date '+%Y-%m-%d')
-FILE_NAME="heeler-${TODAY}.tgz"
 #
-SOURCE_DIR="archive"
+if [[ $# -eq 0 ]] ; then
+    echo "missing crate argument"
+    exit 1
+fi
+#
+TODAY=$(date '+%Y-%m-%d')
+FILE_NAME="heeler-$1-${TODAY}.tgz"
+#
+DEST_DIR="archive"
+SOURCE_DIR="success"
+TO_S3_DIR="to_s3"
 WORK_DIR="/var/wombat/heeler"
 #
 echo "start archive"
 #
 cd ${WORK_DIR}
-mv "success" ${SOURCE_DIR}
-tar -cvzf ${FILE_NAME} ${SOURCE_DIR}
+mv ${SOURCE_DIR} ${DEST_DIR}
+mkdir ${SOURCE_DIR}
+tar -cvzf ${FILE_NAME} ${DEST_DIR}
+mv ${FILE_NAME} ${TO_S3_DIR}
 #
 echo "cleanup"
-rm -rf ${SOURCE_DIR}
+rm -rf ${DEST_DIR}
 #
 echo "end archive"
 #
