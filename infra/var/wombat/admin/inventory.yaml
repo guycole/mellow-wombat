@@ -1,12 +1,12 @@
 ---
 wombat01:
   hosts:
+    c4c:
+      ansible_host: 10.168.1.101
     pi3c:
       ansible_host: 10.168.1.109
 wombat02:
   hosts:
-    c4c:
-      ansible_host: 10.168.2.101
     c4d:
       ansible_host: 10.168.2.103
     pi4c:
