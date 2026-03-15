@@ -9,6 +9,7 @@ DEST_DIR=/var/wombat
 SRC_DIR=/var/wombat/fresh
 #
 rsync -av --remove-source-files wombat@pi3c:${SRC_DIR} ${DEST_DIR}
+rsync -av --remove-source-files wombat@c4c:${SRC_DIR} ${DEST_DIR}
 #
 #
 #
