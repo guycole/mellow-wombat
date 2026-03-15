@@ -117,7 +117,7 @@ class JsonHelper:
             return {}
 
         return results
-    
+
     def json_task_reader(self, file_name: str) -> dict[str, any]:
         print(f"read {file_name}")
 
