@@ -42,7 +42,7 @@ Update Debian and Mellow Package
 
 ```
 apt-get update && apt-get upgrade -y
-apt-get install -y atop build-essential chrony git rsyslog tmux uuid-runtime
+apt-get install -y atop build-essential chrony git rsyslog tmux unzip uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 ```
 
@@ -70,6 +70,8 @@ Update /etc/sudoers (note the NOPASSWD)
 ```
 edit /etc/chrony/chrony.conf
 server 10.168.1.1
+systemctl status chrony
+chronyc sources
 ```
 
 ### Prometheus node exporter

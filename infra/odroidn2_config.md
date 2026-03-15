@@ -29,7 +29,7 @@ nmcli dev status
 
 ```
 apt-get update && apt-get upgrade -y
-apt-get install -y atop build-essential chrony emacs git postgresql tmux uuid-runtime
+apt-get install -y atop build-essential chrony dnsutils emacs git jq postgresql tmux unzip uuid-runtime
 apt-get install -y awscli cmake libusb-1.0-0-dev virtualenv
 
 apt-add-repository --yes --update ppa:ansible/ansible
@@ -52,6 +52,19 @@ apt-get update
 apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 (reboot to start docker.service)
 docker run hello-world
+```
+
+### Configure PostgreSQL 
+PostgreSQL installs only for loopback, which fails for docker networking.
+
+```
+edit /etc/postgresql/14/main/pg_hba.conf
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            scram-sha-256
+host    all             all             172.17.0.2/32           scram-sha-256
+
+edit /etc/postgresql/14/main/postgresql.conf
+listen_addresses = '0.0.0.0'            # what IP address(es) to listen on;
 ```
 
 ### Configure for IP Masquerade and eth0/wlan0 bridge
@@ -126,6 +139,7 @@ Ensure NTP is working
 ```
 systemctl status chrony
 chronyc sources
+edit /etc/chrony/chrony.conf to "allow 10.168.0.0/18"
 ```
 
 ### Checkpoint

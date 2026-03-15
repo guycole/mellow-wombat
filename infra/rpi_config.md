@@ -73,3 +73,12 @@ Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gatewa
 ```
 apt-get install prometheus-node-exporter
 ```
+
+### Heeler Config
+Heeler requires additional WiFi configuation
+
+```
+raspi-config Localisation Options->Change WiFi Country
+rfkill unblock wifi
+reboot
+```
