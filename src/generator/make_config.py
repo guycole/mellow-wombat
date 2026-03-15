@@ -1,11 +1,10 @@
 #
 # Title: make_config.py
-# Description: Generate configuration file for collector
+# Description: generate configuration files for collectors from catalog
 # Development Environment: Ubuntu 22.04.5 LTS/python 3.10.12
 # Author: G.S. Cole (guycole at gmail dot com)
 #
 import datetime
-import socket
 import sys
 import time
 import zoneinfo
@@ -15,11 +14,9 @@ import json_helper
 
 class ConfigGenerator:
 
-    def __init__(self, catalog_filename: str, tasking_filename: str):
-        self.catalog_name = catalog_filename
-        self.tasking_name = tasking_filename
+    def __init__(self, args):
+        self.catalog_name = args[0]
 
-        self.host_name = socket.gethostname()
         self.epoch_seconds = int(time.time())
 
         dt_object_utc = datetime.datetime.fromtimestamp(
@@ -73,24 +70,24 @@ class ConfigGenerator:
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
         catalog = jh.json_catalog_reader(self.catalog_name)
-        tasking = jh.json_task_reader(self.tasking_name)
-
 #        tasks = self.make_tasks(catalog)
 #        jh.json_writer("tasking.new", tasks)
 
 print("start")
 
 #
-# invoke from wombat to make configuration file for collectors
+# make task template from catalog
 #
-# python3 make_config.py ../../infra/var/wombat/admin/catalog.json ../../infra/var/wombat/admin/tasking.json
+# python3 make_tasks.py ../../infra/var/wombat/admin/catalog.json
 #
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
-        generator = ConfigGenerator(sys.argv[1], sys.argv[2])
-#        generator.execute()
+    if len(sys.argv) > 1:
+        ndx = len(sys.argv) - 1
+        args = sys.argv[-ndx : len(sys.argv)]
+        generator = ConfigGenerator(args)
+        generator.execute()
     else:
-        print("need catalog and tasking filenames")
+        print("need catalog filename")
         exit(1)
 
 print("stop")

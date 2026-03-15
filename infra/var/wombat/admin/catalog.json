@@ -7,14 +7,14 @@
             {
             "crateName": "wombat01",
             "geoLoc": {
-                "siteName": "barn",
-                "altitude": 123,
-                "latitude": 12.34,
-                "longitude": 123.45
+                "siteName": "anderson01",
+                "altitude": 118.6,
+                "latitude": 40.4174,
+                "longitude": -122.2405
             },
             "multicoupler": {
                 "id": 2,
-                "antenna": "discone",
+                "antenna": "D130 full size discone",
                 "type": "MCA208M"
             },
             "sbc": [
@@ -36,6 +36,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 12,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -49,7 +50,8 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
-                        "type": "flight-aware prostick",
+                        "task": "heeler-v1",
+                        "type": "ac-1300",
                         "antenna": "whip"
                     }
                 },
@@ -62,6 +64,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
+                        "task": "assign-me",
                         "type": "discone",
                         "antenna": "multicoupler"
                     }
@@ -100,6 +103,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 13,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -113,6 +117,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
+                        "task": "heeler-v1",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -126,6 +131,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 14,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -139,6 +145,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 15,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -171,6 +178,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
+                        "task": "heeler-v1",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -184,6 +192,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 6,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -217,6 +226,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
+                        "task": "heeler-v1",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -230,6 +240,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 6,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -243,6 +254,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 6,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -256,6 +268,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 6,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -269,6 +282,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 6,
+                        "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }

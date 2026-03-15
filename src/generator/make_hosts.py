@@ -16,6 +16,7 @@ class HostGenerator:
 
     def __init__(self, args):
         self.args = args
+        
         self.epoch_seconds = int(time.time())
 
         dt_object_utc = datetime.datetime.fromtimestamp(
@@ -58,20 +59,19 @@ print("start")
 
 #
 # make a hosts file for a crate
-# python make_hosts.py catalog.json wombat02
+# python make_hosts.py catalog.json crate_name
 # argv[1] = json catalog filename
-# argv[2] = target crate name
 #
 # python3 make_hosts.py ../../infra/var/wombat/admin/catalog.json wombat01
 #
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
+    if len(sys.argv) == 3:
         ndx = len(sys.argv) - 1
         args = sys.argv[-ndx : len(sys.argv)]
         generator = HostGenerator(args)
         generator.execute()
     else:
-        print("need catalog filename and crate")
+        print("need catalog filename")
         exit(1)
 
 print("stop")

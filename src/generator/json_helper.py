@@ -62,6 +62,7 @@ catalog_schema_v1 = {
                                     "type": "object",
                                     "properties": {
                                         "id": {"type": "number"},
+                                        "task": {"type": "string"},
                                         "type": {"type": "string"},
                                         "antenna": {"type": "string"},
                                     },

@@ -37,15 +37,17 @@ class RsyncGenerator:
             out_file.write(f"#\n")
             out_file.write(f"DEST_DIR=/var/wombat\n")
             out_file.write(f"SRC_DIR=/var/wombat/fresh\n")
+            out_file.write(f"#\n")
 
-            for crate in catalog["crate"]:
-                out_file.write(f"#\n")
+            for crate in catalog["crate"]:  
                 if crate["crateName"] == crate_name:
                     for sbc in crate["sbc"]:
                         if sbc["role"] == "collector":
                             out_file.write(
+                                f"rsync -av /var/wombat/admin wombat@{sbc['hostName']}:${{DEST_DIR}}\n"
                                 f"rsync -av --remove-source-files wombat@{sbc['hostName']}:${{SRC_DIR}} ${{DEST_DIR}}\n"
                             )
+            out_file.write(f"#\n")
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()

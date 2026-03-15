@@ -1,12 +1,15 @@
+collectors 
+  heeler (always rpi3)
+  hyena ADSB 1090
+  8x multicoupler
+
 power
  multcoupler
  ethernet hub
  gateway
- 8x collectors (for multicoupler)
- 2x collectors (for ADSB and Wifi collection)
+ 10x collectors
 ---
 13 wall warts
 
-12 RTL-SDR
- 2 WiFi dongles
-
+9 RTL-SDR
+2 WiFi dongles
