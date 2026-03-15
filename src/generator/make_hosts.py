@@ -23,8 +23,8 @@ class HostGenerator:
         )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
-    def write_hosts_file(self, inventory: dict[str, any]) -> None:
-        # write a fresh hosts file with the inventory data
+    def write_hosts_file(self, catalog: dict[str, any]) -> None:
+        # write a fresh hosts file with the catalog data
         crate = self.args[1]
         print(f"hosts for: {crate}")
 
@@ -41,17 +41,17 @@ class HostGenerator:
             hosts_file.write("ff02::1\t\tip6-allnodes\n")
             hosts_file.write("ff02::2\t\tip6-allrouters\n")
 
-            for crate in inventory["crate"]:
+            for crate in catalog["crate"]:
                 hosts_file.write(f"#\n")
                 for sbc in crate["sbc"]:
-                    print(f"{sbc['eth0']} {sbc['name']}")
-                    hosts_file.write(f"{sbc['eth0']}\t{sbc['name']}\n")
+                    print(f"{sbc['eth0']} {sbc['hostName']}")
+                    hosts_file.write(f"{sbc['eth0']}\t{sbc['hostName']}\n")
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
-        inventory = jh.json_reader(self.args[0])
+        catalog = jh.json_catalog_reader(self.args[0])
 
-        self.write_hosts_file(inventory)
+        self.write_hosts_file(catalog)
 
 
 print("start")

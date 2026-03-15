@@ -5,8 +5,13 @@
     "schemaVersion": 1,
     "crate": [
             {
-            "name": "wombat01",
-            "location": "barn",
+            "crateName": "wombat01",
+            "geoLoc": {
+                "siteName": "barn",
+                "altitude": 123,
+                "latitude": 12.34,
+                "longitude": 123.45
+            },
             "multicoupler": {
                 "id": 2,
                 "antenna": "discone",
@@ -16,48 +21,15 @@
                 {
                     "eth0": "10.168.1.1",
                     "gps": "None",
-                    "name": "n2b",
+                    "hostName": "n2b",
                     "role": "gateway",
                     "storage": "4 TB Passport",
                     "type": "odroid n2",
                     "wifi": "AC600"
                 },
                 {
-                    "eth0": "10.168.1.109",
-                    "name": "pi3c",
-                    "role": "collector",
-                    "storage": "16 GB microSD",
-                    "type": "rpi3",
-                    "wifi": "None",
-                    "receiver": {
-                        "id": 2,
-                        "type": "ac-1300",
-                        "antenna": "whip"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "wombat02",
-            "location": "barn",
-            "multicoupler": {
-                "id": 1,
-                "antenna": "discone",
-                "type": "MCA208M"
-            },
-            "sbc": [
-                {
-                    "eth0": "10.168.2.1",
-                    "gps": "None",
-                    "name": "n2a",
-                    "role": "gateway",
-                    "storage": "4 TB Passport",
-                    "type": "odroid n2",
-                    "wifi": "AC600"
-                },
-                {
-                    "eth0": "10.168.2.101",
-                    "name": "c4c",
+                    "eth0": "10.168.1.101",
+                    "hostName": "c4c",
                     "role": "collector",
                     "storage": "16 GB microSD",
                     "type": "odroid c4",
@@ -69,8 +41,59 @@
                     }
                 },
                 {
+                    "eth0": "10.168.1.109",
+                    "hostName": "pi3c",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi3",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 2,
+                        "type": "flight-aware prostick",
+                        "antenna": "whip"
+                    }
+                },
+                {
+                    "eth0": "10.168.1.119",
+                    "hostName": "pi4a",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 2,
+                        "type": "discone",
+                        "antenna": "multicoupler"
+                    }
+                }
+            ]
+        },
+        {
+            "crateName": "wombat02",
+            "geoLoc": {
+                "siteName": "barn",
+                "altitude": 123,
+                "latitude": 12.34,
+                "longitude": 123.45
+            },
+            "multicoupler": {
+                "id": 1,
+                "antenna": "discone",
+                "type": "MCA208M"
+            },
+            "sbc": [
+                {
+                    "eth0": "10.168.2.1",
+                    "gps": "None",
+                    "hostName": "n2a",
+                    "role": "gateway",
+                    "storage": "4 TB Passport",
+                    "type": "odroid n2",
+                    "wifi": "AC600"
+                },
+                {
                     "eth0": "10.168.2.103",
-                    "name": "c4d",
+                    "hostName": "c4d",
                     "role": "collector",
                     "storage": "16 GB microSD",
                     "type": "odroid c4",
@@ -82,8 +105,21 @@
                     }
                 },
                 {
+                    "eth0": "10.168.2.117",
+                    "hostName": "pi3e",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi3",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 2,
+                        "type": "ac-1300",
+                        "antenna": "whip"
+                    }
+                },
+                {
                     "eth0": "10.168.2.105",
-                    "name": "pi4c",
+                    "hostName": "pi4c",
                     "role": "collector",
                     "storage": "16 GB microSD",
                     "type": "rpi4",
@@ -96,7 +132,7 @@
                 },
                 {
                     "eth0": "10.168.2.107",
-                    "name": "pi4o",
+                    "hostName": "pi4o",
                     "role": "collector",
                     "storage": "16 GB microSD",
                     "type": "rpi4",
@@ -110,26 +146,25 @@
             ]
         },
         {
-            "name": "wombat03",
-            "location": "boat",
-            "sbc": []
-        },
-        {
-            "name": "wombat04",
-            "location": "trailer",
+            "crateName": "wombat03",
+            "geoLoc": {
+                "siteName": "dev",
+                "altitude": 123,
+                "latitude": 12.34,
+                "longitude": 123.45
+            },
             "sbc": [
                 {
                     "eth0": "10.168.3.1",
-                    "gps": "None",
-                    "name": "n2c",
+                    "hostName": "c4b",
                     "role": "gateway",
-                    "storage": "4 TB Passport",
-                    "type": "odroid n2",
-                    "wifi": "AC600"
+                    "storage": "16 GB microSD",
+                    "type": "odroid c4",
+                    "wifi": "dongle"
                 },
                 {
-                    "eth0": "10.168.3.111",
-                    "name": "pi3b",
+                    "eth0": "10.168.3.113",
+                    "hostName": "pi3a",
                     "role": "collector",
                     "storage": "16 GB microSD",
                     "type": "rpi3",
@@ -139,12 +174,115 @@
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
+                },
+                {
+                    "eth0": "10.168.3.115",
+                    "hostName": "pi4d",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 6,
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
                 }
             ]
         },
         {
-            "name": "wombat05",
-            "location": "stub",
+            "crateName": "wombat04",
+            "geoLoc": {
+                "siteName": "barn",
+                "altitude": 123,
+                "latitude": 12.34,
+                "longitude": 123.45
+            },
+            "sbc": [
+                {
+                    "eth0": "10.168.4.1",
+                    "gps": "None",
+                    "hostName": "n2c",
+                    "role": "gateway",
+                    "storage": "4 TB Passport",
+                    "type": "odroid n2",
+                    "wifi": "AC600"
+                },
+                {
+                    "eth0": "10.168.4.111",
+                    "hostName": "pi3b",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi3",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 2,
+                        "type": "ac-1300",
+                        "antenna": "whip"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.121",
+                    "hostName": "pi4h",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 6,
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.123",
+                    "hostName": "pi4i",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 6,
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.125",
+                    "hostName": "pi4j",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 6,
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.127",
+                    "hostName": "pi4k",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "type": "rpi4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 6,
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                }
+            ]
+        },
+        {
+            "crateName": "wombat05",
+            "geoLoc": {
+                "siteName": "barn",
+                "altitude": 123,
+                "latitude": 12.34,
+                "longitude": 123.45
+            },
             "sbc": []
         }
     ]

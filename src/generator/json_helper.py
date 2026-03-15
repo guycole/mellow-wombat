@@ -12,7 +12,7 @@ import time
 
 from jsonschema import validate
 
-schema_v1 = {
+catalog_schema_v1 = {
     "type": "object",
     "properties": {
         "creationEpochTime": {"type": "number"},
@@ -24,8 +24,18 @@ schema_v1 = {
             "items": {
                 "type": "object",
                 "properties": {
-                    "name": {"type": "string"},
-                    "location": {"type": "string"},
+                    "crateName": {"type": "string"},
+                    "geoLoc": {
+                        "type": "object",
+                        "properties": {
+                            "siteName": {"type": "string"},
+                            "altitude": {"type": "number"},
+                            "latitude": {"type": "number"},
+                            "longitude": {"type": "number"},
+                        },
+                        "required": ["siteName", "altitude", "latitude", "longitude"],
+                        "additionalProperties": False,
+                    },
                     "multicoupler": {
                         "type": "object",
                         "properties": {
@@ -43,7 +53,7 @@ schema_v1 = {
                             "properties": {
                                 "eth0": {"type": "string"},
                                 "gps": {"type": "string"},
-                                "name": {"type": "string"},
+                                "hostName": {"type": "string"},
                                 "role": {"type": "string"},
                                 "storage": {"type": "string"},
                                 "type": {"type": "string"},
@@ -61,7 +71,7 @@ schema_v1 = {
                             },
                             "required": [
                                 "eth0",
-                                "name",
+                                "hostName",
                                 "role",
                                 "storage",
                                 "type",
@@ -71,7 +81,7 @@ schema_v1 = {
                         },
                     },
                 },
-                "required": ["name", "location", "sbc"],
+                "required": ["crateName", "geoLoc", "sbc"],
                 "additionalProperties": False,
             },
         },
@@ -88,7 +98,7 @@ schema_v1 = {
 
 class JsonHelper:
 
-    def json_reader(self, file_name: str) -> dict[str, any]:
+    def json_catalog_reader(self, file_name: str) -> dict[str, any]:
         print(f"read {file_name}")
 
         if os.path.isfile(file_name) is False:
@@ -100,7 +110,25 @@ class JsonHelper:
         try:
             with open(file_name, "r") as in_file:
                 results = json.load(in_file)
-                validate(instance=results, schema=schema_v1)
+                validate(instance=results, schema=catalog_schema_v1)
+        except Exception as error:
+            print(error)
+            return {}
+
+        return results
+    
+    def json_task_reader(self, file_name: str) -> dict[str, any]:
+        print(f"read {file_name}")
+
+        if os.path.isfile(file_name) is False:
+            print(f"missing {file_name}")
+            return {}
+
+        results = {}
+
+        try:
+            with open(file_name, "r") as in_file:
+                results = json.load(in_file)
         except Exception as error:
             print(error)
             return {}

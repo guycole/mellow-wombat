@@ -23,7 +23,7 @@ class RsyncGenerator:
         )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
-    def write_rsync_file(self, inventory: dict[str, any]) -> None:
+    def write_rsync_file(self, catalog: dict[str, any]) -> None:
         crate_name = self.args[1]
         print(f"rsync for: {crate_name}")
 
@@ -38,20 +38,20 @@ class RsyncGenerator:
             out_file.write(f"DEST_DIR=/var/wombat\n")
             out_file.write(f"SRC_DIR=/var/wombat/fresh\n")
 
-            for crate in inventory["crate"]:
+            for crate in catalog["crate"]:
                 out_file.write(f"#\n")
-                if crate["name"] == crate_name:
+                if crate["crateName"] == crate_name:
                     for sbc in crate["sbc"]:
                         if sbc["role"] == "collector":
                             out_file.write(
-                                f"rsync -av --remove-source-files wombat@{sbc['name']}:${{SRC_DIR}} ${{DEST_DIR}}\n"
+                                f"rsync -av --remove-source-files wombat@{sbc['hostName']}:${{SRC_DIR}} ${{DEST_DIR}}\n"
                             )
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
-        inventory = jh.json_reader(self.args[0])
+        catalog = jh.json_catalog_reader(self.args[0])
 
-        self.write_rsync_file(inventory)
+        self.write_rsync_file(catalog)
 
 
 print("start")

@@ -23,13 +23,13 @@ class InventoryGenerator:
         )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
-    def write_inventory_file(self, inventory: dict[str, any]) -> None:
+    def write_inventory_file(self, catalog: dict[str, any]) -> None:
 
         with open("inventory.new", "w") as inventory_file:
             inventory_file.write(f"---\n")
 
-            for crate in inventory["crate"]:
-                inventory_file.write(f"{crate['name']}:\n")
+            for crate in catalog["crate"]:
+                inventory_file.write(f"{crate['crateName']}:\n")
 
                 # only collectors allowed in ansible inventory
                 candidates = []
@@ -37,19 +37,19 @@ class InventoryGenerator:
                     if sbc["role"] == "collector":
                         candidates.append(sbc)
                     else:
-                        print(f"skipping {sbc['name']} with role {sbc['role']}")
+                        print(f"skipping {sbc['hostName']} with role {sbc['role']}")
 
                 if len(candidates) > 0:
                     inventory_file.write("  hosts:\n")
                     for candidate in candidates:
-                        inventory_file.write(f"    {candidate['name']}:\n")
+                        inventory_file.write(f"    {candidate['hostName']}:\n")
                         inventory_file.write(f"      ansible_host: {candidate['eth0']}\n")
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
-        inventory = jh.json_reader(self.args[0])
+        catalog = jh.json_catalog_reader(self.args[0])
 
-        self.write_inventory_file(inventory)
+        self.write_inventory_file(catalog)
 
 
 print("start")
