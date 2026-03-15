@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "application": "mastodon-v1",
+    "crate": "wombat00",
+    "hostName": "c4c",
+    "schemaVersion": 1,
+    "timeStampEpoch": 1756357992,
+    "timeStampIso8601": "2025-08-27T22:13:12"
+  },
+  "geoLoc": {"site": "vallejo", "altitude": 0, "latitude": 38.1085, "longitude": -122.268},
+  "payload": {}
+}
