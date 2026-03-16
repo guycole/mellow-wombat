@@ -38,7 +38,7 @@ Update Debian and Mellow Package
 
 ```
 apt-get update && apt-get upgrade -y
-apt-get install -y atop build-essential git rsyslog tmux uuid-runtime
+apt-get install -y atop build-essential chrony git rsyslog tmux uuid-runtime
 apt-get install -y cmake libusb-1.0-0-dev virtualenv
 ```
 
