@@ -51,9 +51,10 @@ class HostGenerator:
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
         catalog = jh.json_catalog_reader(self.args[0])
-
-        self.write_hosts_file(catalog)
-
+        if len(catalog) > 0:
+            self.write_hosts_file(catalog)
+        else:
+            print("catalog is empty")
 
 print("start")
 
