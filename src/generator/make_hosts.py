@@ -16,7 +16,7 @@ class HostGenerator:
 
     def __init__(self, args):
         self.args = args
-        
+
         self.epoch_seconds = int(time.time())
 
         dt_object_utc = datetime.datetime.fromtimestamp(

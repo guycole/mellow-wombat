@@ -43,7 +43,9 @@ class InventoryGenerator:
                     inventory_file.write("  hosts:\n")
                     for candidate in candidates:
                         inventory_file.write(f"    {candidate['hostName']}:\n")
-                        inventory_file.write(f"      ansible_host: {candidate['eth0']}\n")
+                        inventory_file.write(
+                            f"      ansible_host: {candidate['eth0']}\n"
+                        )
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()

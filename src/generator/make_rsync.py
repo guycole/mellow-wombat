@@ -39,7 +39,7 @@ class RsyncGenerator:
             out_file.write(f"SRC_DIR=/var/wombat/fresh\n")
             out_file.write(f"#\n")
 
-            for crate in catalog["crate"]:  
+            for crate in catalog["crate"]:
                 if crate["crateName"] == crate_name:
                     for sbc in crate["sbc"]:
                         if sbc["role"] == "collector":

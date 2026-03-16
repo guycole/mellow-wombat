@@ -62,7 +62,7 @@ class ConfigGenerator:
                         task_list["tasks"].append(task_entry)
                     else:
                         task_list["tasks"] = [task_entry]
-            
+
             crate_list.append(task_list)
 
         return crate_list
@@ -70,6 +70,8 @@ class ConfigGenerator:
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
         catalog = jh.json_catalog_reader(self.catalog_name)
+
+
 #        tasks = self.make_tasks(catalog)
 #        jh.json_writer("tasking.new", tasks)
 
