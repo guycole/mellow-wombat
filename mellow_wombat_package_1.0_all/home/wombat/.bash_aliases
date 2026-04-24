@@ -21,6 +21,7 @@ alias varbat="cd /var/wombat"
 #
 alias heeler="cd /home/wombat/Documents/github/mellow-heeler"
 alias hyena="cd /home/wombat/Documents/github/mellow-hyena"
+alias koala="cd /home/wombat/Documents/github/mellow-koala"
 alias manatee="cd /home/wombat/Documents/github/mellow-manatee"
 alias mastodon="cd /home/wombat/Documents/github/mellow-mastodon"
 alias possum="cd /home/wombat/Documents/github/mellow-possum"
