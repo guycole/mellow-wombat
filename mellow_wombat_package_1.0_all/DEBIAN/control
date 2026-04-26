@@ -7,4 +7,4 @@ Section: misc
 Maintainer: guycole <guycole@gmail.com>
 Standards-Version: 4.7.0
 Description: base mellow wombat install
-Depends: atop,awscli,build-essential,cmake,git,libusb-1.0-0-dev,rsync,tmux,uuid-runtime,virtualenv
+Depends: atop,awscli,build-essential,cmake,git,libffi-dev,libusb-1.0-0-dev,libyaml-dev,rsync,tmux,uuid-runtime,virtualenv,zlib1g-dev 
