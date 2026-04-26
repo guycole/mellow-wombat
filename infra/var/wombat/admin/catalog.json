@@ -216,10 +216,10 @@
         {
             "crateName": "wombat04",
             "geoLoc": {
-                "siteName": "barn",
-                "altitude": 123,
-                "latitude": 12.34,
-                "longitude": 123.45
+                "siteName": "vallejo01",
+                "altitude": 0,
+                "latitude": 38.1080,
+                "longitude": -122.2680
             },
             "sbc": [
                 {
