@@ -208,3 +208,15 @@ http://192.168.1.107:9090/classic/graph?g0.range_input=1h&g0.expr=node_cpu_secon
 
 ### Prepare Ansible
 The gateway is also an ansible control node for the collectors in this crate.
+
+### Install Ruby
+Ruby has to be built, as user wombat
+
+```
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+
+rbenv install -l
+rbenv install 3.4.9
+```
+
+todo: log monitoring
