@@ -253,9 +253,9 @@
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 6,
+                        "id": 12,
                         "task": "assign-me",
-                        "type": "rtl-sdr-v3",
+                        "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
                 },
@@ -267,7 +267,7 @@
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 6,
+                        "id": 5,
                         "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
@@ -281,7 +281,7 @@
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 6,
+                        "id": 7,
                         "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
@@ -295,7 +295,63 @@
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 6,
+                        "id": 10,
+                        "task": "hyena-adsb-v1",
+                        "type": "rtl-sdr-v3",
+                        "antenna": "coaxial collinear"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.131",
+                    "hostName": "c4g",
+                    "role": "collector",
+                    "storage": "32 GB microSD",
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 11,
+                        "task": "assign-me",
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.133",
+                    "hostName": "c4h",
+                    "role": "collector",
+                    "storage": "32 GB microSD",
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 11,
+                        "task": "assign-me",
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.135",
+                    "hostName": "c4i",
+                    "role": "collector",
+                    "storage": "32 GB microSD",
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 11,
+                        "task": "assign-me",
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.137",
+                    "hostName": "c4j",
+                    "role": "collector",
+                    "storage": "32 GB microSD",
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 11,
                         "task": "assign-me",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
