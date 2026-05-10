@@ -1,5 +1,5 @@
-# Odroid n4
-Each crate typically has one [odroid n4](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) as a wired ethernet (wombatnet) to wifi bridge.  Called the gateway and it offers services like NTP, GPS, logging, network routing, etc for SBC ("collectors") within the crate.
+# Odroid n2
+Each crate typically has one [odroid n2](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/) as a wired ethernet (wombatnet) to wifi bridge.  Called the gateway and it offers services like NTP, GPS, logging, network routing, etc for SBC ("collectors") within the crate.
 
 ## Provisioning Overview
 Provisioning starts w/a USB memory stick (at least 8GB) which is loaded with [Ubuntu Minimal 22.04.4 LTS (v4.9)](https://odroid.in/ubuntu_22.04lts/N2/ubuntu-22.04-4.9-minimal-odroid-n2-20220622.img.xz).  After the generic packages have been installed and configured, the memory stick is copied to larger USB Passport drives which will be the bootable storage for each gateway host.
@@ -7,11 +7,11 @@ Provisioning starts w/a USB memory stick (at least 8GB) which is loaded with [Ub
 Put another way: the memory stick is generic and the passport drives are specific to each host.  Provisioning begins w/loading the USB memory stick.
 
 ### Install Operating System On Memory Stick
-At the end of this step, the n4 should have booted from USB memory stick.
+At the end of this step, the n2 should have booted from USB memory stick.
 
 1. Using [balena etcher](https://github.com/balena-io/etcher) copy [Ubuntu Minimal 22.04.4 LTS (v4.9)](https://odroid.in/ubuntu_22.04lts/N2/ubuntu-22.04-4.9-minimal-odroid-n2-20220622.img.xz) to the USB memory stick.
 
-1. Verify copy by booting odroid n4 from USB memory stick.  With the candidate powered off, ensure MMC/SPI slide switch is set to SPI and insert the USB memory stick.  Power the n4 on and petitboot should boot to Ubuntu.
+1. Verify copy by booting odroid n2 from USB memory stick.  With the candidate powered off, ensure MMC/SPI slide switch is set to SPI and insert the USB memory stick.  Power the n2 on and petitboot should boot to Ubuntu.  If boot hangs on console, switch "system configuration" to boot "any usb device" and power cycle.  Use root/odroid when the prompt appears.
 
 ### Configure WiFi and perform package maintenance
 For this step, enable WiFi and start updating/installing packages.

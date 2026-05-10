@@ -8,6 +8,34 @@
 # run as root, all USB devices should be unmounted
 #
 PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin; export PATH
+set -euo pipefail
+
+cleanup() {
+    sync
+    if mountpoint -q "${SOURCE}/boot"; then
+        umount "${SOURCE}/boot"
+    fi
+    if mountpoint -q "$SOURCE"; then
+        umount "$SOURCE"
+    fi
+    if mountpoint -q "${TARGET}/boot"; then
+        umount "${TARGET}/boot"
+    fi
+    if mountpoint -q "$TARGET"; then
+        umount "$TARGET"
+    fi
+}
+
+require_mount() {
+    local device="$1"
+    local mount_path="$2"
+
+    mount "$device" "$mount_path"
+    if ! mountpoint -q "$mount_path"; then
+        echo "Error: failed to mount $device on $mount_path"
+        exit 1
+    fi
+}
 #
 # Argument validation: require exactly two string arguments
 if [[ $# -ne 2 ]]; then
@@ -40,14 +68,21 @@ TARGET_DEV2="${2}2"
 SOURCE="/mnt/source"
 TARGET="/mnt/target"
 #
-mount $SOURCE_DEV2 $SOURCE
-mount $TARGET_DEV2 $TARGET
+mkdir -p "$SOURCE" "$TARGET"
+trap cleanup EXIT
+
+require_mount "$SOURCE_DEV2" "$SOURCE"
+require_mount "$TARGET_DEV2" "$TARGET"
 #
 mkdir -p "${TARGET}/boot"
-mount $TARGET_DEV1 "${TARGET}/boot"
+require_mount "$TARGET_DEV1" "${TARGET}/boot"
 #
 mkdir -p "${SOURCE}/boot"
-mount -o ro $SOURCE_DEV1 "${SOURCE}/boot"
+mount -o ro "$SOURCE_DEV1" "${SOURCE}/boot"
+if ! mountpoint -q "${SOURCE}/boot"; then
+    echo "Error: failed to mount $SOURCE_DEV1 on ${SOURCE}/boot"
+    exit 1
+fi
 #
 rsync -aAXH --numeric-ids --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} "${SOURCE}/" "${TARGET}/"
 #
@@ -74,15 +109,6 @@ FILE_NAME=/mnt/target/boot/boot.ini
 cp "${FILE_NAME}" "${FILE_NAME}.orig"
 #
 sed -i -E "s/root=UUID=[0-9a-fA-F-]+/root=UUID=${ROOT_UUID}/g" "${FILE_NAME}"
-#
-# cleanup
-#
-sync
-umount "${SOURCE}/boot"
-umount $SOURCE
-umount "${TARGET}/boot"
-umount $TARGET
-sync
 #
 echo "end gateway copy"
 #

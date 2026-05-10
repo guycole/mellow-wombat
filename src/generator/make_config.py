@@ -80,7 +80,7 @@ print("start")
 #
 # make task template from catalog
 #
-# python3 make_tasks.py ../../infra/var/wombat/admin/catalog.json
+# python3 make_config.py ../../infra/var/wombat/admin/catalog.json
 #
 if __name__ == "__main__":
     if len(sys.argv) > 1:

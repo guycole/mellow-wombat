@@ -7,6 +7,8 @@ wombat01:
       ansible_host: 10.168.1.109
     pi4a:
       ansible_host: 10.168.1.119
+    pi4n:
+      ansible_host: 10.168.1.129
 wombat02:
   hosts:
     c4d:
@@ -35,4 +37,12 @@ wombat04:
       ansible_host: 10.168.4.125
     pi4k:
       ansible_host: 10.168.4.127
+    c4g:
+      ansible_host: 10.168.4.131
+    c4h:
+      ansible_host: 10.168.4.133
+    c4i:
+      ansible_host: 10.168.4.135
+    c4j:
+      ansible_host: 10.168.4.137
 wombat05:
