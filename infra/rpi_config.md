@@ -67,6 +67,11 @@ edit /etc/chrony/chrony.conf
 server 10.168.1.1
 ```
 
+### inhibit gratuitous /etc/hosts resets
+```
+sudo touch /etc/cloud/cloud-init.disabled
+```
+
 ### Prometheus node exporter
 Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gateway
 
