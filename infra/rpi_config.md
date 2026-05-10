@@ -17,7 +17,6 @@ systemctl enable ssh.service
 ```
 
 1. Reboot and verify routing 
-
 ```
 route -n
 Kernel IP routing table
@@ -30,8 +29,6 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 ping -c 5 8.8.8.8
 curl -v -L https://www.zapanote.com
 ```
-
-1. Copy the [13-remote](https://github.com/guycole/mellow-wombat/blob/main/infra/etc/rsyslog.d/13-remote.conf) file to /etc/rsyslog.d and tweak gateway reference)
 
 ### Update Packages
 Update Debian and Mellow Package
@@ -65,12 +62,16 @@ Update /etc/sudoers (note the NOPASSWD)
 ```
 edit /etc/chrony/chrony.conf
 server 10.168.1.1
+makestep 1 3
 ```
 
 ### inhibit gratuitous /etc/hosts resets
 ```
 sudo touch /etc/cloud/cloud-init.disabled
 ```
+
+### rsyslog
+Copy the [13-remote](https://github.com/guycole/mellow-wombat/blob/main/infra/etc/rsyslog.d/13-remote.conf) file to /etc/rsyslog.d and tweak gateway reference)
 
 ### Prometheus node exporter
 Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gateway

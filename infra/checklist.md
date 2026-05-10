@@ -19,6 +19,7 @@
 1. there is a wombat user account
     1. there is github access via a dedicated key (for the crate)
     1. there is AWS access via a dedicated key (for the crate)
+    1. sudo enabled
     1. ansible is working
     1. you can visit all of the collectors without authentication
     1. rsync is working
@@ -27,11 +28,13 @@
 ## Collector
 1. hostname is correct
 1. only configured for ethernet, no WiFi
+1. ip masquerade is working (i.e. "ping 8.8.8.8")
 1. chrony is working (i.e. "chronyc sources" only small deviations)
     1. chrony gets time from the gateway only
 1. remote logging (to gateway) is working
 1. there is a wombat user account
-    gateway can access without auth
+    1. gateway can access without auth
+    1. sudo enabled
 1. there is a /var/wombat (et al)
 
 ### Odroid Collector
