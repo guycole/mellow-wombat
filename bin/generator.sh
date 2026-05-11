@@ -11,6 +11,7 @@ set -euo pipefail
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 REPO_DIR=$(cd "${SCRIPT_DIR}/.." && pwd)
 GENERATOR_DIR="${REPO_DIR}/src/generator"
+VENV_ACTIVATE="${GENERATOR_DIR}/venv/bin/activate"
 CATALOG_FILE="/var/wombat/admin/catalog.json"
 HOSTS_NEW="${GENERATOR_DIR}/hosts.new"
 HOSTS_TARGET="/etc/hosts"
@@ -34,8 +35,15 @@ if [[ ! -d "$GENERATOR_DIR" ]]; then
     exit 1
 fi
 
+if [[ ! -f "$VENV_ACTIVATE" ]]; then
+    echo "Error: virtualenv activate script not found: $VENV_ACTIVATE" >&2
+    exit 1
+fi
+
+source "$VENV_ACTIVATE"
+
 if ! command -v python3 >/dev/null 2>&1; then
-    echo "Error: python3 is not installed" >&2
+    echo "Error: python3 is not available from virtualenv: $VENV_ACTIVATE" >&2
     exit 1
 fi
 

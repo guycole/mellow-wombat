@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# Title: catalog.sh
+# Description: write catalog.json to s3
+# Development Environment: Ubuntu 22.04.05 LTS
+# Author: Guy Cole (guycole at gmail dot com)
+# 
 
 set -euo pipefail
 

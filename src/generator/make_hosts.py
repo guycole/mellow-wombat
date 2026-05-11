@@ -64,6 +64,7 @@ print("start")
 # argv[1] = json catalog filename
 #
 # python3 make_hosts.py ../../infra/var/wombat/admin/catalog.json wombat01
+# python3 make_hosts.py /var/wombat/admin/catalog.json wombat01
 #
 if __name__ == "__main__":
     if len(sys.argv) == 3:

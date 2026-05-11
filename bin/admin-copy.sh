@@ -1,5 +1,12 @@
 #!/bin/bash
-
+#
+# Title: admin_copy.sh
+# Description: copy admin files from S3 to local directory
+# Development Environment: Ubuntu 22.04.05 LTS
+# Author: Guy Cole (guycole at gmail dot com)
+# 
+# admin_copy.sh wombat04
+#
 set -euo pipefail
 
 if [[ $# -ne 1 ]]; then

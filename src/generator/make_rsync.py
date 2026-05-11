@@ -64,6 +64,7 @@ print("start")
 # argv[2] = target crate name
 #
 # python3 make_rsync.py ../../infra/var/wombat/admin/catalog.json wombat01
+# python3 make_rsync.py /var/wombat/admin/catalog.json wombat01
 #
 if __name__ == "__main__":
     if len(sys.argv) > 1:
