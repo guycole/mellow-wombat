@@ -6,6 +6,7 @@
 #
 import datetime
 import sys
+import socket
 import time
 import zoneinfo
 
@@ -14,22 +15,23 @@ import json_helper
 
 class RsyncGenerator:
 
-    def __init__(self, args):
-        self.args = args
-        self.epoch_seconds = int(time.time())
+    def __init__(self, filename: str) -> None:
+        self.catalog_filename = filename
 
+        self.hostname = socket.gethostname()
+        
+        self.epoch_seconds = int(time.time())
         dt_object_utc = datetime.datetime.fromtimestamp(
             self.epoch_seconds, tz=zoneinfo.ZoneInfo("UTC")
         )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
     def write_rsync_file(self, catalog: dict[str, any]) -> None:
-        crate_name = self.args[1]
-        print(f"rsync for: {crate_name}")
+        print(f"rsync for: {self.hostname}")
 
         with open("rsync.new", "w") as out_file:
             out_file.write("#!/bin/bash\n")
-            out_file.write(f"# generated for: {crate_name}\n")
+            out_file.write(f"# generated for: {self.hostname}\n")
             out_file.write(f"# epoch: {self.epoch_seconds}\n")
             out_file.write(f"# ISO8601: {self.iso8601_timestamp}\n")
             out_file.write(f"#\n")
@@ -40,7 +42,7 @@ class RsyncGenerator:
             out_file.write(f"#\n")
 
             for crate in catalog["crate"]:
-                if crate["crateName"] == crate_name:
+                if crate["crateName"] == self.hostname:
                     for sbc in crate["sbc"]:
                         if sbc["role"] == "collector":
                             out_file.write(
@@ -51,8 +53,7 @@ class RsyncGenerator:
 
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
-        catalog = jh.json_catalog_reader(self.args[0])
-
+        catalog = jh.json_catalog_reader(self.catalog_filename)
         self.write_rsync_file(catalog)
 
 
@@ -61,19 +62,16 @@ print("start")
 #
 # python make_rsync.py catalog.json wombat02
 # argv[1] = json catalog filename
-# argv[2] = target crate name
 #
-# python3 make_rsync.py ../../infra/var/wombat/admin/catalog.json wombat01
-# python3 make_rsync.py /var/wombat/admin/catalog.json wombat01
+# python3 make_rsync.py ../../infra/var/wombat/admin/catalog.json
+# python3 make_rsync.py /var/wombat/admin/catalog.json 
 #
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        ndx = len(sys.argv) - 1
-        args = sys.argv[-ndx : len(sys.argv)]
-        generator = RsyncGenerator(args)
+    if len(sys.argv) == 2:
+        generator = RsyncGenerator(sys.argv[1])
         generator.execute()
     else:
-        print("need catalog filename and crate")
+        print("need catalog filename")
         exit(1)
 
 print("stop")
