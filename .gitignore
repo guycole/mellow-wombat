@@ -143,3 +143,6 @@ src/generator/hosts.new
 src/generator/inventory.new
 src/generator/rsync.new
 
+bin/rsync.sh
+src/ansible/inventory.yaml
+
