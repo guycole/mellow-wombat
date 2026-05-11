@@ -54,7 +54,7 @@ install -m 0644 "$HOSTS_NEW" "$HOSTS_TARGET"
 echo "Updated $HOSTS_TARGET"
 
 python3 make_inventory.py "$CATALOG_FILE"
-install -m 0644 "$INVENTORY_NEW" "$INVENTORY_TARGET"
+install -m 0644 -o wombat -g wombat "$INVENTORY_NEW" "$INVENTORY_TARGET"
 echo "Updated $INVENTORY_TARGET"
 
 python3 make_rsync.py "$CATALOG_FILE"
