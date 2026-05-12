@@ -240,7 +240,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
-                        "task": "heeler-v1",
+                        "task": "heeler-v2",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -296,7 +296,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 10,
-                        "task": "hyena-adsb-v1",
+                        "task": "hyena-adsb-v2",
                         "type": "rtl-sdr-v3",
                         "antenna": "coaxial collinear"
                     }
