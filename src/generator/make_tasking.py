@@ -1,6 +1,6 @@
 #
-# Title: make_hosts.py
-# Description: Generates hosts file from catalog
+# Title: make_tasking.py
+# Description: Generates tasking file from catalog
 # Development Environment: Ubuntu 22.04.5 LTS/python 3.10.12
 # Author: G.S. Cole (guycole at gmail dot com)
 #
@@ -13,7 +13,7 @@ import zoneinfo
 import json_helper
 
 
-class HostGenerator:
+class TaskGenerator:
 
     def __init__(self, filename: str) -> None:
         self.catalog_filename = filename
@@ -26,9 +26,8 @@ class HostGenerator:
         )
         self.iso8601_timestamp = dt_object_utc.isoformat()
 
-    def write_hosts_file(self, catalog: dict[str, any]) -> None:
-        # write a fresh hosts file with the catalog data
-        print(f"hosts for: {self.hostname}")
+    def write_task_file(self, catalog: dict[str, any]) -> None:
+        # write a fresh task file with the catalog data
 
         with open("hosts.new", "w") as hosts_file:
             hosts_file.write(f"#\n")
@@ -44,7 +43,7 @@ class HostGenerator:
             hosts_file.write("ff02::2\t\tip6-allrouters\n")
             hosts_file.write(f"#\n")
             hosts_file.write("10.168.0.11\tentropy\n")
-            hosts_file.write("10.168.0.13\tnatasha\n")
+            hosts_file.write("10.168.0.13\tnatash\n")
 
             for crate in catalog["crate"]:
                 hosts_file.write(f"#\n")
@@ -52,27 +51,45 @@ class HostGenerator:
                     print(f"{sbc['eth0']} {sbc['hostName']}")
                     hosts_file.write(f"{sbc['eth0']}\t{sbc['hostName']}\n")
 
+    def generate_tasks(self, catalog: dict[str, any]) -> None:
+        results = {}
+
+        for crate in catalog["crate"]:
+            for sbc in crate["sbc"]:
+                if sbc["hostName"] not in results:
+                    results[sbc["hostName"]] = {
+                        "ip": sbc["eth0"],
+                        "tasks": []
+                    }
+                for device in sbc["device"]:
+                    task = {
+                        "type": device["type"],
+                        "antenna": device["antenna"]
+                    }
+                    results[sbc["hostName"]]["tasks"].append(task)
+
     def execute(self) -> None:
         jh = json_helper.JsonHelper()
         catalog = jh.json_catalog_reader(self.catalog_filename)
         if len(catalog) > 0:
-            self.write_hosts_file(catalog)
+            self.generate_tasks(catalog)
+#            self.write_task_file(catalog)
         else:
             print("catalog is empty")
 
 print("start")
 
 #
-# make a hosts file for a crate
-# python make_hosts.py catalog.json crate_name
+# make a tasks file for all crates
+# python make_tasking.py catalog.json crate_name
 # argv[1] = json catalog filename
 #
-# python3 make_hosts.py ../../infra/var/wombat/admin/catalog.json 
-# python3 make_hosts.py /var/wombat/admin/catalog.json 
+# python3 make_tasking.py ../../infra/var/wombat/admin/catalog.json 
+# python3 make_tasking.py /var/wombat/admin/catalog.json 
 #
 if __name__ == "__main__":
     if len(sys.argv) == 2:
-        generator = HostGenerator(sys.argv[1])
+        generator = TaskGenerator(sys.argv[1])
         generator.execute()
     else:
         print("need catalog filename")
