@@ -72,7 +72,6 @@ if __name__ == "__main__":
         generator.execute()
     else:
         print("need catalog filename")
-        exit(1)
 
 print("stop")
 

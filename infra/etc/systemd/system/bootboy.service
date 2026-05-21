@@ -1,0 +1,18 @@
+[Unit]
+Description=BootBoy boot-time configuration
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/bootboy --admin-dir /var/wombat/admin --status-file /var/wombat/admin/bootboy.status.json
+RemainAfterExit=yes
+
+# Hardening (keep minimal; expand later if needed)
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=strict
+ReadWritePaths=/var/wombat/admin
+
+[Install]
+WantedBy=multi-user.target
