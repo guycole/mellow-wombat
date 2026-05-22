@@ -26,6 +26,24 @@ journalctl -u bootboy.service -b --no-pager
 cat /var/wombat/admin/bootboy.status.json
 ```
 
+### Troubleshooting: "failed to setup mount namespacing"
+
+If `systemctl start bootboy.service` fails with an error like:
+
+```
+failed to setup mount namespacing
+```
+
+your kernel/systemd environment likely doesn't support mount-namespace-based
+hardening directives. Use the unit file from this repo (it avoids those
+directives), then reload + restart:
+
+```bash
+sudo install -m 0644 infra/etc/systemd/system/bootboy.service /etc/systemd/system/bootboy.service
+sudo systemctl daemon-reload
+sudo systemctl restart bootboy.service
+```
+
 ## Local/manual run
 
 ```bash

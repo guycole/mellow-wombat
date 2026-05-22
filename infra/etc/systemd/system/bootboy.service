@@ -7,12 +7,12 @@ Type=oneshot
 ExecStart=/usr/local/bin/bootboy --admin-dir /var/wombat/admin --status-file /var/wombat/admin/bootboy.status.json
 RemainAfterExit=yes
 
-# Hardening (keep minimal; expand later if needed)
+# Hardening note:
+# Some environments (notably certain Raspberry Pi/kernel setups) can fail with
+# "failed to setup mount namespacing" when mount-namespace-based hardening
+# directives are enabled (e.g., ProtectSystem/ProtectHome/PrivateTmp/ReadWritePaths).
+# Keep this unit compatible and add hardening only once the target supports it.
 NoNewPrivileges=yes
-PrivateTmp=yes
-ProtectHome=yes
-ProtectSystem=strict
-ReadWritePaths=/var/wombat/admin
 
 [Install]
 WantedBy=multi-user.target
