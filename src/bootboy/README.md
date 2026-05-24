@@ -10,6 +10,14 @@ At boot, BootBoy:
 2. Reads `/var/wombat/admin/{hostname}.json`.
 3. Writes `/var/wombat/admin/bootboy.status.json` indicating success/failure.
 
+BootBoy always attempts to write the status JSON even on early failures; if the
+configured status path is not writable, it will write a fallback copy under
+`/tmp/` and log the fallback path to stderr/journald.
+
+If the config contains an `assigned` value that BootBoy knows about, it will
+invoke a matching handler stub and record the outcome under `assignedInvoke` in
+the status JSON (currently includes a stub for `heeler-v2`).
+
 ## Install as a systemd service
 
 From this repo on the target Linux host:
