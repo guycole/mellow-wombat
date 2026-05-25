@@ -9,4 +9,4 @@ if [[ -z "$target_host" ]]; then
 	exit 1
 fi
 
-ansible-playbook -i inventory.yaml apt-update.yaml --extra-vars "target_hosts=${target_host}"
+ansible-playbook -vv -i inventory.yaml apt-update.yaml --extra-vars "target_hosts=${target_host}"
