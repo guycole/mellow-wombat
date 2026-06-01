@@ -62,7 +62,7 @@
                     "hostName": "pi4n",
                     "role": "collector",
                     "storage": "32 GB microSD",
-                    "tasks": ["mastodon-v1", "manatee-v1", "capybara-v1"],
+                    "tasks": ["mastodon-v1", "capybara-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
@@ -88,26 +88,11 @@
                     }
                 },
                 {
-                    "eth0": "10.168.1.135",
-                    "hostName": "c4i",
-                    "role": "collector",
-                    "storage": "32 GB microSD",
-                    "tasks": ["capybara-v1", "mastodon-v1", "manatee-v1"],
-                    "type": "odroid c4",
-                    "wifi": "None",
-                    "receiver": {
-                        "id": 11,
-                        "task": "manatee-v1",
-                        "type": "rtl-sdr-v3",
-                        "antenna": "multicoupler"
-                    }
-                },
-                {
                     "eth0": "10.168.1.137",
                     "hostName": "c4j",
                     "role": "collector",
                     "storage": "32 GB microSD",
-                    "tasks": ["capybara-v1", "mastodon-v1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "mastodon-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
@@ -375,9 +360,24 @@
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 11,
+                        "id": 17,
                         "task": "capybara-v1",
-                        "type": "rtl-sdr-v3",
+                        "type": "rtl-sdr-v4",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.4.135",
+                    "hostName": "c4i",
+                    "role": "collector",
+                    "storage": "32 GB microSD",
+                    "tasks": ["capybara-v1", "mastodon-v1", "manatee-v1"],
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 15,
+                        "task": "manatee-v1",
+                        "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
                 }

@@ -133,6 +133,11 @@ netfilter-persistent save
 logger "test" (and ensure message appears at loghost)
 ```
 
+for logrotate
+```
+copy infra/etc/wombat /etc/logrotate.d
+```
+
 ### Verify NTP 
 Ensure NTP is working
 
