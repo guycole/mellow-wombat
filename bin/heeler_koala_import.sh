@@ -5,7 +5,12 @@
 # Development Environment: Ubuntu 22.04.05 LTS
 # Author: Guy Cole (guycole at gmail dot com)
 #
-PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
+RBENV_ROOT="${RBENV_ROOT:-/home/wombat/.rbenv}"
+if [ ! -d "$RBENV_ROOT" ] && [ -d "$HOME/.rbenv" ]; then
+  RBENV_ROOT="$HOME/.rbenv"
+fi
+PATH="$RBENV_ROOT/shims:$RBENV_ROOT/bin:/bin:/usr/bin:/etc:/usr/local/bin:/snap/bin${PATH:+:$PATH}"; export PATH
+export RBENV_ROOT
 #
 #
 SOURCE_DIR="/var/wombat/heeler/koala"
