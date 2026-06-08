@@ -30,6 +30,9 @@ fi
 
 mkdir -p "$TARGET_DIR"
 
+# delete because sync is unreliable
+rm "$TARGET_DIR"/catalog.json 
+
 aws s3 sync "$SOURCE_URI" "$TARGET_DIR" --delete --profile "$PROFILE"
 
 echo "Synchronized $SOURCE_URI to $TARGET_DIR using profile $PROFILE"
