@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Title: heeler_archive.sh
+# Title: heeler-archive.sh
 # Description: archive heeler files to tar
 # Development Environment: Ubuntu 22.04.05 LTS
 # Author: Guy Cole (guycole at gmail dot com)
