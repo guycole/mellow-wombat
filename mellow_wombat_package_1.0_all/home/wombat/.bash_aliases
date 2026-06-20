@@ -18,6 +18,7 @@ alias pscript="ps -ef | grep script"
 #
 alias cdgh="cd /home/wombat/Documents/github"
 alias varbat="cd /var/wombat"
+alias varfresh="cd /var/wombat/fresh"
 #
 alias heeler="cd /home/wombat/Documents/github/mellow-heeler"
 alias hyena="cd /home/wombat/Documents/github/mellow-hyena"
