@@ -46,6 +46,7 @@ class HostGenerator:
             hosts_file.write("10.168.0.11\tentropy\n")
             hosts_file.write("10.168.0.13\tnatasha\n")
             hosts_file.write("10.168.0.15\twaifu\n")
+            hosts_file.write("10.168.0.17\tpi4f\n")
 
             for crate in catalog["crate"]:
                 hosts_file.write(f"#\n")
