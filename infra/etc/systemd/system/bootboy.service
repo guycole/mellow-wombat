@@ -4,7 +4,7 @@ After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/bootboy --admin-dir /var/wombat/admin --status-file /var/wombat/admin/bootboy.status.json
+ExecStart=/home/wombat/Documents/github/mellow-wombat/bin/bootboy --admin-dir /var/wombat/admin --status-file /var/wombat/admin/bootboy.status.json
 RemainAfterExit=yes
 
 # Hardening note:

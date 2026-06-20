@@ -5,9 +5,11 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 BOOTBOY_SRC="$ROOT_DIR/src/bootboy/bootboy.py"
 SERVICE_SRC="$ROOT_DIR/infra/etc/systemd/system/bootboy.service"
+BOOTBOY_INSTALL_DIR="/home/wombat/Documents/github/mellow-wombat/bin"
+BOOTBOY_INSTALL_PATH="$BOOTBOY_INSTALL_DIR/bootboy"
 
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "ERROR: python3 not found (required by /usr/local/bin/bootboy)" >&2
+  echo "ERROR: python3 not found (required by $BOOTBOY_INSTALL_PATH)" >&2
   echo "Install on Debian/Raspberry Pi OS: sudo apt-get update && sudo apt-get install -y python3" >&2
   exit 2
 fi
@@ -27,8 +29,11 @@ if [[ ! -f "$SERVICE_SRC" ]]; then
   exit 2
 fi
 
-echo "Installing bootboy script to /usr/local/bin/bootboy" >&2
-sudo install -m 0755 "$BOOTBOY_SRC" /usr/local/bin/bootboy
+echo "Ensuring bootboy install dir exists at $BOOTBOY_INSTALL_DIR" >&2
+sudo mkdir -p "$BOOTBOY_INSTALL_DIR"
+
+echo "Installing bootboy script to $BOOTBOY_INSTALL_PATH" >&2
+sudo install -m 0755 "$BOOTBOY_SRC" "$BOOTBOY_INSTALL_PATH"
 
 echo "Installing systemd unit to /etc/systemd/system/bootboy.service" >&2
 sudo install -m 0644 "$SERVICE_SRC" /etc/systemd/system/bootboy.service
