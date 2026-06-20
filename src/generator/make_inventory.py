@@ -62,6 +62,7 @@ print("start")
 # argv[1] = json catalog filename
 #
 # python3 make_inventory.py ../../infra/var/wombat/admin/catalog.json
+# python3 make_inventory.py /var/wombat/admin/catalog.json
 #
 if __name__ == "__main__":
     if len(sys.argv) > 1:

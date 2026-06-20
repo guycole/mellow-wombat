@@ -78,6 +78,7 @@ Add prometheus node exporter and update /etc/prometheus/prometheus.yml on gatewa
 
 ```
 apt-get install prometheus-node-exporter
+update gateway /etc/prometheus/prometheus.yml with node IP address
 ```
 
 ### Heeler Config

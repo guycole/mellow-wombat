@@ -30,7 +30,7 @@ nmcli dev status
 ```
 apt-get update && apt-get upgrade -y
 apt-get install -y atop build-essential chrony dnsutils emacs git jq postgresql tmux unzip uuid-runtime
-apt-get install -y awscli cmake libusb-1.0-0-dev virtualenv
+apt-get install -y awscli cmake libffi-dev libusb-1.0-0-dev libyaml-dev virtualenv
 
 apt-add-repository --yes --update ppa:ansible/ansible
 apt-get install -y ansible
@@ -131,6 +131,11 @@ iptables -A INPUT -p udp --dport 514 -j ACCEPT
 iptables -A INPUT -p tcp --dport 514 -j ACCEPT
 netfilter-persistent save
 logger "test" (and ensure message appears at loghost)
+```
+
+for logrotate
+```
+copy infra/etc/wombat /etc/logrotate.d
 ```
 
 ### Verify NTP 

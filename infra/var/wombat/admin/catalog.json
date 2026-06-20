@@ -1,10 +1,10 @@
 {
-    "creationEpochTime": 1771713445,
-    "creationIso8601Time": "2026-02-21T22:37:25+00:00",
+    "creationEpochTime": 1779731059,
+    "creationIso8601Time": "2026-05-25T17:44:19+00:00",
     "project": "wombat-catalog",
     "schemaVersion": 1,
     "crate": [
-            {
+        {
             "crateName": "wombat01",
             "geoLoc": {
                 "siteName": "anderson01",
@@ -28,29 +28,16 @@
                     "wifi": "AC600"
                 },
                 {
-                    "eth0": "10.168.1.101",
-                    "hostName": "c4c",
-                    "role": "collector",
-                    "storage": "16 GB microSD",
-                    "type": "odroid c4",
-                    "wifi": "None",
-                    "receiver": {
-                        "id": 9,
-                        "task": "hyena-adsb-v1",
-                        "type": "pro-stick-v1.1-orange",
-                        "antenna": "coaxial collinear"
-                    }
-                },
-                {
                     "eth0": "10.168.1.109",
                     "hostName": "pi3c",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["heeler-v2"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
                         "id": 0,
-                        "task": "heeler-v1",
+                        "task": "heeler-v2",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -60,11 +47,12 @@
                     "hostName": "pi4a",
                     "role": "collector",
                     "storage": "32 GB microSD",
+                    "tasks": ["hyena-uat-v2"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 8,
-                        "task": "hyena-uat-v1",
+                        "task": "hyena-uat-v2",
                         "type": "pro-stick-v1.0-blue",
                         "antenna": "multicoupler"
                     }
@@ -74,11 +62,42 @@
                     "hostName": "pi4n",
                     "role": "collector",
                     "storage": "32 GB microSD",
+                    "tasks": ["mastodon-v1", "capybara-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 14,
                         "task": "mastodon-v1",
+                        "type": "rtl-sdr-v3",
+                        "antenna": "multicoupler"
+                    }
+                },
+                {
+                    "eth0": "10.168.1.101",
+                    "hostName": "c4c",
+                    "role": "collector",
+                    "storage": "16 GB microSD",
+                    "tasks": ["hyena-adsb-v2"],
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 9,
+                        "task": "hyena-adsb-v2",
+                        "type": "pro-stick-v1.1-orange",
+                        "antenna": "coaxial collinear"
+                    }
+                },
+                {
+                    "eth0": "10.168.1.137",
+                    "hostName": "c4j",
+                    "role": "collector",
+                    "storage": "32 GB microSD",
+                    "tasks": ["capybara-v1", "mastodon-v1"],
+                    "type": "odroid c4",
+                    "wifi": "None",
+                    "receiver": {
+                        "id": 11,
+                        "task": "capybara-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -94,7 +113,7 @@
                 "longitude": 123.45
             },
             "multicoupler": {
-                "id": 1,
+                "id": 11,
                 "antenna": "discone",
                 "type": "MCA208M"
             },
@@ -113,6 +132,7 @@
                     "hostName": "c4d",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["assign-me"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
@@ -127,6 +147,7 @@
                     "hostName": "pi3e",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["heeler-v1"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
@@ -141,6 +162,7 @@
                     "hostName": "pi4c",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["assign-me"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
@@ -155,6 +177,7 @@
                     "hostName": "pi4o",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["assign-me"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
@@ -188,6 +211,7 @@
                     "hostName": "pi3a",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["heeler-v1"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
@@ -202,6 +226,7 @@
                     "hostName": "pi4d",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["assign-me"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
@@ -221,6 +246,11 @@
                 "latitude": 38.1080,
                 "longitude": -122.2680
             },
+            "multicoupler": {
+                "id": 1,
+                "antenna": "GRA-D220 mini discone",
+                "type": "MCA208M"
+            },
             "sbc": [
                 {
                     "eth0": "10.168.4.1",
@@ -236,11 +266,12 @@
                     "hostName": "pi3b",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["heeler-v2"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
-                        "task": "heeler-v1",
+                        "task": "heeler-v2",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -250,11 +281,12 @@
                     "hostName": "pi4h",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["capybara-v1", "hyena-uat-v2", "mastodon-v1", "manatee-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 12,
-                        "task": "assign-me",
+                        "task": "capybara-v1",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
@@ -264,11 +296,12 @@
                     "hostName": "pi4i",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["capybara-v1", "hyena-uat-v2", "mastodon-v1", "manatee-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 5,
-                        "task": "assign-me",
+                        "task": "hyena-uat-v2",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -278,11 +311,12 @@
                     "hostName": "pi4j",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["capybara-v1", "hyena-uat-v2", "mastodon-v1", "manatee-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 7,
-                        "task": "assign-me",
+                        "task": "mastodon-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -292,11 +326,12 @@
                     "hostName": "pi4k",
                     "role": "collector",
                     "storage": "16 GB microSD",
+                    "tasks": ["hyena-adsb-v2"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 10,
-                        "task": "hyena-adsb-v1",
+                        "task": "hyena-adsb-v2",
                         "type": "rtl-sdr-v3",
                         "antenna": "coaxial collinear"
                     }
@@ -306,11 +341,12 @@
                     "hostName": "c4g",
                     "role": "collector",
                     "storage": "32 GB microSD",
+                    "tasks": ["capybara-v1", "hyena-uat-v2", "mastodon-v1", "manatee-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
                         "id": 11,
-                        "task": "assign-me",
+                        "task": "manatee-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -320,12 +356,13 @@
                     "hostName": "c4h",
                     "role": "collector",
                     "storage": "32 GB microSD",
+                    "tasks": ["capybara-v1", "hyena-uat-v2", "mastodon-v1", "manatee-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 11,
-                        "task": "assign-me",
-                        "type": "rtl-sdr-v3",
+                        "id": 17,
+                        "task": "capybara-v1",
+                        "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
                 },
@@ -334,26 +371,13 @@
                     "hostName": "c4i",
                     "role": "collector",
                     "storage": "32 GB microSD",
+                    "tasks": ["capybara-v1", "mastodon-v1", "manatee-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 11,
-                        "task": "assign-me",
-                        "type": "rtl-sdr-v3",
-                        "antenna": "multicoupler"
-                    }
-                },
-                {
-                    "eth0": "10.168.4.137",
-                    "hostName": "c4j",
-                    "role": "collector",
-                    "storage": "32 GB microSD",
-                    "type": "odroid c4",
-                    "wifi": "None",
-                    "receiver": {
-                        "id": 11,
-                        "task": "assign-me",
-                        "type": "rtl-sdr-v3",
+                        "id": 15,
+                        "task": "manatee-v1",
+                        "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
                 }

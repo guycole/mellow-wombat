@@ -7,11 +7,6 @@ woofwoof
 createuser -U postgres -e -l -P wombat_client
 batabat
 #
-# as pg superuser
-# create tablespace wombat location '/mnt/pp1/postgres/wombat';
-create tablespace wombat location '/mnt/pg_tablespace/wombat';
-#
-#
 createdb wombat -O wombat_admin -D wombat -E UTF8 -T template0 -l C
 #
 # psql -h localhost -p 5432 -U wombat_admin -d wombat
