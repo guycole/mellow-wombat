@@ -231,8 +231,6 @@ def run(admin_dir: str, status_file: str) -> int:
                 "assigned": cfg.assigned,
                 "crateName": cfg.crate_name,
                 "hostName": cfg.host_name,
-                # Placeholder for the next phase (starting the assigned app).
-                "assignedAppDir": f"/home/wombat/documents/gitlab/{cfg.assigned}",
             }
         )
         return_code = 0
