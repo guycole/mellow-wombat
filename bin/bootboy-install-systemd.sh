@@ -3,11 +3,21 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-BOOTBOY_SRC="$ROOT_DIR/src/bootboy/bootboy.py"
+BOOTBOY_EXEC_PATH="/home/wombat/Documents/github/mellow-wombat/src/bootboy/bootboy.py"
 SERVICE_SRC="$ROOT_DIR/infra/etc/systemd/system/bootboy.service"
 
+if [[ "$(uname -s)" != "Linux" ]]; then
+  echo "INFO: bootboy-install-systemd.sh is intended for production Linux hosts; skipping on $(uname -s)." >&2
+  exit 0
+fi
+
+if ! command -v systemctl >/dev/null 2>&1; then
+  echo "ERROR: systemctl not found (required to install/enable bootboy.service)" >&2
+  exit 2
+fi
+
 if ! command -v python3 >/dev/null 2>&1; then
-  echo "ERROR: python3 not found (required by /usr/local/bin/bootboy)" >&2
+  echo "ERROR: python3 not found (required by $BOOTBOY_EXEC_PATH)" >&2
   echo "Install on Debian/Raspberry Pi OS: sudo apt-get update && sudo apt-get install -y python3" >&2
   exit 2
 fi
@@ -17,8 +27,8 @@ HOST_SHORT="${HOST_SHORT%%.*}"
 ADMIN_DIR="/var/wombat/admin"
 CONFIG_PATH="$ADMIN_DIR/${HOST_SHORT}.json"
 
-if [[ ! -f "$BOOTBOY_SRC" ]]; then
-  echo "ERROR: missing $BOOTBOY_SRC" >&2
+if [[ ! -f "$BOOTBOY_EXEC_PATH" ]]; then
+  echo "ERROR: missing $BOOTBOY_EXEC_PATH" >&2
   exit 2
 fi
 
@@ -26,9 +36,6 @@ if [[ ! -f "$SERVICE_SRC" ]]; then
   echo "ERROR: missing $SERVICE_SRC" >&2
   exit 2
 fi
-
-echo "Installing bootboy script to /usr/local/bin/bootboy" >&2
-sudo install -m 0755 "$BOOTBOY_SRC" /usr/local/bin/bootboy
 
 echo "Installing systemd unit to /etc/systemd/system/bootboy.service" >&2
 sudo install -m 0644 "$SERVICE_SRC" /etc/systemd/system/bootboy.service

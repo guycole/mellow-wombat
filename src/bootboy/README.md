@@ -18,6 +18,16 @@ If the config contains an `assigned` value that BootBoy knows about, it will
 invoke a matching handler stub and record the outcome under `assignedInvoke` in
 the status JSON (currently includes a stub for `heeler-v2`).
 
+## Status JSON notes
+
+- `bootboy.status.json` records run outcome metadata (`ok`, `timestampUtc`,
+	`hostname`, `configPath`, plus optional `error`).
+- When an `assigned` handler is known, BootBoy records invocation details under
+	`assignedInvoke`.
+- The executed script path is `assignedInvoke.result.script` and is the
+	authoritative script location.
+- `assignedAppDir` is no longer emitted.
+
 ## Install as a systemd service
 
 From this repo on the target Linux host:

@@ -81,7 +81,7 @@ def _stub_hyena_adsb_v2(cfg: BootConfig) -> Dict[str, Any]:
 
 def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
-        handler_name="hyena_uat_v2",
+        handler_name="hyena-uat-v2",
         script_path="/home/wombat/Documents/github/mellow-hyena-v2/bin/bootboy.sh",
         cfg=cfg,
     )
@@ -89,7 +89,7 @@ def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
 
 def _stub_mastodon_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
-        handler_name="mastodon_v2",
+        handler_name="mastodon-v2",
         script_path="/home/wombat/Documents/github/mellow-mastodon-v2/bin/bootboy.sh",
         cfg=cfg,
     )
@@ -115,8 +115,8 @@ def _get_assigned_handler(assigned: str) -> Optional[Callable[[BootConfig], Dict
     handlers: Dict[str, Callable[[BootConfig], Dict[str, Any]]] = {
         "heeler-v2": _stub_heeler_v2,
         "hyena-adsb-v2": _stub_hyena_adsb_v2,
-        "hyena_uat_v2": _stub_hyena_uat_v2,
-        "mastodon_v2": _stub_mastodon_v2,
+        "hyena-uat-v2": _stub_hyena_uat_v2,
+        "mastodon-v2": _stub_mastodon_v2,
         "manatee-v1": _stub_manatee_v1,
         "capybara-v1": _stub_capybara_v1,
     }
@@ -231,8 +231,6 @@ def run(admin_dir: str, status_file: str) -> int:
                 "assigned": cfg.assigned,
                 "crateName": cfg.crate_name,
                 "hostName": cfg.host_name,
-                # Placeholder for the next phase (starting the assigned app).
-                "assignedAppDir": f"/home/wombat/documents/gitlab/{cfg.assigned}",
             }
         )
         return_code = 0
