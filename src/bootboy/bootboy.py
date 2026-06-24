@@ -89,8 +89,8 @@ def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
 
 def _stub_mastodon_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
-        handler_name="mastodon-v2",
-        script_path="/home/wombat/Documents/github/mellow-mastodon-v2/bin/bootboy.sh",
+        handler_name="mastodon-v1",
+        script_path="/home/wombat/Documents/github/mellow-mastodon-v1/bin/bootboy.sh",
         cfg=cfg,
     )
 
@@ -116,7 +116,7 @@ def _get_assigned_handler(assigned: str) -> Optional[Callable[[BootConfig], Dict
         "heeler-v2": _stub_heeler_v2,
         "hyena-adsb-v2": _stub_hyena_adsb_v2,
         "hyena-uat-v2": _stub_hyena_uat_v2,
-        "mastodon-v2": _stub_mastodon_v2,
+        "mastodon-v1": _stub_mastodon_v2,
         "manatee-v1": _stub_manatee_v1,
         "capybara-v1": _stub_capybara_v1,
     }
