@@ -144,9 +144,12 @@ def _read_json(path: str) -> Dict[str, Any]:
 
 
 def _parse_boot_config(raw: Dict[str, Any]) -> BootConfig:
-    assigned = raw.get("assigned")
+    receiver = raw.get("receiver")
+    if not isinstance(receiver, dict):
+        raise ValueError("missing/invalid required field: receiver")
+    assigned = receiver.get("task")
     if not isinstance(assigned, str) or not assigned.strip():
-        raise ValueError("missing/invalid required field: assigned")
+        raise ValueError("missing/invalid required field: receiver.task")
 
     crate_name = raw.get("crateName")
     if crate_name is not None and not isinstance(crate_name, str):
