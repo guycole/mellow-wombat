@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-BOOTBOY_EXEC_PATH="/home/wombat/Documents/github/mellow-wombat/src/bootboy/bootboy.py"
+BOOTBOY_EXEC_PATH="/home/wombat/github/mellow-wombat/src/bootboy/bootboy.py"
 SERVICE_SRC="$ROOT_DIR/infra/etc/systemd/system/bootboy.service"
 
 if [[ "$(uname -s)" != "Linux" ]]; then
