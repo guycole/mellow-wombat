@@ -66,7 +66,7 @@ def _run_bootboy_script(handler_name: str, script_path: str, cfg: BootConfig) ->
 def _stub_heeler_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="heeler-v2",
-        script_path="/home/wombat/Documents/github/mellow-heeler-v2/bin/bootboy.sh",
+        script_path="/home/wombat/github/mellow-heeler-v2/bin/bootboy.sh",
         cfg=cfg,
     )
 
