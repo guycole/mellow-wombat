@@ -20,7 +20,7 @@ alias cdgh="cd /home/wombat/github"
 alias varbat="cd /var/wombat"
 alias varfresh="cd /var/wombat/fresh"
 #
-alias heeler="cd /home/wombat/github/mellow-heeler"
+alias heeler="cd /home/wombat/github/mellow-heeler-v2"
 alias hyena="cd /home/wombat/github/mellow-hyena"
 alias koala="cd /home/wombat/github/mellow-koala"
 alias manatee="cd /home/wombat/github/mellow-manatee"
