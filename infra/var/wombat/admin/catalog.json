@@ -311,12 +311,13 @@
                     "hostName": "pi4j",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1", "slug-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 7,
-                        "task": "mastodon-v1-bs1",
+                        "mode": "slug-life",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }

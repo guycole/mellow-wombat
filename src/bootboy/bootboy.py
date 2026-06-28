@@ -14,7 +14,7 @@ from typing import Any, Callable, Dict, Optional
 
 @dataclass(frozen=True)
 class BootConfig:
-    assigned: str
+    task: str
     crate_name: Optional[str]
     host_name: Optional[str]
     raw: Dict[str, Any]
@@ -37,7 +37,6 @@ def _run_bootboy_script(handler_name: str, script_path: str, cfg: BootConfig) ->
             "exitCode": None,
             "durationMs": int((time.monotonic() - started) * 1000),
             "error": f"missing script: {script_path}",
-            "assigned": cfg.assigned,
             "crateName": cfg.crate_name,
             "hostName": cfg.host_name,
         }
@@ -57,7 +56,6 @@ def _run_bootboy_script(handler_name: str, script_path: str, cfg: BootConfig) ->
         "durationMs": int((time.monotonic() - started) * 1000),
         "stdoutTail": _tail(proc.stdout),
         "stderrTail": _tail(proc.stderr),
-        "assigned": cfg.assigned,
         "crateName": cfg.crate_name,
         "hostName": cfg.host_name,
     }
@@ -74,7 +72,7 @@ def _stub_heeler_v2(cfg: BootConfig) -> Dict[str, Any]:
 def _stub_hyena_adsb_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="hyena-adsb-v2",
-        script_path="/home/wombat/Documents/github/mellow-hyena-v2/bin/bootboy.sh",
+        script_path="/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh",
         cfg=cfg,
     )
 
@@ -82,7 +80,7 @@ def _stub_hyena_adsb_v2(cfg: BootConfig) -> Dict[str, Any]:
 def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="hyena-uat-v2",
-        script_path="/home/wombat/Documents/github/mellow-hyena-v2/bin/bootboy.sh",
+        script_path="/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh",
         cfg=cfg,
     )
 
@@ -90,7 +88,7 @@ def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
 def _stub_mastodon_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="mastodon-v1",
-        script_path="/home/wombat/Documents/github/mellow-mastodon-v1/bin/bootboy.sh",
+        script_path="/home/wombat/github/mellow-mastodon-v1/bin/bootboy.sh",
         cfg=cfg,
     )
 
@@ -98,7 +96,7 @@ def _stub_mastodon_v2(cfg: BootConfig) -> Dict[str, Any]:
 def _stub_manatee_v1(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="manatee-v1",
-        script_path="/home/wombat/Documents/github/mellow-manatee-v1/bin/bootboy.sh",
+        script_path="/home/wombat/github/mellow-manatee-v1/bin/bootboy.sh",
         cfg=cfg,
     )
 
@@ -106,12 +104,18 @@ def _stub_manatee_v1(cfg: BootConfig) -> Dict[str, Any]:
 def _stub_capybara_v1(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="capybara-v1",
-        script_path="/home/gsc/Documents/github/mellow-capybara-v1/bin/bootboy.sh",
+        script_path="/home/wombat/github/mellow-capybara-v1/bin/bootboy.sh",
         cfg=cfg,
     )
 
+def _stub_slug_v1(cfg: BootConfig) -> Dict[str, Any]:
+    return _run_bootboy_script(
+        handler_name="slug-v1",
+        script_path="/home/wombat/github/mellow-slug-v1/bin/bootboy.sh",
+        cfg=cfg,
+    )
 
-def _get_assigned_handler(assigned: str) -> Optional[Callable[[BootConfig], Dict[str, Any]]]:
+def _get_task_handler(task: str) -> Optional[Callable[[BootConfig], Dict[str, Any]]]:
     handlers: Dict[str, Callable[[BootConfig], Dict[str, Any]]] = {
         "heeler-v2": _stub_heeler_v2,
         "hyena-adsb-v2": _stub_hyena_adsb_v2,
@@ -119,8 +123,9 @@ def _get_assigned_handler(assigned: str) -> Optional[Callable[[BootConfig], Dict
         "mastodon-v1": _stub_mastodon_v2,
         "manatee-v1": _stub_manatee_v1,
         "capybara-v1": _stub_capybara_v1,
+        "slug-v1": _stub_slug_v1,
     }
-    return handlers.get(assigned)
+    return handlers.get(task)
 
 
 def _utc_now_iso() -> str:
@@ -147,8 +152,8 @@ def _parse_boot_config(raw: Dict[str, Any]) -> BootConfig:
     receiver = raw.get("receiver")
     if not isinstance(receiver, dict):
         raise ValueError("missing/invalid required field: receiver")
-    assigned = receiver.get("task")
-    if not isinstance(assigned, str) or not assigned.strip():
+    task = receiver.get("task")
+    if not isinstance(task, str) or not task.strip():
         raise ValueError("missing/invalid required field: receiver.task")
 
     crate_name = raw.get("crateName")
@@ -159,7 +164,7 @@ def _parse_boot_config(raw: Dict[str, Any]) -> BootConfig:
     if host_name is not None and not isinstance(host_name, str):
         host_name = None
 
-    return BootConfig(assigned=assigned.strip(), crate_name=crate_name, host_name=host_name, raw=raw)
+    return BootConfig(task=task.strip(), crate_name=crate_name, host_name=host_name, raw=raw)
 
 
 def _atomic_write_json(path: str, payload: Dict[str, Any]) -> None:
@@ -214,24 +219,24 @@ def run(admin_dir: str, status_file: str) -> int:
         raw = _read_json(config_path)
         cfg = _parse_boot_config(raw)
 
-        invoke: Dict[str, Any] = {"requested": cfg.assigned, "invoked": False}
-        handler = _get_assigned_handler(cfg.assigned)
+        invoke: Dict[str, Any] = {"requested": cfg.task, "invoked": False}
+        handler = _get_task_handler(cfg.task)
         if handler is not None:
             invoke["invoked"] = True
             invoke["result"] = handler(cfg)
             exit_code = invoke.get("result", {}).get("exitCode")
             if exit_code not in (None, 0):
-                raise RuntimeError(f"assigned handler failed: {cfg.assigned} (exit={exit_code})")
+                raise RuntimeError(f"task handler failed: {cfg.task} (exit={exit_code})")
             if exit_code is None and invoke.get("result", {}).get("error"):
                 # Missing script is expected when apps haven't been installed yet; record it but don't fail.
                 if not invoke.get("result", {}).get("missing", False):
-                    raise RuntimeError(f"assigned handler failed: {cfg.assigned} ({invoke['result']['error']})")
+                    raise RuntimeError(f"task handler failed: {cfg.task} ({invoke['result']['error']})")
         status["assignedInvoke"] = invoke
 
         status.update(
             {
                 "ok": True,
-                "assigned": cfg.assigned,
+                "task": cfg.task,
                 "crateName": cfg.crate_name,
                 "hostName": cfg.host_name,
             }

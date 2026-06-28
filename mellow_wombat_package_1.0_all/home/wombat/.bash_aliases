@@ -27,5 +27,6 @@ alias manatee="cd /home/wombat/github/mellow-manatee"
 alias mastodon="cd /home/wombat/github/mellow-mastodon"
 alias possum="cd /home/wombat/github/mellow-possum"
 alias skunk="cd /home/wombat/github/mellow-skunk"
+alias slug="cd /home/wombat/github/mellow-slug-v1"
 alias wombat="cd /home/wombat/github/mellow-wombat"
 #
