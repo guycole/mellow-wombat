@@ -85,7 +85,7 @@ def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
     )
 
 
-def _stub_mastodon_v2(cfg: BootConfig) -> Dict[str, Any]:
+def _stub_mastodon_v1(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
         handler_name="mastodon-v1",
         script_path="/home/wombat/github/mellow-mastodon-v1/bin/bootboy.sh",
@@ -120,13 +120,12 @@ def _get_task_handler(task: str) -> Optional[Callable[[BootConfig], Dict[str, An
         "heeler-v2-iwlist": _stub_heeler_v2,
         "hyena-adsb-v2": _stub_hyena_adsb_v2,
         "hyena-uat-v2": _stub_hyena_uat_v2,
-        "mastodon-v1": _stub_mastodon_v2,
         "manatee-v1": _stub_manatee_v1,
+        "mastodon-v1-bs1": _stub_mastodon_v1,
         "capybara-v1": _stub_capybara_v1,
         "slug-v1": _stub_slug_v1,
     }
     return handlers.get(task)
-
 
 def _utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
