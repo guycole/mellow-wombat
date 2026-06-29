@@ -68,22 +68,12 @@ def _stub_heeler_v2(cfg: BootConfig) -> Dict[str, Any]:
         cfg=cfg,
     )
 
-
-def _stub_hyena_adsb_v2(cfg: BootConfig) -> Dict[str, Any]:
+def _stub_hyena_v2(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
-        handler_name="hyena-adsb-v2",
+        handler_name="hyena-v2",
         script_path="/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh",
         cfg=cfg,
     )
-
-
-def _stub_hyena_uat_v2(cfg: BootConfig) -> Dict[str, Any]:
-    return _run_bootboy_script(
-        handler_name="hyena-uat-v2",
-        script_path="/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh",
-        cfg=cfg,
-    )
-
 
 def _stub_mastodon_v1(cfg: BootConfig) -> Dict[str, Any]:
     return _run_bootboy_script(
@@ -118,8 +108,8 @@ def _stub_slug_v1(cfg: BootConfig) -> Dict[str, Any]:
 def _get_task_handler(task: str) -> Optional[Callable[[BootConfig], Dict[str, Any]]]:
     handlers: Dict[str, Callable[[BootConfig], Dict[str, Any]]] = {
         "heeler-v2-iwlist": _stub_heeler_v2,
-        "hyena-adsb-v2": _stub_hyena_adsb_v2,
-        "hyena-uat-v2": _stub_hyena_uat_v2,
+        "hyena-v2-dump1090": _stub_hyena_v2,
+        "hyena-v2-dump978": _stub_hyena_v2,
         "manatee-v1": _stub_manatee_v1,
         "mastodon-v1-bs1": _stub_mastodon_v1,
         "capybara-v1": _stub_capybara_v1,
