@@ -11,10 +11,7 @@ echo "start validate"
 #
 docker rm heeler;docker run -v /var/wombat:/mnt/wombat --name heeler heeler:latest
 #
-#cd /var/wombat/heeler/koala
-#chown wombat:wombat *.koala
-#
-/home/wombat/Documents/github/mellow-wombat/bin/heeler-koala-import.sh
+/home/wombat/github/mellow-wombat/bin/heeler-koala-import.sh
 #
 echo "end validate"
 #
