@@ -1,0 +1,9 @@
+---
+- name: pull-slug
+  become: true
+  hosts: "{{ target_hosts }}"
+  tasks:
+    - name: ansible-pull from mellow-slug-v1
+      ansible.builtin.command:
+        cmd: ansible-pull -U https://github.com/guycole/mellow-slug-v1
+        chdir: "{{ ansible_env.HOME }}/github"

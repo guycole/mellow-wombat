@@ -266,7 +266,7 @@
                     "hostName": "pi3b",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["heeler-v2-iwlist"],
+                    "tasks": ["heeler-v2-iwlist", "slug-v1"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
@@ -281,12 +281,12 @@
                     "hostName": "pi4h",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1", "slug-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 12,
-                        "task": "capybara-v1",
+                        "task": "hyena-v2-dump978",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
@@ -296,12 +296,12 @@
                     "hostName": "pi4i",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1", "slug-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 5,
-                        "task": "hyena-v2-dump978",
+                        "task": "mastodon-v1-bs1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -316,7 +316,6 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 7,
-                        "mode": "slug-life",
                         "task": "slug-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
@@ -327,7 +326,7 @@
                     "hostName": "pi4k",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["hyena-v2-dump1090"],
+                    "tasks": ["hyena-v2-dump1090", "slug-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
@@ -342,12 +341,12 @@
                     "hostName": "c4g",
                     "role": "collector",
                     "storage": "32 GB microSD",
-                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1", "slug-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
                         "id": 11,
-                        "task": "manatee-v1",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -357,12 +356,12 @@
                     "hostName": "c4h",
                     "role": "collector",
                     "storage": "32 GB microSD",
-                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1", "slug-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
                         "id": 17,
-                        "task": "capybara-v1",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
@@ -372,12 +371,12 @@
                     "hostName": "c4i",
                     "role": "collector",
                     "storage": "32 GB microSD",
-                    "tasks": ["capybara-v1", "mastodon-v1-bs1", "manatee-v1"],
+                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-bs1", "manatee-v1", "slug-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
                         "id": 15,
-                        "task": "manatee-v1",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }

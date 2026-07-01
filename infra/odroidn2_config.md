@@ -225,3 +225,8 @@ rbenv install 3.4.9
 ```
 
 todo: log monitoring
+
+grafana in docker on 3000 admin/admin
+docker run -d --name=grafana -p 3000:3000 grafana/grafana-enterprise
+docker run -d --name=grafana -p 3333:3000 grafana/grafana-enterprise
+
