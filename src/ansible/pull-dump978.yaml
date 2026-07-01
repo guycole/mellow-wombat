@@ -1,0 +1,19 @@
+---
+- name: pull-dump978
+  become: true
+  hosts: "{{ target_hosts }}"
+  tasks:
+    - name: ensure github directory exists
+      ansible.builtin.file:
+        path: "/home/wombat/github"
+        state: directory
+        owner: wombat
+        group: wombat
+        mode: "0755"
+
+    - name: clone or pull dump978
+      become: false
+      ansible.builtin.git:
+        repo: https://github.com/mutability/dump978.git
+        dest: "/home/wombat/github/dump978"
+        update: yes
