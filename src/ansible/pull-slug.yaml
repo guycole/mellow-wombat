@@ -11,8 +11,9 @@
         group: wombat
         mode: "0755"
 
-    - name: ansible-pull from mellow-slug-v1
+    - name: clone or pull mellow-slug-v1
       become: false
-      ansible.builtin.command:
-        cmd: ansible-pull -U https://github.com/guycole/mellow-slug-v1
-        chdir: "/home/wombat/github"
+      ansible.builtin.git:
+        repo: https://github.com/guycole/mellow-slug-v1
+        dest: "/home/wombat/github/mellow-slug-v1"
+        update: yes
