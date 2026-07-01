@@ -1,0 +1,19 @@
+---
+- name: pull-capybara
+  become: true
+  hosts: "{{ target_hosts }}"
+  tasks:
+    - name: ensure github directory exists
+      ansible.builtin.file:
+        path: "/home/wombat/github"
+        state: directory
+        owner: wombat
+        group: wombat
+        mode: "0755"
+
+    - name: clone or pull mellow-capybara-v1
+      become: false
+      ansible.builtin.git:
+        repo: https://github.com/guycole/mellow-capybara-v1
+        dest: "/home/wombat/github/mellow-capybara-v1"
+        update: yes
