@@ -3,7 +3,16 @@
   become: true
   hosts: "{{ target_hosts }}"
   tasks:
+    - name: ensure github directory exists
+      ansible.builtin.file:
+        path: "/home/wombat/github"
+        state: directory
+        owner: wombat
+        group: wombat
+        mode: "0755"
+
     - name: ansible-pull from mellow-slug-v1
+      become: false
       ansible.builtin.command:
         cmd: ansible-pull -U https://github.com/guycole/mellow-slug-v1
-        chdir: "{{ ansible_env.HOME }}/github"
+        chdir: "/home/wombat/github"
