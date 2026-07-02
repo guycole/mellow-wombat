@@ -5,7 +5,7 @@
 # Development Environment: ubuntu 22.04.5 LTS
 # Author: Guy Cole (guycole at gmail dot com)
 #
-cd /home/gsc/Documents/github/mellow-wombat
+cd /home/gsc/github/mellow-wombat
 dpkg-deb --build mellow_wombat_package_1.0_all
 dpkg-scanpackages --multiversion . > Packages
 gzip -k -f Packages

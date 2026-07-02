@@ -1,0 +1,9 @@
+./pull-capybara.sh
+./pull-dump1090.sh
+./pull-dump978.sh
+./pull-heeler.sh
+./pull-hyena.sh
+./pull-mastodon.sh
+./pull-rtlsdr.sh
+./pull-slug.sh
+./pull-wombat.sh
