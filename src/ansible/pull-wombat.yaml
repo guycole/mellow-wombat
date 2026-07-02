@@ -17,3 +17,4 @@
         repo: https://github.com/guycole/mellow-wombat
         dest: "/home/wombat/github/mellow-wombat"
         update: yes
+        version: main

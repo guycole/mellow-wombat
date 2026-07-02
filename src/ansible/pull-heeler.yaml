@@ -17,3 +17,4 @@
         repo: https://github.com/guycole/mellow-heeler-v2
         dest: "/home/wombat/github/mellow-heeler-v2"
         update: yes
+        version: main

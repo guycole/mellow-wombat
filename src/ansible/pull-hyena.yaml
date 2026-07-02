@@ -17,3 +17,4 @@
         repo: https://github.com/guycole/mellow-hyena-v2
         dest: "/home/wombat/github/mellow-hyena-v2"
         update: yes
+        version: main
