@@ -17,4 +17,4 @@
         repo: https://github.com/mutability/dump978.git
         dest: "/home/wombat/github/dump978"
         update: yes
-        version: main
+        version: master

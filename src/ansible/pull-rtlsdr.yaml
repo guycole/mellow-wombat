@@ -17,4 +17,4 @@
         repo: https://github.com/osmocom/rtl-sdr.git
         dest: "/home/wombat/github/rtl-sdr"
         update: yes
-        version: main
+        version: master
