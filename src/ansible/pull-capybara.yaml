@@ -17,3 +17,4 @@
         repo: https://github.com/guycole/mellow-capybara-v1
         dest: "/home/wombat/github/mellow-capybara-v1"
         update: yes
+        version: main

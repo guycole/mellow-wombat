@@ -17,3 +17,4 @@
         repo: https://github.com/guycole/mellow-slug-v1
         dest: "/home/wombat/github/mellow-slug-v1"
         update: yes
+        version: main
