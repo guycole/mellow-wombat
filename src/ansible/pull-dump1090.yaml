@@ -17,4 +17,4 @@
         repo: https://github.com/flightaware/dump1090.git
         dest: "/home/wombat/github/dump1090"
         update: yes
-        version: main
+        version: master
