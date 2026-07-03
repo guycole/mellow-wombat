@@ -14,7 +14,7 @@
     - name: clone or pull mellow-manatee-v1
       become: false
       ansible.builtin.git:
-        repo: https://github.com/guycole/mellow-manatee -v1
+        repo: https://github.com/guycole/mellow-manatee-v1
         dest: "/home/wombat/github/mellow-manatee-v1"
         update: yes
         version: main
