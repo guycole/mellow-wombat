@@ -1,7 +1,0 @@
-/var/log/wombat/*/*.log {
-	rotate 14
-	weekly
-	missingok
-	notifempty
-	compress
-}
