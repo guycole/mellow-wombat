@@ -1,0 +1,20 @@
+---
+- name: pull-manatee
+  become: true
+  hosts: "{{ target_hosts }}"
+  tasks:
+    - name: ensure github directory exists
+      ansible.builtin.file:
+        path: "/home/wombat/github"
+        state: directory
+        owner: wombat
+        group: wombat
+        mode: "0755"
+
+    - name: clone or pull mellow-manatee-v1
+      become: false
+      ansible.builtin.git:
+        repo: https://github.com/guycole/mellow-manatee -v1
+        dest: "/home/wombat/github/mellow-manatee-v1"
+        update: yes
+        version: main
