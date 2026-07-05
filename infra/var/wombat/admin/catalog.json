@@ -132,12 +132,12 @@
                     "hostName": "c4d",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["assign-me"],
+                    "tasks": ["slug-v1"],
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
                         "id": 13,
-                        "task": "assign-me",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -147,12 +147,12 @@
                     "hostName": "pi3e",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["heeler-v1"],
+                    "tasks": ["slug-v1"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
                         "id": 2,
-                        "task": "heeler-v1",
+                        "task": "slug-v1",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
@@ -162,12 +162,12 @@
                     "hostName": "pi4c",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["assign-me"],
+                    "tasks": ["slug-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 14,
-                        "task": "assign-me",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -182,7 +182,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 14,
-                        "task": "hyena-v2-dump978",
+                        "task": "slug-v1",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }

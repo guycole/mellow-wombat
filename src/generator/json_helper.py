@@ -103,12 +103,32 @@ catalog_schema_v1 = {
 
 class JsonHelper:
 
+    def _collector_eth0_last_octet(self, eth0: object) -> int | None:
+        if not isinstance(eth0, str):
+            return None
+
+        octets = eth0.split(".")
+        if len(octets) != 4:
+            return None
+
+        try:
+            last_octet = int(octets[-1])
+        except ValueError:
+            return None
+
+        if last_octet < 0 or last_octet > 255:
+            return None
+
+        return last_octet
+
     def _validate_task_assignments(self, catalog: dict[str, any]) -> list[str]:
         errors: list[str] = []
 
         crates = catalog.get("crate")
         if not isinstance(crates, list):
             return ["catalog is missing 'crate' array"]
+
+        collector_octets: dict[int, str] = {}
 
         for crate in crates:
             if not isinstance(crate, dict):
@@ -119,9 +139,6 @@ class JsonHelper:
             if not isinstance(sbcs, list):
                 continue
 
-            tasks_declared: set[str] = set()
-            receiver_task_examples: set[str] = set()
-
             for sbc in sbcs:
                 if not isinstance(sbc, dict):
                     continue
@@ -130,6 +147,23 @@ class JsonHelper:
                     continue
 
                 host_name = sbc.get("hostName", "<unknown>")
+                eth0 = sbc.get("eth0")
+                collector_key = f"crate={crate_name} hostName={host_name} eth0={eth0}"
+
+                last_octet = self._collector_eth0_last_octet(eth0)
+                if last_octet is None:
+                    errors.append(
+                        f"crate={crate_name} hostName={host_name}: invalid collector eth0 '{eth0}'"
+                    )
+                else:
+                    previous = collector_octets.get(last_octet)
+                    if previous is not None:
+                        errors.append(
+                            f"collector eth0 last octet '{last_octet}' is duplicated: {previous}; {collector_key}"
+                        )
+                    else:
+                        collector_octets[last_octet] = collector_key
+
                 sbc_tasks = sbc.get("tasks")
                 if not isinstance(sbc_tasks, list):
                     errors.append(
@@ -138,9 +172,7 @@ class JsonHelper:
                     sbc_tasks = []
                 else:
                     for task in sbc_tasks:
-                        if isinstance(task, str):
-                            tasks_declared.add(task)
-                        else:
+                        if not isinstance(task, str):
                             errors.append(
                                 f"crate={crate_name} hostName={host_name}: tasks element is not string"
                             )
@@ -159,7 +191,6 @@ class JsonHelper:
                     )
                     continue
 
-                receiver_task_examples.add(receiver_task)
                 if receiver_task not in sbc_tasks:
                     errors.append(
                         f"crate={crate_name} hostName={host_name}: receiver.task '{receiver_task}' not in tasks list"
