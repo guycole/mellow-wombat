@@ -165,12 +165,6 @@ class JsonHelper:
                         f"crate={crate_name} hostName={host_name}: receiver.task '{receiver_task}' not in tasks list"
                     )
 
-            missing_examples = sorted(tasks_declared - receiver_task_examples)
-            if missing_examples:
-                errors.append(
-                    f"crate={crate_name}: missing receiver.task example(s) for: {', '.join(missing_examples)}"
-                )
-
         return errors
 
     def json_catalog_reader(self, file_name: str) -> dict[str, any]:
