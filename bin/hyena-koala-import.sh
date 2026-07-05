@@ -14,7 +14,7 @@ export RBENV_ROOT
 #
 #
 SOURCE_DIR="/var/wombat/hyena/koala"
-KOALA_IMPORT="/home/wombat/Documents/github/mellow-koala/bin/import_hyena_adsb"
+KOALA_IMPORT="/home/wombat/github/mellow-koala/bin/import_hyena_adsb"
 #
 for FILE in "$SOURCE_DIR"/*; do
   [ -f "$FILE" ] || continue
