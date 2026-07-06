@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Title: heeler-archive.sh
+# Title: slug-archive.sh
 # Description: tar success directory and save in export
 # Development Environment: ubuntu 22.4.5 LTS
 # Author: Guy Cole (guycole at gmail dot com)
@@ -8,12 +8,12 @@
 PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
 TODAY=$(date '+%Y-%m-%d')
-FILE_NAME="heeler-${TODAY}.tgz"
+FILE_NAME="slug-${TODAY}.tgz"
 #
 EXPORT_DIR="export"
-SOURCE_DIR="heeler-v2"
+SOURCE_DIR="slug-v1"
 SUCCESS_DIR="success"
-WORK_DIR="/var/wombat/heeler"
+WORK_DIR="/var/wombat/slug"
 #
 echo "start archiver" 
 #
