@@ -56,28 +56,44 @@ On the next reboot (or `systemctl start bootboy.service`), the BootBoy systemd o
 
 1. Determines the system hostname.
 2. Reads `/var/wombat/admin/{hostname}.json`.
-3. Invokes the handler for the `assigned` task.
+3. Invokes the handler for the task specified in `receiver.task`.
 4. Writes `/var/wombat/admin/bootboy.status.json` recording outcome.
 
 ## Tasking file (`{hostname}.json`)
 
-The per-host tasking file is generated from `catalog.json` by the generator. The key field is `assigned`, which selects the handler BootBoy invokes:
+The per-host tasking file is generated from `catalog.json` by the generator. BootBoy reads `receiver.task` to select the handler to invoke:
 
 ```json
 {
-  "assigned": "heeler-v2",
   "crateName": "wombat01",
-  "hostName": "pi3c"
+  "geoLoc": {
+    "siteName": "anderson01",
+    "altitude": 118.6,
+    "latitude": 40.4174,
+    "longitude": -122.2405
+  },
+  "hostName": "pi3c",
+  "receiver": {
+    "id": 0,
+    "task": "heeler-v2-iwlist",
+    "type": "ac-1300",
+    "antenna": "whip"
+  },
+  "type": "rpi3"
 }
 ```
 
-Known `assigned` values and their handler scripts:
+Known `receiver.task` values and their handler scripts:
 
 | Value | Handler script |
 |-------|----------------|
-| `heeler-v2` | `/home/wombat/github/mellow-heeler-v2/bin/bootboy.sh` |
-| `hyena-v2` | `/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh` |
-| `mastodon-v1` | `/home/wombat/github/mellow-mastodon-v1/bin/bootboy.sh` |
+| `heeler-v2-iwlist` | `/home/wombat/github/mellow-heeler-v2/bin/bootboy.sh` |
+| `hyena-v2-dump1090` | `/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh` |
+| `hyena-v2-dump978` | `/home/wombat/github/mellow-hyena-v2/bin/bootboy.sh` |
+| `mastodon-v1-bs1` | `/home/wombat/github/mellow-mastodon-v1/bin/bootboy.sh` |
+| `manatee-v1` | `/home/wombat/github/mellow-manatee-v1/bin/bootboy.sh` |
+| `capybara-v1` | `/home/wombat/github/mellow-capybara-v1/bin/bootboy.sh` |
+| `slug-v1` | `/home/wombat/github/mellow-slug-v1/bin/bootboy.sh` |
 
 ## Status JSON (`bootboy.status.json`)
 
