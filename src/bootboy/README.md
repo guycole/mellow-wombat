@@ -14,9 +14,10 @@ BootBoy always attempts to write the status JSON even on early failures; if the
 configured status path is not writable, it will write a fallback copy under
 `/tmp/` and log the fallback path to stderr/journald.
 
-If the config contains an `assigned` value that BootBoy knows about, it will
+If the config contains a `receiver.task` value that BootBoy knows about, it will
 invoke a matching handler stub and record the outcome under `assignedInvoke` in
-the status JSON (currently includes a stub for `heeler-v2`).
+the status JSON (currently includes stubs for `heeler-v2`, `hyena-v2`,
+`mastodon-v1`, `manatee-v1`, `capybara-v1`, and `slug-v1`).
 
 ## Status JSON notes
 

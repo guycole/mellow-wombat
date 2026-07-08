@@ -47,7 +47,7 @@ if [[ -n "$HOST_SHORT" && ! -f "$CONFIG_PATH" ]]; then
   echo "WARNING: missing $CONFIG_PATH" >&2
   echo "BootBoy will fail until you create it. Minimal example:" >&2
   echo "  sudo tee '$CONFIG_PATH' >/dev/null <<'JSON'" >&2
-  echo "  { \"assigned\": \"your-app\" }" >&2
+  echo "  { \"receiver\": { \"task\": \"your-app\" } }" >&2
   echo "  JSON" >&2
 fi
 
