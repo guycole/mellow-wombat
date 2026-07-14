@@ -9,9 +9,10 @@ PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
 echo "start validate"
 #
-docker rm heeler;docker run -v /var/wombat:/mnt/wombat --name heeler heeler:latest
+docker rm heeler-validate;docker run -v /var/wombat:/mnt/wombat --name heeler-validate heeler:latest
 #
-/home/wombat/github/mellow-wombat/bin/heeler-koala-import.sh
+docker rm heeler-koala;docker run -e stuntbox=koala -v /var/wombat:/mnt/wombat --name heeler heeler:latest
+$HOME/github/mellow-wombat/bin/heeler-koala-import.sh
 #
 echo "end validate"
 #
