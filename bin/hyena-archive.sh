@@ -12,15 +12,17 @@ FILE_NAME="hyena-${TODAY}.tgz"
 #
 EXPORT_DIR="export"
 SOURCE_DIR="hyena-v2"
-SUCCESS_DIR="success"
+SUCCESS_DIR_ADSB="success_adsb"
+SUCCESS_DIR_UAT="success_uat"
 WORK_DIR="/var/wombat/hyena"
 #
 echo "start archiver" 
 #
 cd ${WORK_DIR}
 #
-mv ${SUCCESS_DIR} ${SOURCE_DIR}
-mkdir ${SUCCESS_DIR}
+mv ${SUCCESS_DIR_ADSB} ${SOURCE_DIR}
+mkdir ${SUCCESS_DIR_ADSB}
+mv ${SUCCESS_DIR_UAT}/*.json ${SOURCE_DIR}
 #
 tar -cvzf ${FILE_NAME} ${SOURCE_DIR}
 mv ${FILE_NAME} ${EXPORT_DIR}

@@ -12,7 +12,9 @@ echo "start validate"
 docker rm hyena-validate;docker run -v /var/wombat:/mnt/wombat --name hyena-validate hyena:latest
 #
 docker rm hyena-koala;docker run -e stuntbox=koala -v /var/wombat:/mnt/wombat --name hyena-koala hyena:latest
-#/home/wombat/github/mellow-wombat/bin/hyena-koala-import.sh
+#
+/home/wombat/github/mellow-wombat/bin/hyena-adsb-koala-import.sh
+/home/wombat/github/mellow-wombat/bin/hyena-uat-koala-import.sh
 #
 echo "end validate"
 #
