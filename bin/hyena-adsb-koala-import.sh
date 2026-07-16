@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Title: hyena-koala-import.sh
+# Title: hyena-adsb-koala-import.sh
 # Description: import koala files 
 # Development Environment: Ubuntu 22.04.05 LTS
 # Author: Guy Cole (guycole at gmail dot com)
@@ -13,7 +13,7 @@ PATH="$RBENV_ROOT/shims:$RBENV_ROOT/bin:/bin:/usr/bin:/etc:/usr/local/bin:/snap/
 export RBENV_ROOT
 #
 #
-SOURCE_DIR="/var/wombat/hyena/koala"
+SOURCE_DIR="/var/wombat/hyena/koala_adsb"
 KOALA_IMPORT="/home/wombat/github/mellow-koala/bin/import_hyena_adsb"
 #
 for FILE in "$SOURCE_DIR"/*; do
