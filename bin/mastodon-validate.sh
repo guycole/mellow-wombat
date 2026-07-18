@@ -13,7 +13,7 @@ docker rm mastodon-validate;docker run -v /var/wombat:/mnt/wombat --name mastodo
 #
 docker rm mastodon-koala;docker run -e stuntbox=koala -v /var/wombat:/mnt/wombat --name mastodon-koala mastodon:latest
 #
-#$HOME/github/mellow-wombat/bin/mastodon-koala-import.sh
+$HOME/github/mellow-wombat/bin/mastodon-koala-import.sh
 #
 echo "end validate"
 #
