@@ -38,7 +38,7 @@ class Driver:
         client = Client()
         client.login(self.account_name, self.application_password)
 
-        message = f"new day from host: {self.hostname}"
+        message = f"new day from {self.hostname}"
 
         post = client.send_post(text=message)
         print(f"post successful! CID: {post.cid}")
