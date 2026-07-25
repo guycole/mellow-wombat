@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Title: mastodon-koala-import.sh
+# Title: hyena-uat-koala-import.sh
 # Description: import koala files 
 # Development Environment: Ubuntu 22.04.05 LTS
 # Author: Guy Cole (guycole at gmail dot com)
@@ -13,8 +13,8 @@ PATH="$RBENV_ROOT/shims:$RBENV_ROOT/bin:/bin:/usr/bin:/etc:/usr/local/bin:/snap/
 export RBENV_ROOT
 #
 #
-SOURCE_DIR="/var/wombat/mastodon/koala"
-KOALA_IMPORT="/home/wombat/github/mellow-koala/bin/import_mastodon"
+SOURCE_DIR="/var/wombat/hyena/koala_uat"
+KOALA_IMPORT="/home/wombat/github/mellow-koala/bin/import_hyena_uat"
 #
 for FILE in "$SOURCE_DIR"/*; do
   [ -f "$FILE" ] || continue
