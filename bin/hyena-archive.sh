@@ -7,8 +7,9 @@
 #
 PATH=/bin:/usr/bin:/etc:/usr/local/bin; export PATH
 #
+HOST_NAME=$(hostname)
 TODAY=$(date '+%Y-%m-%d')
-FILE_NAME="hyena-${TODAY}.tgz"
+FILE_NAME="${HOST_NAME}-${TODAY}.tgz"
 #
 EXPORT_DIR="export"
 SOURCE_DIR="hyena-v2"
