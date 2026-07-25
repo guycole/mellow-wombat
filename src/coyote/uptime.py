@@ -1,11 +1,11 @@
 #
-# Title: new_day.py
-# Description: 
+# Title: uptime.py
+# Description: write uptime to bluesky
 # Development Environment: Ubuntu 22.04.5 LTS/python 3.10.12
 # Author: G.S. Cole (guycole at gmail dot com)
 #
-
 import logging
+import os
 import socket
 import sys
 
@@ -24,16 +24,19 @@ class Driver:
 
         self.hostname = socket.gethostname()
 
+        self.uptime = os.popen('uptime').read().strip()
+
     def execute(self) -> None:
         logger.info(f"driver initialized on host: {self.hostname}")
 
         client = Client()
         client.login(self.account_name, self.application_password)
 
-        message = f"new day from {self.hostname}"
+        message = f"{self.hostname}: {self.uptime}"
+        logger.info(message)
 
         post = client.send_post(text=message)
-        print(f"post successful! CID: {post.cid}")
+        logger.info(f"post successful! CID: {post.cid}")
 
 #
 # argv[1] = configuration filename

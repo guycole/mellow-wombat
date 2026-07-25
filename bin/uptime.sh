@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Title: new_day.sh
-# Description: 
+# Title: uptime.sh
+# Description: write uptime to bluesky
 # Development Environment: Ubuntu 22.04.05 LTS
 # Author: Guy Cole (guycole at gmail dot com)
 #
@@ -11,5 +11,5 @@ VENV_ACTIVATE="${WORK_DIR}/venv/bin/activate"
 cd ${WORK_DIR}
 source "$VENV_ACTIVATE"
 #
-python3 new_day.py
+python3 uptime.py
 #
