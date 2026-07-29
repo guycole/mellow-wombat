@@ -7,6 +7,8 @@
 #
 set -euo pipefail
 
+cd /var/wombat
+
 SERVICES=(capybara heeler hyena manatee mastodon slug)
 
 mkdir -p admin failure fresh
