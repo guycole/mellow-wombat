@@ -1,8 +1,17 @@
-mkdir admin capybara failure fresh heeler hyena manatee mastodon slug
-mkdir fresh/capybara fresh/heeler fresh/hyena fresh/manatee fresh/mastodon fresh/slug
-mkdir capybara/archive capybara/export capybara/koala capybara/success
-mkdir heeler/archive heeler/export heeler/koala heeler/success
-mkdir hyena/archive hyena/export hyena/koala hyena/success
-mkdir manatee/archive manatee/export manatee/koala manatee/success
-mkdir mastodon/archive mastodon/export mmastodon/koala mastodon/success
-mkdir slug/archive slug/export slug/koala slug/success
+#!/bin/bash
+#
+# Title: varbat.sh
+# Description: create varbat directories
+# Development Environment: ubuntu 22.04.5 LTS
+# Author: Guy Cole (guycole at gmail dot com)
+#
+set -euo pipefail
+
+SERVICES=(capybara heeler hyena manatee mastodon slug)
+
+mkdir -p admin failure fresh
+
+for svc in "${SERVICES[@]}"; do
+  mkdir -p "fresh/${svc}"
+  mkdir -p "${svc}/archive" "${svc}/export" "${svc}/koala" "${svc}/success"
+done
