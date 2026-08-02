@@ -32,12 +32,12 @@
                     "hostName": "pi3c",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["heeler-v2", "slug-v1"],
+                    "tasks": ["heeler-v2-iwlist", "slug-v1"],
                     "type": "rpi3",
                     "wifi": "None",
                     "receiver": {
                         "id": 0,
-                        "task": "heeler-v2",
+                        "task": "heeler-v2-iwlist",
                         "type": "ac-1300",
                         "antenna": "whip"
                     }
