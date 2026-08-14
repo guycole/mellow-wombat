@@ -7,6 +7,7 @@ import socket
 import subprocess
 import sys
 import time
+
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Callable, Dict, Optional
@@ -107,14 +108,31 @@ def _stub_slug_v1(cfg: BootConfig) -> Dict[str, Any]:
 
 def _get_task_handler(task: str) -> Optional[Callable[[BootConfig], Dict[str, Any]]]:
     handlers: Dict[str, Callable[[BootConfig], Dict[str, Any]]] = {
+        "capybara-v1-dev1-fast": _stub_capybara_v1,
+        "capybara-v1-dev2-fast": _stub_capybara_v1,
+        "capybara-v1-dev3-fast": _stub_capybara_v1,
+        "capybara-v1-dev4-fast": _stub_capybara_v1,
+        "capybara-v1-dev01-slow": _stub_capybara_v1,
+        "capybara-v1-dev02-slow": _stub_capybara_v1,
+        "capybara-v1-dev03-slow": _stub_capybara_v1,
+        "capybara-v1-dev04-slow": _stub_capybara_v1,
+        "capybara-v1-dev05-slow": _stub_capybara_v1,
+        "capybara-v1-dev06-slow": _stub_capybara_v1,
+        "capybara-v1-dev07-slow": _stub_capybara_v1,
+        "capybara-v1-dev08-slow": _stub_capybara_v1,
+        "capybara-v1-dev09-slow": _stub_capybara_v1,
+        "capybara-v1-dev10-slow": _stub_capybara_v1,
+        "capybara-v1-sf1-slow": _stub_capybara_v1,
+        "capybara-v1-sf1-fast": _stub_capybara_v1,
         "heeler-v2-iwlist": _stub_heeler_v2,
         "hyena-v2-dump1090": _stub_hyena_v2,
         "hyena-v2-dump978": _stub_hyena_v2,
         "manatee-v1": _stub_manatee_v1,
-        "mastodon-v1-bs1": _stub_mastodon_v1,
-        "capybara-v1": _stub_capybara_v1,
+        "mastodon-v1-bs1-pk1": _stub_mastodon_v1,
+        "mastodon-v1-wx1-pk1": _stub_mastodon_v1,
         "slug-v1": _stub_slug_v1,
     }
+
     return handlers.get(task)
 
 def _utc_now_iso() -> str:
@@ -141,6 +159,7 @@ def _parse_boot_config(raw: Dict[str, Any]) -> BootConfig:
     receiver = raw.get("receiver")
     if not isinstance(receiver, dict):
         raise ValueError("missing/invalid required field: receiver")
+    
     task = receiver.get("task")
     if not isinstance(task, str) or not task.strip():
         raise ValueError("missing/invalid required field: receiver.task")
@@ -220,6 +239,7 @@ def run(admin_dir: str, status_file: str) -> int:
                 # Missing script is expected when apps haven't been installed yet; record it but don't fail.
                 if not invoke.get("result", {}).get("missing", False):
                     raise RuntimeError(f"task handler failed: {cfg.task} ({invoke['result']['error']})")
+                
         status["assignedInvoke"] = invoke
 
         status.update(
