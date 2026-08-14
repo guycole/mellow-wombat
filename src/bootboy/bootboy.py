@@ -122,11 +122,14 @@ def _get_task_handler(task: str) -> Optional[Callable[[BootConfig], Dict[str, An
         "capybara-v1-dev08-slow": _stub_capybara_v1,
         "capybara-v1-dev09-slow": _stub_capybara_v1,
         "capybara-v1-dev10-slow": _stub_capybara_v1,
+        "capybara-v1-sf1-slow": _stub_capybara_v1,
+        "capybara-v1-sf1-fast": _stub_capybara_v1,
         "heeler-v2-iwlist": _stub_heeler_v2,
         "hyena-v2-dump1090": _stub_hyena_v2,
         "hyena-v2-dump978": _stub_hyena_v2,
         "manatee-v1": _stub_manatee_v1,
-        "mastodon-v1-bs1": _stub_mastodon_v1,
+        "mastodon-v1-bs1-pk1": _stub_mastodon_v1,
+        "mastodon-v1-wx1-pk1": _stub_mastodon_v1,
         "slug-v1": _stub_slug_v1,
     }
 
