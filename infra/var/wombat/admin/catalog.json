@@ -281,12 +281,12 @@
                     "hostName": "pi4h",
                     "role": "collector",
                     "storage": "16 GB microSD",
-                    "tasks": ["capybara-v1", "hyena-v2-dump978", "mastodon-v1-wx1-pk1", "manatee-v1", "slug-v1"],
+                    "tasks": ["hyena-v2-dump978", "mastodon-v1-wx1-pk1", "slug-v1"],
                     "type": "rpi4",
                     "wifi": "None",
                     "receiver": {
                         "id": 12,
-                        "task": "mastodon-v1-wx1-pk1",
+                        "task": "hyena-v2-dump978",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
@@ -331,7 +331,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 9,
-                        "task": "mastodon-v1-wx1-pk1",
+                        "task": "hyena-v2-dump1090",
                         "type": "FlightAware ProStick v1.1 w/1090 filter",
                         "antenna": "coaxial collinear"
                     }
@@ -346,7 +346,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 11,
-                        "task": "mastodon-v1-wx1-pk1",
+                        "task": "capybara-v1-dev2-fast",
                         "type": "rtl-sdr-v3",
                         "antenna": "multicoupler"
                     }
@@ -361,7 +361,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 17,
-                        "task": "mastodon-v1-wx1-pk1",
+                        "task": "capybara-v1-dev3-fast",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
@@ -376,7 +376,7 @@
                     "wifi": "None",
                     "receiver": {
                         "id": 15,
-                        "task": "mastodon-v1-wx1-pk1",
+                        "task": "capybara-v1-dev4-fast",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
                     }
