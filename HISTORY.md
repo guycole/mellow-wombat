@@ -1,5 +1,11 @@
 # mellow-wombat history
 
+### 14 August 2026
+- mastodon NOAA WX collection to verify hardware
+- wombat4 ran NOAA WX on all RTL-SDR collectors, variation in peaker count
+- RTL-SDR dongles cannot use the original RTL-SDR library.
+- investigating capybara survey using dumpvdl2 causes host reboot
+
 ### 10 August 2026
 - Capybara collection starts, requires survey to discover active ACARS channels
 

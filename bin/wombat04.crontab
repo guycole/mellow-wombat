@@ -1,0 +1,24 @@
+#
+# wombat04
+#
+0 */6 * * * $HOME/github/mellow-wombat/bin/uptime.sh > /dev/null 2>&1
+#
+*/2 * * * * $HOME/github/mellow-wombat/bin/rsync.sh > /dev/null 2>&1
+#
+12 */12 * * * $HOME/github/mellow-wombat/bin/admin-copy.sh wombat04 > /dev/null 2>&1
+#
+03 * * * * $HOME/github/mellow-heeler-v2/bin/validator.sh > /dev/null 2>&1
+07 00 * * * $HOME/github/mellow-heeler-v2/bin/archiver.sh > /dev/null 2>&1
+13 13 * * * $HOME/github/mellow-heeler-v2/bin/wombat-to-s3.sh > /dev/null 2>&1
+#
+* * * * * $HOME/github/mellow-hyena-v2/bin/validator.sh > /dev/null 2>&1
+07 01 * * * $HOME/github/mellow-hyena-v2/bin/archiver.sh > /dev/null 2>&1
+13 17 * * * $HOME/github/mellow-hyena-v2/bin/wombat-to-s3.sh > /dev/null 2>&1
+#
+11 * * * * $HOME/github/mellow-mastodon-v1/bin/validator.sh > /dev/null 2>&1
+13 02 * * * $HOME/github/mellow-mastodon-v1/bin/archiver.sh > /dev/null 2>&1
+13 15 * * * $HOME/github/mellow-mastodon-v1/bin/mastodon-to-s3.sh > /dev/null 2>&1
+#
+03 * * * * $HOME/github/mellow-wombat/bin/slug-validate.sh > /dev/null 2>&1
+07 00 * * 2 $HOME/github/mellow-wombat/bin/slug-archive.sh > /dev/null 2>&1
+#
