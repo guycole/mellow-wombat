@@ -12,6 +12,6 @@ export PGHOST=localhost
 export PGPASSWORD=woofwoof
 export PGUSER=wombat_admin
 #
-psql < heeler_daily_score.psql
-psql < heeler_load_log.psql
+psql < host.psql
+psql < tasking.psql
 #

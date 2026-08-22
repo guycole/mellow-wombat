@@ -10,6 +10,6 @@ export PGHOST=localhost
 export PGPASSWORD=woofwoof
 export PGUSER=wombat_admin
 #
-psql $PGDATABASE -c "drop table heeler_daily_score"
-psql $PGDATABASE -c "drop table heeler_load_log"
+psql $PGDATABASE -c "drop table wombat_host"
+psql $PGDATABASE -c "drop table wombat_tasking"
 #

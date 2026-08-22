@@ -147,3 +147,4 @@ bin/rsync.sh
 src/ansible/inventory.yaml
 
 src/coyote/config.yaml
+src/mcp/config.yaml
