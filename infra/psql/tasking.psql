@@ -1,0 +1,38 @@
+--
+-- Title: wombat_tasking.psql
+-- Description: 
+--
+--
+create table wombat_tasking (
+  id           bigserial    primary key,
+  active_flag  boolean      not null,
+  assign_time  timestamp    not null default CURRENT_TIMESTAMP,
+  crate_name   varchar(16)  not null,
+  host_name    varchar(16)  not null,
+  host_type    varchar(16)  not null,
+  ip_address   varchar(16)  not null,
+  rx_antenna   varchar(48)  not null,
+  rx_id        smallint     not null,
+  rx_task      varchar(48)  not null,
+  rx_type      varchar(64)  not null,
+  storage      varchar(16)  not null
+);
+
+grant select, insert, update, delete on wombat_tasking to wombat_client;
+grant usage, select on sequence wombat_tasking_id_seq to wombat_client;
+
+-- create index heeler_load_log_date on heeler_load_log(file_time);
+-- create unique index heeler_load_log_time_platform on heeler_load_log(file_time, platform);
+
+-- insert into heeler_v1.load_log(file_name, file_time, file_type, geo_loc_id, obs_quantity, platform) values('a89039a4-f75d-4bdc-af24-fcd8aadf3c09', '2000-1-1', 'synthetic', 1, 0, 'dummy1');
+-- insert into heeler_v1.load_log(file_name, file_time, file_type, geo_loc_id, obs_quantity, platform) values('5e7eb394-7ecd-40aa-b1c1-7527ea3a9e4f', '2000-1-1', 'synthetic', 2, 0, 'dummy2');
+-- insert into heeler_v1.load_log(file_name, file_time, file_type, geo_loc_id, obs_quantity, platform) values('c4b1b876-f483-4ffd-9e5a-00426cac94aa', '2000-1-1', 'synthetic', 1, 0, 'pytest');
+
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'pi3b', 'rpi3', '10.168.4.111', 'whip', 2, 'heeler-v2-iwlist', 'ac-1300', '16 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'pi4h', 'rpi4', '10.168.4.121', 'multicoupler', 12, 'hyena-v2-dump978', 'rtl-sdr-v4', '16 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'pi4i', 'rpi4', '10.168.4.123', 'multicoupler', 5, 'mastodon-v1-wx1-pk1', 'rtl-sdr-v3', '16 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'pi4j', 'rpi4', '10.168.4.125', 'multicoupler', 7, 'mastodon-v1-wx1-pk1', 'rtl-sdr-v3', '16 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'pi4k', 'rpi4', '10.168.4.127', 'coaxial collinear', 9, 'hyena-v2-dump1090', 'FlightAware ProStick v1.1 w/1090 filter', '16 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'c4g', 'odroid c4', '10.168.4.131', 'multicoupler', 11, 'mastodon-v1-wx1-pk1', 'rtl-sdr-v3', '32 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'c4h', 'odroid c4', '10.168.4.133', 'multicoupler', 17, 'mastodon-v1-wx1-pk1', 'rtl-sdr-v4', '32 GB microSD');
+insert into wombat_tasking(active_flag, crate_name, host_name, host_type, ip_address, rx_antenna, rx_id, rx_task, rx_type, storage) values(true, 'wombat04', 'c4i', 'odroid c4', '10.168.4.135', 'multicoupler', 15, 'mastodon-v1-bs1-pk1', 'rtl-sdr-v4', '32 GB microSD');

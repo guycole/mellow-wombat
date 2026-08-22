@@ -127,7 +127,7 @@ def _get_task_handler(task: str) -> Optional[Callable[[BootConfig], Dict[str, An
         "heeler-v2-iwlist": _stub_heeler_v2,
         "hyena-v2-dump1090": _stub_hyena_v2,
         "hyena-v2-dump978": _stub_hyena_v2,
-        "manatee-v1": _stub_manatee_v1,
+        "manatee-v1-ra": _stub_manatee_v1,
         "mastodon-v1-bs1-pk1": _stub_mastodon_v1,
         "mastodon-v1-wx1-pk1": _stub_mastodon_v1,
         "slug-v1": _stub_slug_v1,

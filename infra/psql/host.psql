@@ -1,0 +1,27 @@
+--
+-- Title: wombat_host.psql
+-- Description: host inventory
+--
+--
+create table wombat_host (
+  id           bigserial    primary key,
+  active_flag  boolean      not null,
+  crate_name   varchar(16)  not null,
+  host_name    varchar(16)  not null,
+  host_type    varchar(16)  not null,
+  ip_address   varchar(16)  not null,
+  role_type    varchar(16)  not null,
+  storage      varchar(16)  not null
+);
+
+grant select, insert, update, delete on wombat_host to wombat_host;
+grant usage, select on sequence wombat_host_id_seq to wombat_host;
+
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'pi3b', 'rpi3', '10.168.4.111', 'collector', '16 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'pi4h', 'rpi4', '10.168.4.121', 'collector', '16 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'pi4i', 'rpi4', '10.168.4.123', 'collector', '16 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'pi4j', 'rpi4', '10.168.4.125', 'collector', '16 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'pi4k', 'rpi4', '10.168.4.127', 'collector', '16 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'c4g', 'odroid c4', '10.168.4.131', 'collector', '32 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'c4h', 'odroid c4', '10.168.4.133', 'collector', '32 GB microSD');
+insert into wombat_host(active_flag, crate_name, host_name, host_type, ip_address, role_type, storage) values(true, 'wombat04', 'c4i', 'odroid c4', '10.168.4.135', 'collector', '32 GB microSD');
