@@ -1,5 +1,11 @@
 # mellow-wombat history
 
+### 22 August 2026
+- manatee collection is working
+- there is a mcp server for wombat, eventually this will perform schecduling
+- capybara ACARS search completes, many idle frequencies
+- capybara collecting ACARS (legacy and fast) for SFO
+
 ### 14 August 2026
 - mastodon NOAA WX collection to verify hardware
 - wombat4 ran NOAA WX on all RTL-SDR collectors, variation in peaker count
