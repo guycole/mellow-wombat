@@ -360,7 +360,7 @@
                     "type": "odroid c4",
                     "wifi": "None",
                     "receiver": {
-                        "id": 17,
+                        "id": 16,
                         "task": "capybara-v1-sf1-slow",
                         "type": "rtl-sdr-v4",
                         "antenna": "multicoupler"
