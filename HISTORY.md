@@ -1,5 +1,14 @@
 # mellow-wombat history
 
+### 7 September 2026
+- Peccary clean up for Heeler, Hyena
+
+### 30 August 2026
+- ACARS collection still seems anemic, especially legacy
+- much effort on tightening collection
+- there is a problem w/the n2 gateway WiFi driver which will break, add watchdog to reset
+- all seven of the wombat4 rtl-sdr are now tasked and collecting
+
 ### 22 August 2026
 - manatee collection is working
 - there is a mcp server for wombat, eventually this will perform schecduling
